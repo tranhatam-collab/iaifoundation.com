@@ -240,3 +240,330 @@ packages/db/
 - Unit tests: service layer and policy decisions.
 - Integration tests: runtime/payment/device happy + failure paths.
 - Deploy order: migrations -> workers -> api.
+
+## 29. Naming conventions chuẩn
+
+### 29.1 File naming
+
+Dùng `kebab-case` cho tên file nếu framework không bắt buộc khác, hoặc giữ `.service.ts`, `.repository.ts` như chuẩn đã khóa.
+
+Ví dụ:
+- `payments.service.ts`
+- `run-engine.ts`
+- `approval-gate.ts`
+
+Không dùng kiểu lẫn lộn:
+- `PaymentsService.ts`
+- `paymentService.ts`
+- `runEngine.ts`
+
+Nếu đã khóa theo kiểu suffix module như trên, giữ nhất quán toàn repo.
+
+### 29.2 Function naming
+
+- hành động service: `createPaymentIntent`, `executeRun`, `approveRequest`
+- repository reads: `findById`, `findMany`, `findByRunId`
+- repository writes: `insertOne`, `updateStatus`, `appendEvent`
+- route handlers: `handleCreatePaymentIntent`, `handleGetRunDetail`
+
+### 29.3 Type naming
+
+- DTO: `CreatePaymentIntentInput`, `RunDetailResponse`
+- DB row: `PaymentIntentRow`, `RunRow`
+- Domain model: `PaymentIntent`, `RunSummary`
+- enums as const maps nếu cần: `RUN_STATUS`, `APPROVAL_STATUS`
+
+## 30. Domain boundaries phải giữ chặt
+
+### 30.1 Payments domain không được tự sửa run state trực tiếp
+
+Payments chỉ:
+- tạo payment intent
+- execute payment
+- emit result
+- trả reconciliation signal
+
+Run state phải do runtime engine hoặc runs service xử lý.
+
+### 30.2 Devices domain không được bypass policy
+
+Mọi lệnh thiết bị phải đi qua:
+- policy decision
+- device command record
+- orchestration layer
+
+Không được có route "gửi thẳng command" mà không audit/policy.
+
+### 30.3 Proofs domain không được coi artifact upload là proof valid
+
+Artifact upload xong mới chỉ là file. Proof chỉ valid khi:
+- attach đúng run/step
+- có metadata đúng
+- đi qua validation state
+
+### 30.4 Approvals domain không tự finalize business outcome
+
+Approval là gate. Sau approve/reject, runtime mới tiếp tục.
+
+## 31. Repository rules
+
+### 31.1 Mỗi repository chỉ thao tác một aggregate chính
+
+Ví dụ:
+- `payments.repository.ts` không query sâu audit + users + devices thành một mega query khó bảo trì
+- nếu cần read model phức tạp, tạo file `*.read-model.ts`
+
+### 31.2 Không nhét business policy vào repository
+
+Sai:
+- repository tự quyết định threshold approval
+- repository tự reject payment do rule business
+
+Đúng:
+- repository chỉ đọc/ghi
+- service/runtime quyết định logic
+
+### 31.3 SQL phải được gom thành named functions
+
+Không viết query raw khắp nơi.
+
+## 32. Service rules
+
+### 32.1 Service phải là nơi quyết định orchestration domain
+
+Ví dụ `payments.service.ts`:
+- validate semantic input
+- call policy evaluator
+- create payment intent
+- write audit
+- return DTO
+
+### 32.2 Service không gọi HTTP provider trực tiếp nếu đã có integration adapter
+
+Sai:
+- `fetch("https://stripe...")` nằm trong service
+
+Đúng:
+- service gọi `stripePaymentAdapter.executePayout(...)`
+
+### 32.3 Service phải trả object ổn định cho routes
+
+Route không map lung tung thêm một lần nữa trừ response wrapper.
+
+## 33. Route rules
+
+### 33.1 Route chỉ làm 6 việc
+
+1. đọc request
+2. resolve context
+3. validate input
+4. gọi service
+5. map sang response
+6. handle error
+
+### 33.2 Route không được chứa if/else business logic dài
+
+Nếu route dài hơn khoảng hợp lý, đang sai cấu trúc.
+
+### 33.3 Route side-effect phải có idempotency nếu cần
+
+Áp dụng đặc biệt cho:
+- execute run
+- payment action
+- device command
+- approval decision
+
+## 34. Runtime engine file responsibilities cụ thể
+
+### 34.1 `run-engine.ts`
+
+Điểm vào chính để:
+- load run
+- resolve current state
+- dispatch next step
+- persist transitions
+
+### 34.2 `run-state-machine.ts`
+
+Chỉ định nghĩa:
+- state transitions hợp lệ
+- invalid transition rules
+- helper checks
+
+### 34.3 `run-resolver.ts`
+
+Resolve context của run:
+- template
+- policy snapshot
+- actor
+- linked resources
+
+### 34.4 `run-finalizer.ts`
+
+Đóng run:
+- final status
+- summary snapshot
+- billing usage emit
+- final audit refs
+
+### 34.5 `run-compensator.ts`
+
+Xử lý rollback logic có kiểm soát:
+- payment refund/reverse request
+- device safe-state action
+- quarantine and notify
+
+## 35. DTO layer khuyên dùng
+
+Nên có DTO rõ cho các response lớn.
+
+Ví dụ trong `runs.types.ts`:
+- `RunListItemDto`
+- `RunDetailDto`
+- `RunTimelineItemDto`
+- `RunStepDto`
+
+Không trả raw DB rows ra API.
+
+## 36. Read models nên tách riêng
+
+Với các screen nặng như:
+- run detail
+- payment detail
+- device detail
+- overview dashboard
+
+Nên có file:
+- `runs.read-model.ts`
+- `payments.read-model.ts`
+- `devices.read-model.ts`
+
+Lý do:
+- read model thường aggregate nhiều bảng
+- không muốn phá repository write model sạch
+
+## 37. Audit instrumentation rule
+
+Các domain sau bắt buộc có helper ghi audit:
+- policies
+- templates publish/edit
+- approvals decision
+- payments actions
+- device command actions
+- run cancel/retry/quarantine
+- connector changes
+- settings security changes
+
+## 38. Error mapping chuẩn
+
+Tất cả domain service nên throw `AppError` với:
+- `code`
+- `message`
+- `details`
+- `httpStatus`
+
+Ví dụ:
+- `POLICY_DENIED`
+- `RUN_STATE_INVALID`
+- `PAYMENT_PROVIDER_DEGRADED`
+- `APPROVAL_ALREADY_DECIDED`
+- `DEVICE_QUARANTINED`
+
+## 39. Feature flag placement
+
+Nếu một module chưa mở hoàn toàn:
+- check ở service layer
+- không rải check khắp UI và repository
+
+Ví dụ:
+- `stablecoin_enabled`
+- `advanced_device_gateways_enabled`
+- `ai_assist_enabled`
+
+## 40. Provider interface contracts
+
+Mỗi integration class nên bám interface.
+
+Ví dụ payment:
+- `PaymentProviderAdapter`
+  - `createTransfer()`
+  - `getTransferStatus()`
+  - `refundTransfer()`
+  - `verifyWebhook()`
+
+Ví dụ device:
+- `DeviceGatewayAdapter`
+  - `discoverDevices()`
+  - `sendCommand()`
+  - `getState()`
+  - `normalizeEvent()`
+
+## 41. Testing targets theo module
+
+### 41.1 Platform
+- auth context
+- tenant resolution
+- workspace resolution
+
+### 41.2 Policies
+- policy evaluate
+- deny/allow/approval_required
+
+### 41.3 Runtime
+- state transitions
+- retries
+- approval pause/resume
+
+### 41.4 Payments
+- idempotent payout
+- reconcile result mapping
+- beneficiary checks
+
+### 41.5 Devices
+- command record creation
+- quarantine enforcement
+- event normalization
+
+### 41.6 Proofs
+- artifact complete flow
+- attach proof
+- validation status update
+
+## 42. Anti-patterns cần cấm
+
+- route gọi DB trực tiếp
+- service tự viết raw SQL khắp nơi
+- provider SDK import vào mọi file
+- JSON blob thay toàn bộ quan hệ
+- raw event logs nhét hết vào D1 không index strategy
+- UI logic quyết định business rule
+- device command không audit
+- payment không idempotency
+- proof attach không run/step association
+- approval decision không signature/comment metadata
+
+## 43. MVP implementation checklist cho backend structure
+
+- có shared error layer
+- có request context chuẩn
+- có auth + tenant + workspace middleware
+- có repository/service/route rõ
+- có runtime folder riêng
+- có integrations folder riêng
+- có audit logger dùng lại được
+- có migrations folder và scripts migrate/seed
+- có tests skeleton theo domain
+- không có business logic dài trong route files
+
+## 44. Kết luận bổ sung
+
+Không chỉ cần "có cấu trúc thư mục". Cần giữ đúng kỷ luật:
+
+- domain boundaries
+- service/repository separation
+- runtime tách riêng
+- provider abstraction
+- audit-first
+- idempotent side effects
+
+Nếu giữ đúng phần tiếp sâu này, team DEV sẽ không bị trượt từ một kiến trúc sạch sang một codebase chắp vá sau 2-4 tuần build.

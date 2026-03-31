@@ -194,3 +194,290 @@ Khi lỗi:
 - migration README với apply order
 - automated migration test trong CI
 - baseline dashboards query pack (runs/payments/devices/audit)
+
+## 12. Migration execution order chi tiết (extended)
+
+DEV phải chạy theo đúng thứ tự:
+
+1. `0001_core_identity_and_control_plane.sql`
+2. `0002_runtime_and_approvals.sql`
+3. `0003_payments.sql`
+4. `0004_devices_and_proofs.sql`
+5. `0005_connectors_billing_audit_indexes.sql`
+
+Không chạy nhảy cóc, vì có foreign key dependencies.
+
+## 13. Safe alter strategy cho D1
+
+D1/SQLite có giới hạn alter so với PostgreSQL. Khi cần đổi schema về sau:
+
+### 13.1 Thêm cột
+
+```sql
+ALTER TABLE table_name ADD COLUMN new_column TEXT;
+```
+
+### 13.2 Đổi cấu trúc lớn
+
+Nên dùng pattern:
+1. tạo bảng mới
+2. copy data
+3. drop bảng cũ
+4. rename bảng mới
+
+### 13.3 Không rename bừa các cột cốt lõi ở giai đoạn đầu
+
+IDs, foreign keys, timestamps nên khóa sớm và ít đổi.
+
+## 14. Timestamp rules
+
+Tất cả `created_at`, `updated_at`, `event_time`, `requested_at` dùng Unix seconds hoặc milliseconds phải thống nhất ngay.
+
+Khuyến nghị:
+- dùng milliseconds toàn hệ cho app/runtime
+- nếu migration hiện dùng INTEGER thì DEV phải thống nhất tất cả service/repository dùng cùng chuẩn đó
+
+Quan trọng nhất: không được chỗ này seconds, chỗ kia milliseconds.
+
+## 15. ID prefix rules
+
+Khuyến nghị prefix thống nhất:
+- `ten_` tenants
+- `wrk_` workspaces
+- `usr_` users
+- `act_` actors
+- `rol_` roles
+- `pol_` policy packs
+- `tpl_` templates
+- `int_` intent instances
+- `run_` runs
+- `stp_` run steps
+- `apr_` approval requests
+- `apd_` approval decisions
+- `pay_` payment intents
+- `set_` settlement records
+- `wal_` wallet profiles
+- `ben_` beneficiaries
+- `gtw_` gateways
+- `dev_` devices
+- `cmd_` device commands
+- `evt_` device events
+- `art_` artifacts
+- `prf_` proof bundles
+- `aud_` audit logs
+- `con_` connectors
+
+## 16. Foreign key discipline
+
+Mặc dù SQLite hỗ trợ foreign keys, DEV phải nhớ:
+- luôn bật `PRAGMA foreign_keys = ON;`
+- không giả định môi trường local tự bật sẵn
+- test delete/update flows với FK thật
+
+## 17. Delete strategy
+
+### 17.1 Không hard delete với bảng vận hành
+
+Không xóa thật:
+- runs
+- run_steps
+- approvals
+- payments
+- proofs
+- device_events
+- audit_logs
+
+### 17.2 Có thể soft-disable thay vì delete
+
+- connectors
+- devices
+- beneficiaries
+- wallets
+- templates
+
+Dùng status:
+- active
+- disabled
+- archived
+- deprecated
+
+## 18. Status validation rule
+
+Do D1 không có enum mạnh như Postgres, DEV phải validate ở app layer. Không để status text tùy tiện.
+
+Cần shared constants:
+- `RUN_STATUSES`
+- `APPROVAL_STATUSES`
+- `PAYMENT_STATUSES`
+- `DEVICE_COMMAND_STATUSES`
+- `PROOF_VALIDATION_STATUSES`
+
+## 19. JSON column rules
+
+Các cột JSON hiện có:
+- `policy_json`
+- `manifest_json`
+- `capabilities_json`
+- `normalized_input_json`
+- `context_json`
+- `payload_json`
+- `metadata_json`
+- `pricing_json`
+- `limits_json`
+
+Quy tắc:
+- luôn stringify có kiểm soát
+- parse ở service/repository layer
+- không lưu JSON malformed
+- schema validation trước khi insert/update
+
+## 20. Index strategy cụ thể cho MVP load
+
+Các query nặng nhất của MVP:
+- list runs theo tenant/workspace/status
+- load run detail theo run id
+- list approvals pending
+- list payments theo status
+- list devices/events theo device/time
+- list proofs theo run
+- audit by resource/time
+
+Indexes trong V1 đã bám trục này. DEV không nên thêm index tràn lan quá sớm, tránh write overhead vô ích.
+
+## 21. Migration for seed execution
+
+Sau khi migrate, chạy seed tối thiểu:
+
+### 21.1 System roles
+- owner
+- admin
+- operator
+- approver
+- auditor
+
+### 21.2 Billing plan
+- free
+
+### 21.3 Optional sample template
+- pay-supplier-on-delivery
+
+### 21.4 Optional sample policy
+- finance base threshold approval
+
+## 22. Sample DEV tenant seed gợi ý
+
+```sql
+INSERT INTO tenants (
+  id, type, name, slug, status, timezone, locale, created_at, updated_at
+) VALUES (
+  'ten_demo',
+  'business',
+  'Intent Demo Co',
+  'intent-demo-co',
+  'active',
+  'Asia/Ho_Chi_Minh',
+  'vi',
+  1743390000000,
+  1743390000000
+);
+
+INSERT INTO workspaces (
+  id, tenant_id, name, slug, workspace_type, status, created_at, updated_at
+) VALUES (
+  'wrk_ops',
+  'ten_demo',
+  'Operations',
+  'operations',
+  'ops',
+  'active',
+  1743390000000,
+  1743390000000
+);
+
+INSERT INTO users (
+  id, tenant_id, primary_email, display_name, status, created_at, updated_at
+) VALUES (
+  'usr_owner',
+  'ten_demo',
+  'owner@intent-demo.local',
+  'Demo Owner',
+  'active',
+  1743390000000,
+  1743390000000
+);
+```
+
+## 23. App-level constraints không ghi bằng SQL ở V1
+
+Một số ràng buộc phải enforce ở app layer:
+- một run chỉ được approve nếu approval còn pending
+- một payment không được payout hai lần với cùng semantic intent
+- device quarantined không nhận command mới
+- proof invalid không được tính complete
+- beneficiary unverified không được dùng ở rail yêu cầu verification
+- template archived không được execute mới
+
+## 24. Optional unique constraints DEV có thể thêm sau
+
+Tùy nhu cầu thực tế, có thể thêm:
+- `UNIQUE (tenant_id, name)` cho beneficiaries nếu business muốn
+- `UNIQUE (payment_intent_id, provider_txn_ref)` cho settlement records
+- `UNIQUE (device_id, event_time, event_type)` nếu adapter normalize đủ tốt
+
+Không nên ép quá sớm nếu chưa rõ provider data quality.
+
+## 25. DB access conventions
+
+### 25.1 Không query `SELECT *`
+
+Luôn chọn explicit columns ở repository.
+
+### 25.2 Pagination query phải có stable sort
+
+Ví dụ:
+- `ORDER BY created_at DESC, id DESC`
+
+### 25.3 Reads nặng cho dashboard nên tách read-model query
+
+Không reuse write repository queries một cách ép buộc.
+
+## 26. Backup và export rules
+
+Dù D1 là managed, DEV vẫn nên có:
+- migration source control
+- periodic export strategy cho audit/runs nếu cần
+- không phụ thuộc "platform sẽ tự lo tất cả"
+
+## 27. Migration review checklist
+
+Trước khi merge một migration mới:
+- có backward-safe không
+- có cần data backfill không
+- repository/service đã cập nhật chưa
+- indexes có đủ không
+- có phá seed/local dev không
+- có test run detail / list view query không
+
+## 28. MVP data integrity checklist
+
+- tenant -> workspace FK hoạt động
+- run -> steps -> events liên kết đúng
+- payment -> settlement link đúng
+- device -> events/commands link đúng
+- proof -> artifact link đúng
+- audit vẫn ghi dù action fail ở giữa nếu phù hợp
+- policy decision record có thể truy ngược run/step
+
+## 29. Kết luận bổ sung
+
+Migration V1 không chỉ là tạo bảng. Nó phải là nền kỷ luật dữ liệu cho toàn hệ.
+
+Nếu giữ đúng:
+- timestamps thống nhất
+- ids có prefix
+- FK bật thật
+- soft-disable đúng chỗ
+- status validate ở app layer
+- seed tối thiểu rõ ràng
+
+thì D1 sẽ đủ tốt để đỡ MVP và giai đoạn tăng trưởng đầu mà không phải đập lại schema sớm.
