@@ -4,7 +4,10 @@ Public website for IAI Foundation — Intent OS / Universal Intent Infrastructur
 
 ## Current scope
 
-This repository is a static, Cloudflare Pages-friendly public website that defines the thesis, architecture, roadmap, and early direction for **Intent OS / Universal Intent Infrastructure**.
+This repository now contains two aligned layers:
+
+- a static, Cloudflare Pages-friendly public website for IAIFoundation.com
+- an initial Intent OS monorepo foundation for API, runtime, connectors, shared packages, OpenAPI specs, migrations, and tests
 
 ## AI Governance
 
@@ -19,6 +22,13 @@ This repository is a static, Cloudflare Pages-friendly public website that defin
 - Data intelligence layer: `docs/IAIFOUNDATION_DATA_INTELLIGENCE_LAYER.md`
 
 ## Site structure
+
+### Monorepo
+- `apps/` — deployable application surfaces (`api`, `workers-runtime`, `workers-connectors`)
+- `packages/` — shared contracts, DB layer, policy engine, runtime-core, observability, idempotency, audit SDK
+- `openapi/` — public API specifications
+- `tests/` — Vitest test coverage
+- `docs/` — public specs, AI governance system, and documentation index
 
 ### Pages
 - `/` — Homepage (thesis, architecture, use cases, principles, roadmap, contact)
@@ -60,6 +70,18 @@ This repository is a static, Cloudflare Pages-friendly public website that defin
 - `INTENT_OS_D1_SQL_MIGRATIONS_V1.md` — Migration plan and runbook
 - `INTENT_OS_BACKEND_FOLDER_STRUCTURE.md` — Monorepo layout and conventions
 
+### AI governance (`docs/`)
+- `AI_GOVERNANCE_INDEX.md` — Single reading path across all AI governance layers
+- `IAI_FOUNDATION_AI_SYSTEM.md` — Core operating rules for AI work in this repo
+- `AI_PROMPT_TEMPLATES.md` — Ready-to-use prompt templates
+- `AI_TASK_HANDOFF_TEMPLATE.md` — Structured task handoff template
+- `IAIFOUNDATION_CONTEXT_MEMORY_SYSTEM.md` — Context reuse and token discipline
+- `IAIFOUNDATION_AGENT_EXECUTION_SYSTEM.md` — Agent role system and execution flow
+- `IAIFOUNDATION_MULTI_MODEL_ROUTER.md` — Model routing strategy
+- `IAIFOUNDATION_EXECUTION_ENGINE.md` — Level 3 execution engine
+- `IAIFOUNDATION_REALTIME_AGENT_SYSTEM.md` — Realtime multi-agent coordination
+- `IAIFOUNDATION_DATA_INTELLIGENCE_LAYER.md` — Data-aware reasoning layer
+
 ## Deploy target
 
 - Cloudflare Pages
@@ -69,7 +91,13 @@ This repository is a static, Cloudflare Pages-friendly public website that defin
 
 ## Development
 
-No build step required. Edit files and deploy directly.
+Frontend pages remain static-first and can be edited directly.
+
+Backend and shared packages use the monorepo toolchain:
+
+- `npm install`
+- `npm run typecheck`
+- `npm run test`
 
 ## AI Working Rules
 
