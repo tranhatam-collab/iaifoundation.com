@@ -1,0 +1,326 @@
+openapi: 3.0.3
+info:
+  title: Intent OS — Device Gateway API
+  version: 0.1.0
+  description: Device and gateway management endpoints.
+
+servers:
+  - url: https://api.iaifoundation.com/v1
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    Gateway:
+      type: object
+      properties:
+        id:
+          type: string
+        tenant_id:
+          type: string
+        workspace_id:
+          type: string
+        gateway_type:
+          type: string
+        provider:
+          type: string
+        status:
+          type: string
+        health_status:
+          type: string
+          enum: [healthy, degraded, failing, disabled, unknown]
+        auth_mode:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    Device:
+      type: object
+      properties:
+        id:
+          type: string
+        tenant_id:
+          type: string
+        workspace_id:
+          type: string
+        gateway_id:
+          type: string
+        device_type:
+          type: string
+        device_protocol:
+          type: string
+          nullable: true
+        manufacturer:
+          type: string
+          nullable: true
+        model:
+          type: string
+          nullable: true
+        status:
+          type: string
+          enum: [online, offline, quarantined, degraded, disabled]
+        last_seen_at:
+          type: string
+          format: date-time
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    DeviceCommand:
+      type: object
+      properties:
+        id:
+          type: string
+        device_id:
+          type: string
+        command_type:
+          type: string
+        status:
+          type: string
+          enum: [pending, acknowledged, completed, failed, compensated]
+        requested_at:
+          type: string
+          format: date-time
+        acknowledged_at:
+          type: string
+          format: date-time
+          nullable: true
+        completed_at:
+          type: string
+          format: date-time
+          nullable: true
+        idempotency_key:
+          type: string
+
+    DeviceEvent:
+      type: object
+      properties:
+        id:
+          type: string
+        device_id:
+          type: string
+        gateway_id:
+          type: string
+        event_type:
+          type: string
+        event_time:
+          type: string
+          format: date-time
+        trust_score:
+          type: number
+          nullable: true
+        ingested_at:
+          type: string
+          format: date-time
+
+paths:
+  /gateways:
+    get:
+      summary: List gateways
+      responses:
+        '200':
+          description: Gateway list
+    post:
+      summary: Create gateway
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [tenant_id, workspace_id, gateway_type, provider, auth_mode]
+              properties:
+                tenant_id:
+                  type: string
+                workspace_id:
+                  type: string
+                gateway_type:
+                  type: string
+                provider:
+                  type: string
+                location_id:
+                  type: string
+                auth_mode:
+                  type: string
+                config_ref:
+                  type: string
+      responses:
+        '201':
+          description: Gateway created
+
+  /gateways/{id}/test:
+    post:
+      summary: Test gateway health
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Gateway test result
+
+  /devices:
+    get:
+      summary: List devices
+      responses:
+        '200':
+          description: Device list
+    post:
+      summary: Create device
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [tenant_id, workspace_id, gateway_id, device_type]
+              properties:
+                tenant_id:
+                  type: string
+                workspace_id:
+                  type: string
+                gateway_id:
+                  type: string
+                device_type:
+                  type: string
+                device_protocol:
+                  type: string
+                manufacturer:
+                  type: string
+                model:
+                  type: string
+                location_id:
+                  type: string
+                policy_profile_id:
+                  type: string
+      responses:
+        '201':
+          description: Device created
+
+  /devices/{id}:
+    get:
+      summary: Get device detail
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Device detail
+    patch:
+      summary: Update device
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Device updated
+
+  /devices/{id}/commands:
+    post:
+      summary: Send device command
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [command_type, payload_json]
+              properties:
+                run_id:
+                  type: string
+                step_id:
+                  type: string
+                command_type:
+                  type: string
+                payload_json:
+                  type: string
+                policy_context:
+                  type: object
+      responses:
+        '201':
+          description: Command sent
+
+  /devices/{id}/state:
+    get:
+      summary: Get device state
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Device state
+
+  /devices/{id}/events:
+    get:
+      summary: Get device events
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Device events
+
+  /device-events/ingest:
+    post:
+      summary: Ingest device event
+      responses:
+        '200':
+          description: Event ingested
+
+  /devices/{id}/quarantine:
+    post:
+      summary: Quarantine device
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Device quarantined
+
+  /devices/{id}/unquarantine:
+    post:
+      summary: Unquarantine device
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Device unquarantined

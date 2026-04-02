@@ -1,0 +1,13 @@
+{
+  "name": "@intent-os/audit-sdk",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./emit": "./src/emit.ts"
+  },
+  "dependencies": {
+    "@intent-os/contracts": "file:../contracts"
+  }
+}

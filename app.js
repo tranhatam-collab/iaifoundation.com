@@ -14,4 +14,17 @@
       });
     });
   }
+
+  const form = document.getElementById('waitlist-form');
+  const msg = document.getElementById('waitlist-message');
+  if (form && msg) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = form.querySelector('input[type="email"]').value;
+      if (!email) return;
+      form.style.display = 'none';
+      msg.hidden = false;
+      msg.textContent = 'Thank you. We will be in touch as pilots open.';
+    });
+  }
 })();

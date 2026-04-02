@@ -10,13 +10,30 @@
   <meta property="og:description" content="A trust layer for turning intent into real-world outcomes." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://iaifoundation.com/" />
-  <meta property="og:image" content="https://iaifoundation.com/og-image.png" />
+  <meta property="og:image" content="https://iaifoundation.com/og-image.svg" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="canonical" href="https://iaifoundation.com/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "IAI Foundation",
+    "url": "https://iaifoundation.com",
+    "description": "Building the trust layer that turns human and business intent into real-world outcomes.",
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "hello@iaifoundation.com",
+      "contactType": "general inquiry"
+    }
+  }
+  </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="/">IAI Foundation</a>
@@ -26,7 +43,9 @@
         <a href="#architecture">Architecture</a>
         <a href="#use-cases">Use Cases</a>
         <a href="#principles">Principles</a>
-        <a href="#builders">Builders</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="/docs">Docs</a>
+        <a href="/partners">Partners</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -35,12 +54,14 @@
       <a href="#architecture">Architecture</a>
       <a href="#use-cases">Use Cases</a>
       <a href="#principles">Principles</a>
-      <a href="#builders">Builders</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="/docs">Docs</a>
+      <a href="/partners">Partners</a>
       <a href="#contact">Contact</a>
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero">
       <div class="container hero-grid">
         <div>
@@ -75,73 +96,184 @@
           digital payments, and programmable software. What is still missing is the
           layer that can coordinate them under clear authority, policy, timing, and proof.
         </p>
+        <p>
+          The world does not need another disconnected app. What is missing is a shared
+          execution layer that can coordinate people, organizations, AI agents, workflows,
+          money rails, connected devices, robots, approvals, evidence, and accountability.
+        </p>
+        <p>
+          IAI Foundation exists to define and build that layer.
+        </p>
       </div>
     </section>
 
-    <section id="architecture" class="section alt">
+    <section id="what-is" class="section alt">
+      <div class="container narrow">
+        <p class="section-label">What Intent OS Is</p>
+        <h2>A trustable runtime between intent and outcome.</h2>
+        <p>
+          Intent OS is a system that converts a user or organization's intent into a
+          real-world outcome with policy, orchestration, approvals, payments, device
+          actions, and proof.
+        </p>
+        <p>
+          A user should be able to say: <em>"I want this to happen, safely, under the
+          right conditions, with the right authority, at the right time, with clear
+          proof."</em>
+        </p>
+        <p>
+          And the system should transform that request into a validated intent, an
+          executable plan, a governed run, a recorded outcome, and an auditable proof trail.
+        </p>
+      </div>
+    </section>
+
+    <section id="architecture" class="section">
       <div class="container">
         <p class="section-label">Architecture</p>
         <h2>Seven layers of Intent OS</h2>
         <div class="card-grid">
-          <article class="card"><h3>Identity</h3><p>People, teams, agents, devices, and organizations.</p></article>
-          <article class="card"><h3>Wallet</h3><p>Value, limits, rails, and delegated authority.</p></article>
-          <article class="card"><h3>Intent</h3><p>Goals expressed in natural language or structured templates.</p></article>
-          <article class="card"><h3>Orchestration</h3><p>Plans, workflows, approvals, retries, and exceptions.</p></article>
-          <article class="card"><h3>Device</h3><p>Connected systems, gateways, sensors, and robot endpoints.</p></article>
-          <article class="card"><h3>Proof</h3><p>Receipts, logs, signatures, telemetry, and evidence.</p></article>
-          <article class="card"><h3>Policy</h3><p>Rules for what is allowed, when, by whom, and under what conditions.</p></article>
+          <article class="card"><h3>1. Identity</h3><p>People, teams, agents, devices, and organizations.</p></article>
+          <article class="card"><h3>2. Wallet</h3><p>Value, limits, rails, and delegated authority.</p></article>
+          <article class="card"><h3>3. Intent</h3><p>Goals expressed in natural language or structured templates.</p></article>
+          <article class="card"><h3>4. Orchestration</h3><p>Plans, workflows, approvals, retries, and exceptions.</p></article>
+          <article class="card"><h3>5. Device</h3><p>Connected systems, gateways, sensors, and robot endpoints.</p></article>
+          <article class="card"><h3>6. Proof</h3><p>Receipts, logs, signatures, telemetry, and evidence.</p></article>
+          <article class="card"><h3>7. Policy</h3><p>Rules for what is allowed, when, by whom, and under what conditions.</p></article>
         </div>
       </div>
     </section>
 
-    <section id="use-cases" class="section">
+    <section id="use-cases" class="section alt">
       <div class="container">
         <p class="section-label">Use Cases</p>
         <h2>Where this starts</h2>
         <div class="list-grid">
           <div class="list-card">
-            <h3>Vendor release</h3>
-            <p>Release payment when verified conditions are met.</p>
+            <h3>Business Operations Wallet</h3>
+            <p>Payable approvals, vendor release conditions, service completion proof, escalation rules, policy-based disbursement, and full audit trail for SMEs and operational teams.</p>
           </div>
           <div class="list-card">
-            <h3>AI + human approval</h3>
-            <p>Coordinate AI work, human approval, and final settlement.</p>
+            <h3>Personal Action Wallet</h3>
+            <p>Recurring obligation automation, subscription and service control, delegated AI tasks with guardrails, home and access actions, and proof of completion for individuals.</p>
           </div>
           <div class="list-card">
-            <h3>Governed device action</h3>
-            <p>Trigger facility or device actions under policy and proof.</p>
+            <h3>Autonomous Ops Layer</h3>
+            <p>Procurement flows, facilities actions, field service orchestration, policy-controlled device workflows, and machine-triggered actions with human checkpoints for advanced teams.</p>
           </div>
           <div class="list-card">
-            <h3>Personal action wallet</h3>
-            <p>Manage recurring obligations and delegated actions safely.</p>
+            <h3>Vendor Release</h3>
+            <p>Release payment only when verified conditions are met, with policy-gated approvals and proof of delivery.</p>
+          </div>
+          <div class="list-card">
+            <h3>AI + Human Approval</h3>
+            <p>Coordinate AI work, human approval checkpoints, and final settlement in a single governed loop.</p>
+          </div>
+          <div class="list-card">
+            <h3>Governed Device Action</h3>
+            <p>Trigger facility or device actions under policy constraints with proof collection at every step.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="proof" class="section">
+      <div class="container narrow">
+        <p class="section-label">Trust & Proof</p>
+        <h2>Proof before trust claims.</h2>
+        <p>
+          Trust is not a claim. It is a verifiable chain of evidence. Every action in
+          Intent OS produces a proof bundle: receipts, logs, signatures, telemetry, and
+          human confirmations.
+        </p>
+        <p>
+          Without proof, automation is just speed without accountability. With proof,
+          every outcome can be audited, disputed, reconciled, and trusted.
+        </p>
+        <p>
+          Proof is not an afterthought. It is a first-class output of every run, every
+          payment, every device command, and every approval decision.
+        </p>
       </div>
     </section>
 
     <section id="principles" class="section alt">
       <div class="container narrow">
         <p class="section-label">Principles</p>
-        <h2>Built for authority, accountability, and restraint</h2>
+        <h2>Built for authority, accountability, and restraint.</h2>
         <ul class="principles">
+          <li>Clarity before automation</li>
           <li>Authority before action</li>
           <li>Policy before execution</li>
           <li>Proof before trust claims</li>
-          <li>Human override for high-risk outcomes</li>
-          <li>Money as a rail, not the identity</li>
-          <li>Connected devices under governance, not novelty</li>
+          <li>Human override for high-risk actions</li>
+          <li>Money is a rail, not the brand</li>
+          <li>Devices must be governed, not merely connected</li>
+          <li>Every delegated action must be attributable</li>
+          <li>Default design must reduce blast radius</li>
+          <li>Logs are part of the product, not a side effect</li>
         </ul>
       </div>
     </section>
 
-    <section id="builders" class="section">
+    <section id="roadmap" class="section">
+      <div class="container narrow">
+        <p class="section-label">Roadmap</p>
+        <h2>What we are building and when.</h2>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>0 to 30 days</h3>
+              <p>Launch the public website. Finalize category language. Publish architecture and principles. Create builder, partner, and pilot intake.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>30 to 90 days</h3>
+              <p>Design control-plane schemas. Lock identity, workspace, intent, approval, and proof models. Publish public documentation v1.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>3 to 6 months</h3>
+              <p>Build control-plane MVP. Build policy and runtime MVP. Support manual approvals and proof bundles.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>6 to 12 months</h3>
+              <p>Add payment abstraction. Add vendor release and service completion use cases. Begin first pilot with tight scope.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h3>12 to 24 months</h3>
+              <p>Add device gateway abstraction. Expand to autonomous procurement and facilities pilots. Integrate Matter-compatible devices.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="builders" class="section alt">
       <div class="container narrow">
         <p class="section-label">Builders</p>
-        <h2>For builders of the next operational layer</h2>
+        <h2>For builders of the next operational layer.</h2>
         <p>
           We are interested in developers, operators, researchers, infrastructure partners,
           and organizations exploring the future of trustable execution across software
           and the physical world.
+        </p>
+        <p>
+          This system is <strong>not</strong> another AI chat app, crypto wallet, IoT dashboard,
+          or generic automation builder. It is a trustable runtime that converts intent into
+          outcome with policy, orchestration, payments, device actions, human approvals, and
+          proof in one loop.
         </p>
       </div>
     </section>
@@ -150,10 +282,15 @@
       <div class="container cta-card">
         <div>
           <p class="section-label">Contact</p>
-          <h2>Help define the next layer of operations</h2>
+          <h2>Help define the next layer of operations.</h2>
           <p>Early pilot, builder, and partner conversations are now open.</p>
         </div>
-        <a class="button primary" href="mailto:hello@iaifoundation.com">Contact Us</a>
+        <form id="waitlist-form" class="waitlist-form">
+          <input type="email" id="waitlist-email" name="email" placeholder="Your email" required aria-label="Email address" />
+          <button type="submit" class="button primary">Join Waitlist</button>
+        </form>
+        <p id="waitlist-message" class="waitlist-message" hidden></p>
+        <a class="button secondary" href="mailto:hello@iaifoundation.com">Email Us Directly</a>
       </div>
     </section>
   </main>
@@ -171,17 +308,20 @@
         <a href="#thesis">Thesis</a>
         <a href="#architecture">Architecture</a>
         <a href="#use-cases">Use Cases</a>
+        <a href="#proof">Trust & Proof</a>
+        <a href="/docs">Docs</a>
       </div>
       <div>
         <p class="footer-heading">Foundation</p>
         <a href="#principles">Principles</a>
+        <a href="#roadmap">Roadmap</a>
         <a href="#builders">Builders</a>
-        <a href="#contact">Contact</a>
+        <a href="/partners">Partners</a>
       </div>
       <div>
         <p class="footer-heading">Status</p>
         <p class="footer-text">Public foundation site v1</p>
-        <p class="footer-text">© 2026 IAI Foundation</p>
+        <p class="footer-text">&copy; 2026 IAI Foundation</p>
       </div>
     </div>
   </footer>

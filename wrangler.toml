@@ -1,0 +1,31 @@
+name = "intent-os-api"
+main = "apps/api/src/index.ts"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "intent-os-db"
+database_id = ""
+migrations_dir = "packages/db/migrations"
+
+[[r2_buckets]]
+binding = "ARTIFACTS"
+bucket_name = "intent-os-artifacts"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = ""
+
+[vars]
+ENVIRONMENT = "development"
+LOG_LEVEL = "debug"
+
+[env.production]
+vars = { ENVIRONMENT = "production", LOG_LEVEL = "info" }
+
+[env.production.vars]
+ENVIRONMENT = "production"

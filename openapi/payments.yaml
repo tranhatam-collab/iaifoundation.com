@@ -1,0 +1,268 @@
+openapi: 3.0.3
+info:
+  title: Intent OS — Payments API
+  version: 0.1.0
+  description: Payment rails endpoints for intents, settlements, beneficiaries, and wallets.
+
+servers:
+  - url: https://api.iaifoundation.com/v1
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    PaymentIntent:
+      type: object
+      properties:
+        id:
+          type: string
+        run_id:
+          type: string
+        step_id:
+          type: string
+        payment_type:
+          type: string
+        amount:
+          type: number
+        currency_or_asset:
+          type: string
+        beneficiary_id:
+          type: string
+        funding_source_id:
+          type: string
+          nullable: true
+        status:
+          type: string
+          enum: [created, authorized, captured, payout_sent, settled, refunded, failed, reconciliation_pending, reconciliation_mismatch]
+        created_at:
+          type: string
+          format: date-time
+        updated_at:
+          type: string
+          format: date-time
+
+    Beneficiary:
+      type: object
+      properties:
+        id:
+          type: string
+        tenant_id:
+          type: string
+        type:
+          type: string
+        name:
+          type: string
+        country_code:
+          type: string
+          nullable: true
+        verification_status:
+          type: string
+          enum: [pending, verified, rejected]
+        risk_score:
+          type: number
+          nullable: true
+
+    WalletProfile:
+      type: object
+      properties:
+        id:
+          type: string
+        tenant_id:
+          type: string
+        workspace_id:
+          type: string
+        wallet_type:
+          type: string
+        provider:
+          type: string
+        custody_mode:
+          type: string
+        status:
+          type: string
+
+paths:
+  /payments/intents:
+    post:
+      summary: Create payment intent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [run_id, step_id, payment_type, amount, currency_or_asset, beneficiary_id]
+              properties:
+                run_id:
+                  type: string
+                step_id:
+                  type: string
+                payment_type:
+                  type: string
+                amount:
+                  type: number
+                currency_or_asset:
+                  type: string
+                beneficiary_id:
+                  type: string
+                funding_source_id:
+                  type: string
+      responses:
+        '201':
+          description: Payment intent created
+
+  /payments/intents/{id}/authorize:
+    post:
+      summary: Authorize payment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Payment authorized
+
+  /payments/intents/{id}/capture:
+    post:
+      summary: Capture authorized payment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Payment captured
+
+  /payments/intents/{id}/payout:
+    post:
+      summary: Send payout
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Payout sent
+
+  /payments/intents/{id}/refund:
+    post:
+      summary: Refund payment
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Refund initiated
+
+  /payments/intents/{id}:
+    get:
+      summary: Get payment intent detail
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Payment intent detail
+
+  /payments/settlements/{id}:
+    get:
+      summary: Get settlement record
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Settlement record
+
+  /payments/reconcile:
+    post:
+      summary: Trigger payment reconciliation
+      responses:
+        '200':
+          description: Reconciliation triggered
+
+  /beneficiaries:
+    get:
+      summary: List beneficiaries
+      responses:
+        '200':
+          description: Beneficiary list
+    post:
+      summary: Create beneficiary
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [tenant_id, type, name]
+              properties:
+                tenant_id:
+                  type: string
+                type:
+                  type: string
+                name:
+                  type: string
+                country_code:
+                  type: string
+                payout_method_ref:
+                  type: string
+                wallet_address_ref:
+                  type: string
+      responses:
+        '201':
+          description: Beneficiary created
+
+  /wallet-profiles:
+    get:
+      summary: List wallet profiles
+      responses:
+        '200':
+          description: Wallet profile list
+    post:
+      summary: Create wallet profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [tenant_id, workspace_id, wallet_type, provider, custody_mode, supported_assets]
+              properties:
+                tenant_id:
+                  type: string
+                workspace_id:
+                  type: string
+                wallet_type:
+                  type: string
+                provider:
+                  type: string
+                custody_mode:
+                  type: string
+                supported_assets:
+                  type: array
+                  items:
+                    type: string
+                settlement_currency:
+                  type: string
+      responses:
+        '201':
+          description: Wallet profile created

@@ -1,0 +1,13 @@
+{
+  "name": "@intent-os/contracts",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./enums": "./src/enums/index.ts",
+    "./api": "./src/api/index.ts",
+    "./domains": "./src/domains/index.ts",
+    "./events": "./src/events/index.ts"
+  }
+}

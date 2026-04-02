@@ -1,0 +1,41 @@
+export const RUN_STATUSES = {
+  CREATED: 'created',
+  RESOLVED: 'resolved',
+  PLANNED: 'planned',
+  RUNNING: 'running',
+  AWAITING_APPROVAL: 'awaiting_approval',
+  WAITING_EXTERNAL: 'waiting_external',
+  SUCCEEDED: 'succeeded',
+  FAILED: 'failed',
+  CANCELLED: 'cancelled',
+  QUARANTINED: 'quarantined',
+} as const;
+
+export type RunState = (typeof RUN_STATUSES)[keyof typeof RUN_STATUSES];
+
+export const VALID_TRANSITIONS: Record<RunState, RunState[]> = {
+  [RUN_STATUSES.CREATED]: [RUN_STATUSES.RESOLVED, RUN_STATUSES.FAILED],
+  [RUN_STATUSES.RESOLVED]: [RUN_STATUSES.PLANNED, RUN_STATUSES.FAILED],
+  [RUN_STATUSES.PLANNED]: [RUN_STATUSES.RUNNING, RUN_STATUSES.FAILED],
+  [RUN_STATUSES.RUNNING]: [RUN_STATUSES.AWAITING_APPROVAL, RUN_STATUSES.WAITING_EXTERNAL, RUN_STATUSES.SUCCEEDED, RUN_STATUSES.FAILED],
+  [RUN_STATUSES.AWAITING_APPROVAL]: [RUN_STATUSES.RUNNING, RUN_STATUSES.FAILED, RUN_STATUSES.CANCELLED],
+  [RUN_STATUSES.WAITING_EXTERNAL]: [RUN_STATUSES.RUNNING, RUN_STATUSES.FAILED, RUN_STATUSES.CANCELLED],
+  [RUN_STATUSES.SUCCEEDED]: [],
+  [RUN_STATUSES.FAILED]: [RUN_STATUSES.RUNNING, RUN_STATUSES.CANCELLED],
+  [RUN_STATUSES.CANCELLED]: [],
+  [RUN_STATUSES.QUARANTINED]: [RUN_STATUSES.RUNNING, RUN_STATUSES.CANCELLED],
+};
+
+export function isValidTransition(from: RunState, to: RunState): boolean {
+  return VALID_TRANSITIONS[from]?.includes(to) ?? false;
+}
+
+export function getValidTransitions(from: RunState): RunState[] {
+  return VALID_TRANSITIONS[from] ?? [];
+}
+
+export function isTerminalState(state: RunState): boolean {
+  return state === RUN_STATUSES.SUCCEEDED ||
+    state === RUN_STATUSES.FAILED ||
+    state === RUN_STATUSES.CANCELLED;
+}

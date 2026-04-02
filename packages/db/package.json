@@ -1,0 +1,16 @@
+{
+  "name": "@intent-os/db",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client.ts",
+    "./tx": "./src/tx.ts",
+    "./repositories/*": "./src/repositories/*.ts",
+    "./query-helpers/*": "./src/query-helpers/*.ts"
+  },
+  "dependencies": {
+    "@intent-os/contracts": "file:../contracts"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "@intent-os/policy-engine",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./evaluator": "./src/evaluator.ts",
+    "./rules": "./src/rules.ts"
+  },
+  "dependencies": {
+    "@intent-os/contracts": "file:../contracts"
+  }
+}

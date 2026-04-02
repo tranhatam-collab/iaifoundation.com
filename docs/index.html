@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IAI Foundation — Public Documentation</title>
+  <meta name="description" content="Public architecture, data model, policy engine, and product specs for Intent OS." />
+  <meta name="theme-color" content="#0b1020" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">IAI Foundation</a>
+      <nav class="desktop-nav" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/#architecture">Architecture</a>
+        <a href="/docs">Docs</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section">
+      <div class="container narrow">
+        <p class="section-label">Documentation</p>
+        <h2>Public specs and architecture docs.</h2>
+        <p>
+          These documents define the foundation of Intent OS. They are public so builders,
+          partners, and pilot teams can understand the system before it ships.
+        </p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <p class="section-label">Strategy & Architecture</p>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Master Spec</h3>
+            <p>Core thesis, product definition, seven platform layers, and product principles.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_MASTER_SPEC.md">Read spec &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Information Architecture</h3>
+            <p>Recommended routes, homepage section order, navigation labels, and content tone.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_INFORMATION_ARCHITECTURE.md">Read spec &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Product Architecture</h3>
+            <p>Cloudflare-first mapping, agent roles, and runtime flow from intent to outcome.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_PRODUCT_ARCHITECTURE.md">Read spec &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Data Model</h3>
+            <p>Core entities and data design rules for the platform.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_DATA_MODEL.md">Read spec &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Policy Engine</h3>
+            <p>Policy domains, required outcomes, and safety principles.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_POLICY_ENGINE.md">Read spec &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Roadmap</h3>
+            <p>12 to 24 month build plan from website launch to autonomous pilots.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_ROADMAP_12_24_MONTHS.md">Read spec &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Intent OS — Technical Specs</p>
+        <div class="card-grid">
+          <article class="card">
+            <h3>MVP Build Order</h3>
+            <p>Phase-by-phase build sequence with done criteria, dependency map, and test strategy.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_MVP_BUILD_ORDER.md">Read spec &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Database Schema</h3>
+            <p>Full D1 schema for MVP: tenants, workspaces, runs, payments, devices, proofs, audit.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_DATABASE_SCHEMA.md">Read spec &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>API Specification</h3>
+            <p>Unified API contract for Control Plane, Runtime, Payments, and Device Gateway.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_API_SPEC.md">Read spec &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Admin Dashboard Spec</h3>
+            <p>Screen map, personas, authorization matrix, and UX patterns for the admin UI.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_ADMIN_DASHBOARD_SPEC.md">Read spec &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Admin UI Routes & Screens</h3>
+            <p>Detailed route definitions, filter bars, table UX, and empty state patterns.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_ADMIN_UI_ROUTES_AND_SCREENS.md">Read spec &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Run Detail Page</h3>
+            <p>The most important screen: lifecycle, steps, approvals, payments, proofs, reconciliation.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_RUN_DETAIL_PAGE_SPEC.md">Read spec &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>D1 SQL Migrations V1</h3>
+            <p>Migration plan, file order, seed data, and execution strategy for Cloudflare D1.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_D1_SQL_MIGRATIONS_V1.md">Read spec &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Backend Folder Structure</h3>
+            <p>Monorepo layout, module boundaries, naming conventions, and testing targets.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_BACKEND_FOLDER_STRUCTURE.md">Read spec &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container narrow">
+        <p class="section-label">Setup</p>
+        <div class="card">
+          <h3>Cloudflare + GitHub Setup</h3>
+          <p>Repo structure, Pages configuration, DNS, and security baseline.</p>
+          <a class="doc-link" href="/IAIFOUNDATION_CLOUDFLARE_GITHUB_SETUP.md">Read guide &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section cta-section">
+      <div class="container cta-card">
+        <div>
+          <p class="section-label">Contact</p>
+          <h2>Questions about the specs?</h2>
+          <p>We welcome builders, partners, and researchers who want to dig deeper.</p>
+        </div>
+        <a class="button primary" href="mailto:hello@iaifoundation.com">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand footer-brand">IAI Foundation</p>
+        <p class="footer-text">Building the trust layer that turns intent into real-world outcomes.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Explore</p>
+        <a href="/">Home</a>
+        <a href="/#architecture">Architecture</a>
+        <a href="/#principles">Principles</a>
+      </div>
+      <div>
+        <p class="footer-heading">Foundation</p>
+        <a href="/#roadmap">Roadmap</a>
+        <a href="/#contact">Contact</a>
+      </div>
+      <div>
+        <p class="footer-heading">Status</p>
+        <p class="footer-text">Public docs v1</p>
+        <p class="footer-text">&copy; 2026 IAI Foundation</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
