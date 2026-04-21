@@ -1,0 +1,630 @@
+{
+  "locale": "en",
+  "htmlLang": "en",
+  "ogLocale": "en_US",
+  "languageLabel": "English",
+  "basePath": "/",
+  "site": {
+    "name": "IAI Foundation",
+    "themeColor": "#0b1020",
+    "preferredHost": "https://iaifoundation.com",
+    "ogImage": "/og-image.svg",
+    "favicon": "/favicon.svg",
+    "manifest": "/site.webmanifest",
+    "brandDescription": "Building the trust layer that turns human and business intent into real-world outcomes.",
+    "websiteDescription": "Public foundation site for Intent OS and multilingual documentation scaffolding.",
+    "copyright": "© 2026 IAI Foundation"
+  },
+  "ui": {
+    "skipLink": "Skip to content",
+    "primaryNavLabel": "Primary navigation",
+    "languageSwitcherLabel": "Language switcher",
+    "menuOpenText": "Menu",
+    "menuCloseText": "Close",
+    "menuOpenAria": "Open menu",
+    "menuCloseAria": "Close menu",
+    "waitlistSuccess": "Thank you. We will be in touch as pilot programs open.",
+    "articleNextStepLabel": "Next step",
+    "articleSourceNote": "Use the HTML page for browsing and the source markdown for locked reference and audit trails.",
+    "articleRelatedLabel": "Related",
+    "articleRelatedLinkLabel": "Open page",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Your email"
+  },
+  "registries": {
+    "cta": {
+      "joinEarlyAccess": "Join Early Access",
+      "readArchitecture": "Read the Architecture",
+      "contactUs": "Contact Us",
+      "emailDirect": "Email Us Directly",
+      "partnerInquiries": "Partner Inquiries",
+      "readSource": "Read source markdown",
+      "downloadSource": "Read source doc"
+    },
+    "forms": {
+      "waitlist": {
+        "field": "Email address",
+        "submit": "Join Waitlist"
+      }
+    }
+  },
+  "navigation": {
+    "home": [
+      { "label": "Thesis", "href": "#thesis" },
+      { "label": "Architecture", "href": "#architecture" },
+      { "label": "Use Cases", "href": "#use-cases" },
+      { "label": "Principles", "href": "#principles" },
+      { "label": "Roadmap", "href": "#roadmap" },
+      { "label": "Docs", "href": "/docs/" },
+      { "label": "Partners", "href": "/partners/" },
+      { "label": "Contact", "href": "#contact" }
+    ],
+    "section": [
+      { "label": "Home", "href": "/" },
+      { "label": "Architecture", "href": "/#architecture" },
+      { "label": "Docs", "href": "/docs/" },
+      { "label": "Partners", "href": "/partners/" },
+      { "label": "Contact", "href": "/#contact" }
+    ]
+  },
+  "footers": {
+    "home": {
+      "columns": [
+        {
+          "heading": "Explore",
+          "links": [
+            { "label": "Thesis", "href": "#thesis" },
+            { "label": "Architecture", "href": "#architecture" },
+            { "label": "Use Cases", "href": "#use-cases" },
+            { "label": "Trust & Proof", "href": "#proof" },
+            { "label": "Docs", "href": "/docs/" }
+          ]
+        },
+        {
+          "heading": "Foundation",
+          "links": [
+            { "label": "Principles", "href": "#principles" },
+            { "label": "Roadmap", "href": "#roadmap" },
+            { "label": "Builders", "href": "#builders" },
+            { "label": "Partners", "href": "/partners/" }
+          ]
+        },
+        {
+          "heading": "Status",
+          "text": ["Public foundation site v1", "© 2026 IAI Foundation"]
+        }
+      ]
+    },
+    "docs": {
+      "columns": [
+        {
+          "heading": "Explore",
+          "links": [
+            { "label": "Home", "href": "/" },
+            { "label": "Architecture", "href": "/#architecture" },
+            { "label": "Principles", "href": "/#principles" }
+          ]
+        },
+        {
+          "heading": "Foundation",
+          "links": [
+            { "label": "Roadmap", "href": "/#roadmap" },
+            { "label": "Partners", "href": "/partners/" },
+            { "label": "Contact", "href": "/#contact" }
+          ]
+        },
+        {
+          "heading": "Status",
+          "text": ["Public docs v1", "© 2026 IAI Foundation"]
+        }
+      ]
+    },
+    "partners": {
+      "columns": [
+        {
+          "heading": "Explore",
+          "links": [
+            { "label": "Home", "href": "/" },
+            { "label": "Architecture", "href": "/#architecture" },
+            { "label": "Docs", "href": "/docs/" }
+          ]
+        },
+        {
+          "heading": "Foundation",
+          "links": [
+            { "label": "Principles", "href": "/#principles" },
+            { "label": "Roadmap", "href": "/#roadmap" },
+            { "label": "Contact", "href": "/#contact" }
+          ]
+        },
+        {
+          "heading": "Status",
+          "text": ["Public foundation site v1", "© 2026 IAI Foundation"]
+        }
+      ]
+    }
+  },
+  "pages": {
+    "home": {
+      "path": "/",
+      "template": "home",
+      "title": "IAI Foundation - Intent OS / Universal Intent Infrastructure",
+      "description": "IAI Foundation is building the trust layer that turns human and business intent into real-world outcomes with AI, workflows, payments, devices, approvals, and proof.",
+      "ogTitle": "IAI Foundation - Intent OS / Universal Intent Infrastructure",
+      "ogDescription": "A trust layer for turning intent into real-world outcomes across AI, workflows, payments, devices, approvals, and proof.",
+      "twitterTitle": "IAI Foundation - Intent OS / Universal Intent Infrastructure",
+      "twitterDescription": "Public foundation site for Intent OS, the trust layer between intent and real-world outcomes.",
+      "ogImageAlt": "IAI Foundation Intent OS visual identity",
+      "footerKey": "home",
+      "eyebrow": "Intent OS / Universal Intent Infrastructure",
+      "h1": "Turn intent into real-world outcomes.",
+      "lead": "IAI Foundation is building the trust layer that coordinates AI, workflows, payments, devices, approvals, and proof in one system.",
+      "primaryCta": { "label": "Join Early Access", "href": "#contact" },
+      "secondaryCta": { "label": "Read the Architecture", "href": "#architecture" },
+      "stackItems": ["Intent", "Policy", "Approvals", "Execution", "Payments + Devices", "Proof"],
+      "sections": {
+        "thesis": {
+          "label": "Thesis",
+          "title": "The world has tools. It still lacks the execution layer.",
+          "paragraphs": [
+            "We already have capable AI systems, durable workflows, connected devices, digital payments, and programmable software. What is still missing is the layer that can coordinate them under clear authority, policy, timing, and proof.",
+            "The world does not need another disconnected app. What is missing is a shared execution layer that can coordinate people, organizations, AI agents, workflows, money rails, connected devices, robots, approvals, evidence, and accountability.",
+            "IAI Foundation exists to define and build that layer."
+          ]
+        },
+        "whatIs": {
+          "label": "What Intent OS Is",
+          "title": "A trustable runtime between intent and outcome.",
+          "paragraphs": [
+            "Intent OS is a system that converts a user or organization's intent into a real-world outcome with policy, orchestration, approvals, payments, device actions, and proof.",
+            "A user should be able to say: \"I want this to happen, safely, under the right conditions, with the right authority, at the right time, with clear proof.\"",
+            "And the system should transform that request into a validated intent, an executable plan, a governed run, a recorded outcome, and an auditable proof trail."
+          ]
+        },
+        "architecture": {
+          "label": "Architecture",
+          "title": "Seven layers of Intent OS",
+          "cards": [
+            { "title": "1. Identity", "text": "People, teams, agents, devices, and organizations." },
+            { "title": "2. Wallet", "text": "Value, limits, rails, and delegated authority." },
+            { "title": "3. Intent", "text": "Goals expressed in natural language or structured templates." },
+            { "title": "4. Orchestration", "text": "Plans, workflows, approvals, retries, and exceptions." },
+            { "title": "5. Device", "text": "Connected systems, gateways, sensors, and robot endpoints." },
+            { "title": "6. Proof", "text": "Receipts, logs, signatures, telemetry, and evidence." },
+            { "title": "7. Policy", "text": "Rules for what is allowed, when, by whom, and under what conditions." }
+          ]
+        },
+        "useCases": {
+          "label": "Use Cases",
+          "title": "Where this starts",
+          "cards": [
+            { "title": "Business Operations Wallet", "text": "Payable approvals, vendor release conditions, service completion proof, escalation rules, policy-based disbursement, and full audit trail for SMEs and operational teams." },
+            { "title": "Personal Action Wallet", "text": "Recurring obligation automation, subscription and service control, delegated AI tasks with guardrails, home and access actions, and proof of completion for individuals." },
+            { "title": "Autonomous Ops Layer", "text": "Procurement flows, facilities actions, field service orchestration, policy-controlled device workflows, and machine-triggered actions with human checkpoints for advanced teams." },
+            { "title": "Vendor Release", "text": "Release payment only when verified conditions are met, with policy-gated approvals and proof of delivery." },
+            { "title": "AI + Human Approval", "text": "Coordinate AI work, human approval checkpoints, and final settlement in a single governed loop." },
+            { "title": "Governed Device Action", "text": "Trigger facility or device actions under policy constraints with proof collection at every step." }
+          ]
+        },
+        "proof": {
+          "label": "Trust & Proof",
+          "title": "Proof before trust claims.",
+          "paragraphs": [
+            "Trust is not a claim. It is a verifiable chain of evidence. Every action in Intent OS produces a proof bundle: receipts, logs, signatures, telemetry, and human confirmations.",
+            "Without proof, automation is just speed without accountability. With proof, every outcome can be audited, disputed, reconciled, and trusted.",
+            "Proof is not an afterthought. It is a first-class output of every run, every payment, every device command, and every approval decision."
+          ]
+        },
+        "principles": {
+          "label": "Principles",
+          "title": "Built for authority, accountability, and restraint.",
+          "items": [
+            "Clarity before automation",
+            "Authority before action",
+            "Policy before execution",
+            "Proof before trust claims",
+            "Human override for high-risk actions",
+            "Money is a rail, not the brand",
+            "Devices must be governed, not merely connected",
+            "Every delegated action must be attributable",
+            "Default design must reduce blast radius",
+            "Logs are part of the product, not a side effect"
+          ]
+        },
+        "roadmap": {
+          "label": "Roadmap",
+          "title": "What we are building and when.",
+          "items": [
+            { "title": "0 to 30 days", "text": "Launch the public website. Finalize category language. Publish architecture and principles. Create builder, partner, and pilot intake." },
+            { "title": "30 to 90 days", "text": "Design control-plane schemas. Lock identity, workspace, intent, approval, and proof models. Publish public documentation v1." },
+            { "title": "3 to 6 months", "text": "Build control-plane MVP. Build policy and runtime MVP. Support manual approvals and proof bundles." },
+            { "title": "6 to 12 months", "text": "Add payment abstraction. Add vendor release and service completion use cases. Begin the first pilot with tight scope." },
+            { "title": "12 to 24 months", "text": "Add device gateway abstraction. Expand to autonomous procurement and facilities pilots. Integrate Matter-compatible devices." }
+          ]
+        },
+        "builders": {
+          "label": "Builders",
+          "title": "For builders of the next operational layer.",
+          "paragraphs": [
+            "We are interested in developers, operators, researchers, infrastructure partners, and organizations exploring the future of trustable execution across software and the physical world.",
+            "This system is not another AI chat app, crypto wallet, IoT dashboard, or generic automation builder. It is a trustable runtime that converts intent into outcome with policy, orchestration, payments, device actions, human approvals, and proof in one loop."
+          ]
+        },
+        "contact": {
+          "label": "Contact",
+          "title": "Help define the next layer of operations.",
+          "text": "Pilot, builder, and partner conversations are open now.",
+          "emailHref": "mailto:hello@iaifoundation.com",
+          "emailLabel": "Email Us Directly"
+        }
+      }
+    },
+    "docs": {
+      "path": "/docs/",
+      "template": "docsHub",
+      "title": "IAI Foundation Docs - Public Architecture and Intent OS Specifications",
+      "description": "Public architecture, data model, policy engine, and product specs for Intent OS.",
+      "ogTitle": "IAI Foundation Docs - Public Architecture and Intent OS Specifications",
+      "ogDescription": "Public architecture, governance, and technical reference materials for Intent OS.",
+      "twitterTitle": "IAI Foundation Docs - Public Architecture and Intent OS Specifications",
+      "twitterDescription": "Browse public architecture, governance, and technical reference materials for Intent OS.",
+      "ogImageAlt": "IAI Foundation documentation cover image",
+      "footerKey": "docs",
+      "eyebrow": "Documentation",
+      "h1": "Public specs and architecture docs.",
+      "lead": "These documents define the foundation of Intent OS. They are public so builders, partners, and pilot teams can understand the system before it ships.",
+      "groups": [
+        {
+          "label": "Strategy & Architecture",
+          "cards": [
+            { "title": "Master Spec", "text": "Core thesis, product definition, seven platform layers, and product principles.", "href": "/IAIFOUNDATION_MASTER_SPEC.md", "linkLabel": "Read spec →" },
+            { "title": "Information Architecture", "text": "Recommended routes, homepage section order, navigation labels, and content tone.", "href": "/IAIFOUNDATION_INFORMATION_ARCHITECTURE.md", "linkLabel": "Read spec →" },
+            { "title": "Product Architecture", "text": "Cloudflare-first mapping, agent roles, and runtime flow from intent to outcome.", "href": "/IAIFOUNDATION_PRODUCT_ARCHITECTURE.md", "linkLabel": "Read spec →" },
+            { "title": "Data Model", "text": "Core entities and data design rules for the platform.", "href": "/IAIFOUNDATION_DATA_MODEL.md", "linkLabel": "Read spec →" },
+            { "title": "Policy Engine", "text": "Policy domains, required outcomes, and safety principles.", "href": "/IAIFOUNDATION_POLICY_ENGINE.md", "linkLabel": "Read spec →" },
+            { "title": "Roadmap", "text": "12 to 24 month build plan from website launch to autonomous pilots.", "href": "/IAIFOUNDATION_ROADMAP_12_24_MONTHS.md", "linkLabel": "Read spec →" },
+            { "title": "Language & Multilingual SEO Standard", "text": "Locked rules for page language, locale-specific metadata, Vietnamese SEO, and future multilingual expansion.", "href": "/docs/language-seo-standard/", "linkLabel": "Read guide →", "sourceHref": "/IAIFOUNDATION_LANGUAGE_AND_MULTILINGUAL_SEO_STANDARD.md", "sourceLabel": "Read source doc →" },
+            { "title": "Locale SEO Brief Template", "text": "Required form for defining search intent, metadata, route scope, and QA gates before a new locale can publish.", "href": "/docs/locale-seo-brief-template/", "linkLabel": "Open template →", "sourceHref": "/LOCALE_SEO_BRIEF_TEMPLATE.md", "sourceLabel": "Read source doc →" },
+            { "title": "Multilingual Release QA Checklist", "text": "Shared release checklist for dev, content, QA, SEO, and AI agents working across multiple locales.", "href": "/docs/multilingual-release-qa-checklist/", "linkLabel": "Open checklist →", "sourceHref": "/MULTILINGUAL_RELEASE_QA_CHECKLIST.md", "sourceLabel": "Read source doc →" }
+          ]
+        },
+        {
+          "label": "Intent OS - Technical Specs",
+          "cards": [
+            { "title": "MVP Build Order", "text": "Phase-by-phase build sequence with done criteria, dependency map, and test strategy.", "href": "/docs/INTENT_OS_MVP_BUILD_ORDER.md", "linkLabel": "Read spec →" },
+            { "title": "Database Schema", "text": "Full D1 schema for MVP: tenants, workspaces, runs, payments, devices, proofs, audit.", "href": "/docs/INTENT_OS_DATABASE_SCHEMA.md", "linkLabel": "Read spec →" },
+            { "title": "API Specification", "text": "Unified API contract for Control Plane, Runtime, Payments, and Device Gateway.", "href": "/docs/INTENT_OS_API_SPEC.md", "linkLabel": "Read spec →" },
+            { "title": "Admin Dashboard Spec", "text": "Screen map, personas, authorization matrix, and UX patterns for the admin UI.", "href": "/docs/INTENT_OS_ADMIN_DASHBOARD_SPEC.md", "linkLabel": "Read spec →" },
+            { "title": "Admin UI Routes & Screens", "text": "Detailed route definitions, filter bars, table UX, and empty state patterns.", "href": "/docs/INTENT_OS_ADMIN_UI_ROUTES_AND_SCREENS.md", "linkLabel": "Read spec →" },
+            { "title": "Run Detail Page", "text": "The most important screen: lifecycle, steps, approvals, payments, proofs, reconciliation.", "href": "/docs/INTENT_OS_RUN_DETAIL_PAGE_SPEC.md", "linkLabel": "Read spec →" },
+            { "title": "D1 SQL Migrations V1", "text": "Migration plan, file order, seed data, and execution strategy for Cloudflare D1.", "href": "/docs/INTENT_OS_D1_SQL_MIGRATIONS_V1.md", "linkLabel": "Read spec →" },
+            { "title": "Backend Folder Structure", "text": "Monorepo layout, module boundaries, naming conventions, and testing targets.", "href": "/docs/INTENT_OS_BACKEND_FOLDER_STRUCTURE.md", "linkLabel": "Read spec →" }
+          ]
+        },
+        {
+          "label": "Setup",
+          "cards": [
+            { "title": "Cloudflare + GitHub Setup", "text": "Repo structure, Pages configuration, DNS, and security baseline.", "href": "/IAIFOUNDATION_CLOUDFLARE_GITHUB_SETUP.md", "linkLabel": "Read guide →" }
+          ],
+          "narrow": true
+        },
+        {
+          "label": "AI Governance",
+          "cards": [
+            { "title": "AI Governance Index", "text": "Single reading path across Level 1, Level 2, and Level 3 AI operating documents.", "href": "/docs/AI_GOVERNANCE_INDEX.md", "linkLabel": "Read index →" },
+            { "title": "AI System Rules", "text": "Core AI operating rules, constraints, workflow, and output standards for this repository.", "href": "/docs/IAI_FOUNDATION_AI_SYSTEM.md", "linkLabel": "Read rules →" },
+            { "title": "Prompt Templates", "text": "Reusable prompt formats for analysis, planning, building, debugging, review, and docs work.", "href": "/docs/AI_PROMPT_TEMPLATES.md", "linkLabel": "Read templates →" },
+            { "title": "Task Handoff Template", "text": "Structured handoff format for assigning scoped work to AI agents and collaborators.", "href": "/docs/AI_TASK_HANDOFF_TEMPLATE.md", "linkLabel": "Read template →" },
+            { "title": "Context Memory System", "text": "Rules for summary reuse, derived memory, and minimizing repeated context loading.", "href": "/docs/IAIFOUNDATION_CONTEXT_MEMORY_SYSTEM.md", "linkLabel": "Read system →" },
+            { "title": "Agent Execution System", "text": "Role-based AI workflow for architect, builder, debugger, reviewer, and docs execution.", "href": "/docs/IAIFOUNDATION_AGENT_EXECUTION_SYSTEM.md", "linkLabel": "Read system →" },
+            { "title": "Multi-Model Router", "text": "Model selection strategy for simple, standard, complex, bulk, and large-context tasks.", "href": "/docs/IAIFOUNDATION_MULTI_MODEL_ROUTER.md", "linkLabel": "Read router →" },
+            { "title": "Execution Engine (Level 3)", "text": "Autonomous task execution flow from classification and splitting to validation and merge.", "href": "/docs/IAIFOUNDATION_EXECUTION_ENGINE.md", "linkLabel": "Read engine →" },
+            { "title": "Realtime Agent System", "text": "Coordination rules for parallel agents, conflict control, observability, and live handoff.", "href": "/docs/IAIFOUNDATION_REALTIME_AGENT_SYSTEM.md", "linkLabel": "Read system →" },
+            { "title": "Data Intelligence Layer", "text": "How AI ingests, indexes, retrieves, and reasons over repository and runtime data.", "href": "/docs/IAIFOUNDATION_DATA_INTELLIGENCE_LAYER.md", "linkLabel": "Read layer →" }
+          ]
+        }
+      ],
+      "contact": {
+        "label": "Contact",
+        "title": "Questions about the specs?",
+        "text": "We welcome builders, partners, and researchers who want to dig deeper.",
+        "button": { "label": "Contact Us", "href": "mailto:hello@iaifoundation.com" }
+      }
+    },
+    "partners": {
+      "path": "/partners/",
+      "template": "partners",
+      "title": "IAI Foundation Partners - Pilot, Infrastructure, and Co-Build Opportunities",
+      "description": "Partner with IAI Foundation to build the trust layer for Intent OS.",
+      "ogTitle": "IAI Foundation Partners - Pilot, Infrastructure, and Co-Build Opportunities",
+      "ogDescription": "Partner with IAI Foundation as an infrastructure provider, pilot organization, researcher, or co-builder.",
+      "twitterTitle": "IAI Foundation Partners - Pilot, Infrastructure, and Co-Build Opportunities",
+      "twitterDescription": "Explore partnership paths with IAI Foundation across infrastructure, pilots, research, and co-build work.",
+      "ogImageAlt": "IAI Foundation partner page visual identity",
+      "footerKey": "partners",
+      "eyebrow": "Partners",
+      "h1": "Build the execution layer together.",
+      "lead": "We are looking for infrastructure partners, pilot organizations, and co-builders who want to define the next operational layer.",
+      "partnerTypes": {
+        "label": "Partner Types",
+        "cards": [
+          { "title": "Infrastructure Providers", "text": "Cloud, identity, payments, and device platform partners who want their systems governed by a shared execution layer." },
+          { "title": "Pilot Organizations", "text": "SMEs, enterprises, and operational teams willing to run the first real workflows on Intent OS in a controlled environment." },
+          { "title": "Research & Academic", "text": "Universities and research labs exploring trustable automation, policy engines, and multi-agent coordination." },
+          { "title": "System Integrators", "text": "Teams who understand how to connect legacy systems, ERP, and physical infrastructure into governed workflows." },
+          { "title": "Security & Compliance", "text": "Partners who can help define audit standards, proof verification, and compliance boundaries for the platform." },
+          { "title": "Co-Builders", "text": "Developers and engineers who want to build core modules: runtime engine, policy interpreter, device gateway, or payment rails." }
+        ]
+      },
+      "offer": {
+        "label": "What We Offer",
+        "items": [
+          "Early access to Intent OS architecture and specs",
+          "Co-design of pilot workflows and policy templates",
+          "Direct influence on platform priorities",
+          "Shared proof and audit infrastructure",
+          "Long-term partnership, not vendor lock-in"
+        ]
+      },
+      "contact": {
+        "label": "Partner With Us",
+        "title": "Start a conversation.",
+        "text": "Tell us about your organization, your workflows, and what you want to govern.",
+        "button": { "label": "Partner Inquiries", "href": "mailto:partners@iaifoundation.com" }
+      }
+    },
+    "languageSeoStandard": {
+      "path": "/docs/language-seo-standard/",
+      "template": "docArticle",
+      "title": "Language and Multilingual SEO Standard - IAI Foundation Docs",
+      "description": "Operational standard for page language, locale-specific SEO, Vietnamese metadata rules, and multilingual release gates.",
+      "ogTitle": "Language and Multilingual SEO Standard - IAI Foundation Docs",
+      "ogDescription": "Read the locked standard for page language, per-locale metadata, Vietnamese SEO, and multilingual expansion governance.",
+      "twitterTitle": "Language and Multilingual SEO Standard - IAI Foundation Docs",
+      "twitterDescription": "Locked operating standard for bilingual content, per-locale metadata, and multilingual release quality.",
+      "ogImageAlt": "Language and multilingual SEO standard document cover",
+      "footerKey": "docs",
+      "eyebrow": "Operational Standard",
+      "h1": "Language and Multilingual SEO Standard",
+      "lead": "This standard locks how IAIFoundation.com handles page language, route parity, locale-specific metadata, and multilingual release quality.",
+      "summary": "Treat each locale as a first-class product surface with its own meaning, metadata, and QA gate.",
+      "sections": [
+        {
+          "label": "Locked Baseline",
+          "title": "Use one route key across locales.",
+          "paragraphs": [
+            "English stays on the root route. Every non-default locale uses a locale prefix while keeping the same route key.",
+            "Canonical URLs always point to the apex host and each locale page self-canonicalizes to its own URL."
+          ],
+          "items": [
+            "Primary host: https://iaifoundation.com",
+            "Default locale: English on /",
+            "Active localized locale: Vietnamese on /vi/",
+            "Route parity required for home, docs, partners, and future public routes"
+          ]
+        },
+        {
+          "label": "Language Governance",
+          "title": "One page, one dominant language.",
+          "paragraphs": [
+            "Navigation, headings, body copy, CTA labels, metadata, and structured data must all match the page locale.",
+            "The only exceptions are locked brand or product names and approved technical nouns that would lose meaning if translated."
+          ],
+          "items": [
+            "Do not mix English metadata into Vietnamese pages",
+            "Do not publish placeholder translations",
+            "Do not ship mixed-language navigation or footer labels",
+            "Do not change locked terminology without an approved decision record"
+          ]
+        },
+        {
+          "label": "Vietnamese SEO",
+          "title": "Vietnamese is its own search surface.",
+          "paragraphs": [
+            "Vietnamese content targets Vietnam-based readers and search behavior. It is not a side effect of English localization.",
+            "Every Vietnamese page must carry its own title, meta description, Open Graph copy, Twitter copy, structured data language, and internal anchor language."
+          ],
+          "items": [
+            "Use full Vietnamese diacritics everywhere in visible UI and metadata",
+            "Use vi_VN as the Open Graph locale",
+            "Do not reuse the English keyword cluster on Vietnamese pages",
+            "Do not index a Vietnamese page before its metadata and schema are localized"
+          ]
+        },
+        {
+          "label": "Release Gates",
+          "title": "No multilingual work is complete without proof.",
+          "paragraphs": [
+            "A locale or SEO task is only done when the localized copy, metadata, hreflang cluster, sitemap, schema, and live smoke checks all agree.",
+            "The release team must use the locale brief and the multilingual QA checklist before a new locale or updated localized page goes live."
+          ],
+          "items": [
+            "Update localized HTML, sitemap, locale manifest, and switchers together",
+            "Keep users inside the same locale whenever an equivalent route exists",
+            "Attach QA evidence before claiming completion",
+            "Escalate any change to route model, default locale, or locked terminology"
+          ]
+        }
+      ],
+      "relatedLinks": [
+        { "label": "Open the locale SEO brief template", "href": "/docs/locale-seo-brief-template/" },
+        { "label": "Open the multilingual release QA checklist", "href": "/docs/multilingual-release-qa-checklist/" }
+      ],
+      "sourceDoc": { "label": "Read source markdown", "href": "/IAIFOUNDATION_LANGUAGE_AND_MULTILINGUAL_SEO_STANDARD.md" }
+    },
+    "localeSeoBriefTemplate": {
+      "path": "/docs/locale-seo-brief-template/",
+      "template": "docArticle",
+      "title": "Locale SEO Brief Template - IAI Foundation Docs",
+      "description": "Standard brief template for defining search intent, metadata, route parity, and QA gates before publishing a new locale.",
+      "ogTitle": "Locale SEO Brief Template - IAI Foundation Docs",
+      "ogDescription": "Use this template to lock route scope, keyword intent, metadata, and QA requirements for every new locale.",
+      "twitterTitle": "Locale SEO Brief Template - IAI Foundation Docs",
+      "twitterDescription": "Required operating template for multilingual route planning, metadata, and SEO release control.",
+      "ogImageAlt": "Locale SEO brief template document cover",
+      "footerKey": "docs",
+      "eyebrow": "Operational Template",
+      "h1": "Locale SEO Brief Template",
+      "lead": "Every new locale should begin with one brief that locks audience, search intent, metadata, route scope, and QA expectations before publish.",
+      "summary": "Use one brief per locale so search intent and release scope are explicit before content work begins.",
+      "sections": [
+        {
+          "label": "Brief Identity",
+          "title": "Start with ownership and market definition.",
+          "paragraphs": [
+            "A locale brief should capture the locale code, region, product surface, release target date, and named owner before any writing starts.",
+            "This ensures the team is aligning on a market, not just a translation request."
+          ],
+          "items": [
+            "Locale code and language tag",
+            "Regional market and target users",
+            "Product surface and route scope",
+            "Owner and reviewer"
+          ]
+        },
+        {
+          "label": "Search Intent",
+          "title": "Plan keyword intent by route, not by page title alone.",
+          "paragraphs": [
+            "Each route needs a primary keyword cluster, supporting semantic terms, audience definition, and expected CTA.",
+            "The brief should separate informational, navigational, documentation, and partnership intent clearly."
+          ],
+          "items": [
+            "Primary keyword cluster per route",
+            "Supporting semantic terms",
+            "Audience and CTA per route",
+            "Internal linking targets"
+          ]
+        },
+        {
+          "label": "Metadata Pack",
+          "title": "Lock the metadata before the page ships.",
+          "paragraphs": [
+            "Every indexable route should leave the brief with a planned H1, title, meta description, canonical, alternate locale map, and schema language.",
+            "This avoids a last-minute scramble that leads to duplicated or weak metadata."
+          ],
+          "items": [
+            "H1 per route",
+            "Title and description per route",
+            "Canonical URL",
+            "Alternate locale map and schema language"
+          ]
+        },
+        {
+          "label": "QA Gates",
+          "title": "A locale does not publish without proof.",
+          "paragraphs": [
+            "The brief should define the pre-publish checks for localized copy, metadata, hreflang, sitemap, locale manifest, and live verification.",
+            "Evidence links should point to preview URLs, screenshots, and release notes."
+          ],
+          "items": [
+            "Preview URL and QA notes",
+            "Screenshots for affected routes",
+            "Approval fields for content, SEO, QA, and product",
+            "Explicit release decision"
+          ]
+        }
+      ],
+      "relatedLinks": [
+        { "label": "Read the language and multilingual SEO standard", "href": "/docs/language-seo-standard/" },
+        { "label": "Open the multilingual release QA checklist", "href": "/docs/multilingual-release-qa-checklist/" }
+      ],
+      "sourceDoc": { "label": "Read source markdown", "href": "/LOCALE_SEO_BRIEF_TEMPLATE.md" }
+    },
+    "multilingualReleaseQaChecklist": {
+      "path": "/docs/multilingual-release-qa-checklist/",
+      "template": "docArticle",
+      "title": "Multilingual Release QA Checklist - IAI Foundation Docs",
+      "description": "Release checklist for multilingual pages covering language quality, metadata, hreflang, sitemap, menu behavior, and live smoke tests.",
+      "ogTitle": "Multilingual Release QA Checklist - IAI Foundation Docs",
+      "ogDescription": "Use this shared checklist to gate multilingual releases across dev, content, QA, SEO, and AI operations.",
+      "twitterTitle": "Multilingual Release QA Checklist - IAI Foundation Docs",
+      "twitterDescription": "Shared QA checklist for multilingual content, metadata, browser behavior, and live smoke validation.",
+      "ogImageAlt": "Multilingual release QA checklist document cover",
+      "footerKey": "docs",
+      "eyebrow": "Release Checklist",
+      "h1": "Multilingual Release QA Checklist",
+      "lead": "This checklist creates one shared release gate for dev, content, QA, SEO, and AI agents whenever language, metadata, or locale routing changes.",
+      "summary": "Run the same release checklist across copy, metadata, routing, menu behavior, and live smoke validation.",
+      "sections": [
+        {
+          "label": "Preflight",
+          "title": "Lock scope before touching production.",
+          "paragraphs": [
+            "The affected locales, routes, and release note must be explicit before the team starts validating the release candidate.",
+            "No multilingual release should proceed with hidden scope or unreviewed copy."
+          ],
+          "items": [
+            "Scope matches the release note",
+            "Affected locales and routes are explicit",
+            "Copy review is complete",
+            "No placeholder or unreviewed machine translation remains"
+          ]
+        },
+        {
+          "label": "Language QA",
+          "title": "Check visible UI text first.",
+          "paragraphs": [
+            "Navigation, CTA labels, footer text, form copy, and error states must all match the active locale.",
+            "Vietnamese pages must use full diacritics and locked terminology. English pages must read naturally in international US English."
+          ],
+          "items": [
+            "One dominant language per page",
+            "No mixed-language UI strings",
+            "Locked product names remain consistent",
+            "Vietnamese diacritics and English grammar are correct"
+          ]
+        },
+        {
+          "label": "SEO QA",
+          "title": "Validate the metadata pack on every route.",
+          "paragraphs": [
+            "Each indexable page needs a locale-specific title, description, canonical, hreflang cluster, Open Graph copy, Twitter copy, and schema language.",
+            "The checklist should catch duplicate metadata, missing alternates, and weak internal link language before release."
+          ],
+          "items": [
+            "One H1 per page",
+            "Locale-specific title and description",
+            "Correct canonical and hreflang cluster",
+            "Localized Open Graph, Twitter, and schema fields"
+          ]
+        },
+        {
+          "label": "Browser & Menu QA",
+          "title": "Do not separate language QA from browser QA.",
+          "paragraphs": [
+            "Header navigation and language switching are part of the multilingual experience, especially on smaller viewports.",
+            "The team should confirm the menu opens, closes, resizes back to desktop cleanly, and does not trap the user in the wrong locale."
+          ],
+          "items": [
+            "Header menu works on desktop, tablet, and mobile",
+            "Menu closes on link click, outside click, resize, and Escape",
+            "Language switcher points to a true equivalent page",
+            "Live HTML and assets match the intended release"
+          ]
+        }
+      ],
+      "relatedLinks": [
+        { "label": "Read the language and multilingual SEO standard", "href": "/docs/language-seo-standard/" },
+        { "label": "Open the locale SEO brief template", "href": "/docs/locale-seo-brief-template/" }
+      ],
+      "sourceDoc": { "label": "Read source markdown", "href": "/MULTILINGUAL_RELEASE_QA_CHECKLIST.md" }
+    },
+    "notFound": {
+      "path": "/404.html",
+      "template": "notFound",
+      "title": "IAI Foundation - Page Not Found",
+      "description": "The page you are looking for does not exist.",
+      "footerKey": "docs",
+      "eyebrow": "404",
+      "h1": "Page not found.",
+      "lead": "The page you are looking for does not exist or has been moved.",
+      "metaNote": "Trang bạn đang tìm không tồn tại hoặc đã được di chuyển.",
+      "actions": [
+        { "label": "Go Home", "href": "/", "style": "primary" },
+        { "label": "Trang tiếng Việt", "href": "/vi/", "style": "secondary" },
+        { "label": "Read the Docs", "href": "/docs/", "style": "secondary" }
+      ]
+    }
+  }
+}

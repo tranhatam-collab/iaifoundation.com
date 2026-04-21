@@ -3,22 +3,39 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>IAI Foundation — Page Not Found</title>
+  <title>IAI Foundation - Page Not Found</title>
   <meta name="description" content="The page you are looking for does not exist." />
+  <meta name="robots" content="noindex,follow" />
+  <meta name="author" content="IAI Foundation" />
   <meta name="theme-color" content="#0b1020" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
   <link rel="stylesheet" href="/style.css" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="/">IAI Foundation</a>
-      <nav class="desktop-nav" aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/docs">Docs</a>
-        <a href="/partners">Partners</a>
-        <a href="/#contact">Contact</a>
-      </nav>
+      <div class="nav-actions">
+        <nav class="desktop-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/docs/">Docs</a>
+          <a href="/partners/">Partners</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <a class="lang-link is-active" href="/" hreflang="en" lang="en">EN</a>
+          <a class="lang-link" href="/vi/" hreflang="vi" lang="vi">VI</a>
+        </div>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu container" hidden>
+      <a href="/">Home</a>
+      <a href="/docs/">Docs</a>
+      <a href="/partners/">Partners</a>
+      <a href="/#contact">Contact</a>
     </div>
   </header>
 
@@ -27,12 +44,16 @@
       <div class="container narrow" style="text-align:center;">
         <p class="eyebrow">404</p>
         <h1 style="max-width:none;">Page not found.</h1>
-        <p class="lead" style="margin:0 auto 28px;">
+        <p class="lead" style="margin:0 auto 12px;">
           The page you are looking for does not exist or has been moved.
+        </p>
+        <p class="meta-note" style="margin:0 auto 28px;">
+          Trang bạn đang tìm không tồn tại hoặc đã được di chuyển.
         </p>
         <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
           <a class="button primary" href="/">Go Home</a>
-          <a class="button secondary" href="/docs">Read the Docs</a>
+          <a class="button secondary" href="/vi/">Trang tiếng Việt</a>
+          <a class="button secondary" href="/docs/">Read the Docs</a>
         </div>
       </div>
     </section>
@@ -47,8 +68,8 @@
       <div>
         <p class="footer-heading">Explore</p>
         <a href="/">Home</a>
-        <a href="/docs">Docs</a>
-        <a href="/partners">Partners</a>
+        <a href="/docs/">Docs</a>
+        <a href="/partners/">Partners</a>
       </div>
       <div>
         <p class="footer-heading">Foundation</p>
@@ -63,5 +84,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="/app.js"></script>
 </body>
 </html>

@@ -3,23 +3,94 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>IAI Foundation — Public Documentation</title>
+  <title>IAI Foundation Docs - Public Architecture and Intent OS Specifications</title>
   <meta name="description" content="Public architecture, data model, policy engine, and product specs for Intent OS." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="IAI Foundation" />
+  <meta name="format-detection" content="telephone=no" />
   <meta name="theme-color" content="#0b1020" />
+  <meta property="og:title" content="IAI Foundation Docs - Public Architecture and Intent OS Specifications" />
+  <meta property="og:description" content="Public architecture, governance, and technical reference materials for Intent OS." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iaifoundation.com/docs/" />
+  <meta property="og:site_name" content="IAI Foundation" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="vi_VN" />
+  <meta property="og:image" content="https://iaifoundation.com/og-image.svg" />
+  <meta property="og:image:alt" content="IAI Foundation documentation cover image" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IAI Foundation Docs - Public Architecture and Intent OS Specifications" />
+  <meta name="twitter:description" content="Browse public architecture, governance, and technical reference materials for Intent OS." />
+  <link rel="canonical" href="https://iaifoundation.com/docs/" />
+  <link rel="alternate" hreflang="en" href="https://iaifoundation.com/docs/" />
+  <link rel="alternate" hreflang="vi" href="https://iaifoundation.com/vi/docs/" />
+  <link rel="alternate" hreflang="x-default" href="https://iaifoundation.com/docs/" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
   <link rel="stylesheet" href="/style.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://iaifoundation.com/docs/#collection",
+        "url": "https://iaifoundation.com/docs/",
+        "name": "IAI Foundation Docs",
+        "description": "Public architecture, governance, and technical reference materials for Intent OS.",
+        "isPartOf": {
+          "@id": "https://iaifoundation.com/#website"
+        },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://iaifoundation.com/docs/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://iaifoundation.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Docs",
+            "item": "https://iaifoundation.com/docs/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="/">IAI Foundation</a>
-      <nav class="desktop-nav" aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/#architecture">Architecture</a>
-        <a href="/docs">Docs</a>
-        <a href="/#contact">Contact</a>
-      </nav>
+      <div class="nav-actions">
+        <nav class="desktop-nav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/#architecture">Architecture</a>
+          <a href="/docs/">Docs</a>
+          <a href="/partners/">Partners</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <a class="lang-link is-active" href="/docs/" hreflang="en" lang="en" aria-current="page">EN</a>
+          <a class="lang-link" href="/vi/docs/" hreflang="vi" lang="vi">VI</a>
+        </div>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu container" hidden>
+      <a href="/">Home</a>
+      <a href="/#architecture">Architecture</a>
+      <a href="/docs/">Docs</a>
+      <a href="/partners/">Partners</a>
+      <a href="/#contact">Contact</a>
     </div>
   </header>
 
@@ -27,8 +98,8 @@
     <section class="section">
       <div class="container narrow">
         <p class="section-label">Documentation</p>
-        <h2>Public specs and architecture docs.</h2>
-        <p>
+        <h1>Public specs and architecture docs.</h1>
+        <p class="lead">
           These documents define the foundation of Intent OS. They are public so builders,
           partners, and pilot teams can understand the system before it ships.
         </p>
@@ -37,7 +108,7 @@
 
     <section class="section alt">
       <div class="container">
-        <p class="section-label">Strategy & Architecture</p>
+        <p class="section-label">Strategy &amp; Architecture</p>
         <div class="card-grid">
           <article class="card">
             <h3>Master Spec</h3>
@@ -69,13 +140,28 @@
             <p>12 to 24 month build plan from website launch to autonomous pilots.</p>
             <a class="doc-link" href="/IAIFOUNDATION_ROADMAP_12_24_MONTHS.md">Read spec &rarr;</a>
           </article>
+          <article class="card">
+            <h3>Language &amp; Multilingual SEO Standard</h3>
+            <p>Locked rules for page language, locale-specific metadata, Vietnamese SEO, and future multilingual expansion.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_LANGUAGE_AND_MULTILINGUAL_SEO_STANDARD.md">Read standard &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Locale SEO Brief Template</h3>
+            <p>Required form for defining search intent, metadata, route scope, and QA gates before a new locale can publish.</p>
+            <a class="doc-link" href="/LOCALE_SEO_BRIEF_TEMPLATE.md">Open template &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Multilingual Release QA Checklist</h3>
+            <p>Shared release checklist for dev, content, QA, SEO, and AI agents working across multiple locales.</p>
+            <a class="doc-link" href="/MULTILINGUAL_RELEASE_QA_CHECKLIST.md">Open checklist &rarr;</a>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <p class="section-label">Intent OS — Technical Specs</p>
+        <p class="section-label">Intent OS - Technical Specs</p>
         <div class="card-grid">
           <article class="card">
             <h3>MVP Build Order</h3>
@@ -98,7 +184,7 @@
             <a class="doc-link" href="/docs/INTENT_OS_ADMIN_DASHBOARD_SPEC.md">Read spec &rarr;</a>
           </article>
           <article class="card">
-            <h3>Admin UI Routes & Screens</h3>
+            <h3>Admin UI Routes &amp; Screens</h3>
             <p>Detailed route definitions, filter bars, table UX, and empty state patterns.</p>
             <a class="doc-link" href="/docs/INTENT_OS_ADMIN_UI_ROUTES_AND_SCREENS.md">Read spec &rarr;</a>
           </article>
@@ -217,6 +303,7 @@
       <div>
         <p class="footer-heading">Foundation</p>
         <a href="/#roadmap">Roadmap</a>
+        <a href="/partners/">Partners</a>
         <a href="/#contact">Contact</a>
       </div>
       <div>
@@ -226,5 +313,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="/app.js"></script>
 </body>
 </html>

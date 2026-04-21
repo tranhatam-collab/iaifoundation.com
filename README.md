@@ -96,6 +96,7 @@ Frontend pages remain static-first and can be edited directly.
 Backend and shared packages use the monorepo toolchain:
 
 - `npm install`
+- `nvm use` (or use Node 22 per `.nvmrc`)
 - `npm run typecheck`
 - `npm run test`
 

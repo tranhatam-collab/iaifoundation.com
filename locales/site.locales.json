@@ -1,0 +1,43 @@
+{
+  "defaultLocale": "en",
+  "supportedLocales": [
+    {
+      "code": "en",
+      "label": "English",
+      "hreflang": "en",
+      "ogLocale": "en_US",
+      "basePath": "/"
+    },
+    {
+      "code": "vi",
+      "label": "Tiếng Việt",
+      "hreflang": "vi",
+      "ogLocale": "vi_VN",
+      "basePath": "/vi/"
+    }
+  ],
+  "plannedLocales": [],
+  "localizedRoutes": [
+    {
+      "key": "home",
+      "alternates": {
+        "en": "https://iaifoundation.com/",
+        "vi": "https://iaifoundation.com/vi/"
+      }
+    },
+    {
+      "key": "docs",
+      "alternates": {
+        "en": "https://iaifoundation.com/docs/",
+        "vi": "https://iaifoundation.com/vi/docs/"
+      }
+    },
+    {
+      "key": "partners",
+      "alternates": {
+        "en": "https://iaifoundation.com/partners/",
+        "vi": "https://iaifoundation.com/vi/partners/"
+      }
+    }
+  ]
+}

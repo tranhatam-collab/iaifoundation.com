@@ -3,32 +3,77 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>IAI Foundation — Intent OS / Universal Intent Infrastructure</title>
+  <title>IAI Foundation - Intent OS / Universal Intent Infrastructure</title>
   <meta name="description" content="IAI Foundation is building the trust layer that turns human and business intent into real-world outcomes with AI, workflows, payments, devices, approvals, and proof." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="IAI Foundation" />
+  <meta name="format-detection" content="telephone=no" />
   <meta name="theme-color" content="#0b1020" />
-  <meta property="og:title" content="IAI Foundation — Intent OS / Universal Intent Infrastructure" />
-  <meta property="og:description" content="A trust layer for turning intent into real-world outcomes." />
+  <meta property="og:title" content="IAI Foundation - Intent OS / Universal Intent Infrastructure" />
+  <meta property="og:description" content="A trust layer for turning intent into real-world outcomes across AI, workflows, payments, devices, approvals, and proof." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://iaifoundation.com/" />
+  <meta property="og:site_name" content="IAI Foundation" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="vi_VN" />
   <meta property="og:image" content="https://iaifoundation.com/og-image.svg" />
+  <meta property="og:image:alt" content="IAI Foundation Intent OS visual identity" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IAI Foundation - Intent OS / Universal Intent Infrastructure" />
+  <meta name="twitter:description" content="Public foundation site for Intent OS, the trust layer between intent and real-world outcomes." />
   <link rel="canonical" href="https://iaifoundation.com/" />
+  <link rel="alternate" hreflang="en" href="https://iaifoundation.com/" />
+  <link rel="alternate" hreflang="vi" href="https://iaifoundation.com/vi/" />
+  <link rel="alternate" hreflang="x-default" href="https://iaifoundation.com/" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="manifest" href="/site.webmanifest" />
   <link rel="stylesheet" href="/style.css" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "IAI Foundation",
-    "url": "https://iaifoundation.com",
-    "description": "Building the trust layer that turns human and business intent into real-world outcomes.",
-    "sameAs": [],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "email": "hello@iaifoundation.com",
-      "contactType": "general inquiry"
-    }
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://iaifoundation.com/#organization",
+        "name": "IAI Foundation",
+        "url": "https://iaifoundation.com/",
+        "logo": "https://iaifoundation.com/favicon.svg",
+        "description": "Building the trust layer that turns human and business intent into real-world outcomes.",
+        "email": "hello@iaifoundation.com",
+        "sameAs": [],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "hello@iaifoundation.com",
+          "contactType": "general inquiry",
+          "availableLanguage": ["en", "vi"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://iaifoundation.com/#website",
+        "url": "https://iaifoundation.com/",
+        "name": "IAI Foundation",
+        "description": "Public foundation site for Intent OS and multilingual documentation scaffolding.",
+        "publisher": {
+          "@id": "https://iaifoundation.com/#organization"
+        },
+        "inLanguage": ["en", "vi"]
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://iaifoundation.com/#webpage",
+        "url": "https://iaifoundation.com/",
+        "name": "IAI Foundation - Intent OS / Universal Intent Infrastructure",
+        "description": "IAI Foundation is building the trust layer that turns human and business intent into real-world outcomes with AI, workflows, payments, devices, approvals, and proof.",
+        "isPartOf": {
+          "@id": "https://iaifoundation.com/#website"
+        },
+        "about": {
+          "@id": "https://iaifoundation.com/#organization"
+        },
+        "inLanguage": "en"
+      }
+    ]
   }
   </script>
 </head>
@@ -37,17 +82,23 @@
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="/">IAI Foundation</a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
-      <nav class="desktop-nav" aria-label="Primary">
-        <a href="#thesis">Thesis</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#use-cases">Use Cases</a>
-        <a href="#principles">Principles</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="/docs">Docs</a>
-        <a href="/partners">Partners</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="nav-actions">
+        <nav class="desktop-nav" aria-label="Primary">
+          <a href="#thesis">Thesis</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#use-cases">Use Cases</a>
+          <a href="#principles">Principles</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="/docs/">Docs</a>
+          <a href="/partners/">Partners</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <a class="lang-link is-active" href="/" hreflang="en" lang="en" aria-current="page">EN</a>
+          <a class="lang-link" href="/vi/" hreflang="vi" lang="vi">VI</a>
+        </div>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+      </div>
     </div>
     <div id="mobile-menu" class="mobile-menu container" hidden>
       <a href="#thesis">Thesis</a>
@@ -55,8 +106,8 @@
       <a href="#use-cases">Use Cases</a>
       <a href="#principles">Principles</a>
       <a href="#roadmap">Roadmap</a>
-      <a href="/docs">Docs</a>
-      <a href="/partners">Partners</a>
+      <a href="/docs/">Docs</a>
+      <a href="/partners/">Partners</a>
       <a href="#contact">Contact</a>
     </div>
   </header>
@@ -179,7 +230,7 @@
 
     <section id="proof" class="section">
       <div class="container narrow">
-        <p class="section-label">Trust & Proof</p>
+        <p class="section-label">Trust &amp; Proof</p>
         <h2>Proof before trust claims.</h2>
         <p>
           Trust is not a claim. It is a verifiable chain of evidence. Every action in
@@ -308,15 +359,15 @@
         <a href="#thesis">Thesis</a>
         <a href="#architecture">Architecture</a>
         <a href="#use-cases">Use Cases</a>
-        <a href="#proof">Trust & Proof</a>
-        <a href="/docs">Docs</a>
+        <a href="#proof">Trust &amp; Proof</a>
+        <a href="/docs/">Docs</a>
       </div>
       <div>
         <p class="footer-heading">Foundation</p>
         <a href="#principles">Principles</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#builders">Builders</a>
-        <a href="/partners">Partners</a>
+        <a href="/partners/">Partners</a>
       </div>
       <div>
         <p class="footer-heading">Status</p>

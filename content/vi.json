@@ -1,0 +1,631 @@
+{
+  "locale": "vi",
+  "htmlLang": "vi",
+  "ogLocale": "vi_VN",
+  "languageLabel": "Tiếng Việt",
+  "basePath": "/vi/",
+  "site": {
+    "name": "IAI Foundation",
+    "themeColor": "#0b1020",
+    "preferredHost": "https://iaifoundation.com",
+    "ogImage": "/og-image.svg",
+    "favicon": "/favicon.svg",
+    "manifest": "/site.webmanifest",
+    "brandDescription": "Xây dựng lớp tin cậy biến ý định của con người và doanh nghiệp thành kết quả ngoài đời thực.",
+    "websiteDescription": "Trang công khai của IAI Foundation cho Intent OS và hệ tài liệu song ngữ có thể mở rộng.",
+    "copyright": "© 2026 IAI Foundation"
+  },
+  "ui": {
+    "skipLink": "Bỏ qua và đi đến nội dung chính",
+    "primaryNavLabel": "Điều hướng chính",
+    "languageSwitcherLabel": "Chuyển ngôn ngữ",
+    "menuOpenText": "Trình đơn",
+    "menuCloseText": "Đóng",
+    "menuOpenAria": "Mở menu",
+    "menuCloseAria": "Đóng menu",
+    "waitlistSuccess": "Cảm ơn bạn. Chúng tôi sẽ liên hệ khi các chương trình thí điểm mở.",
+    "articleNextStepLabel": "Bước tiếp theo",
+    "articleSourceNote": "Dùng trang HTML để đọc thuận tiện và bản markdown gốc cho mục đích đối chiếu, khóa chuẩn và lưu vết kiểm toán.",
+    "articleRelatedLabel": "Liên quan",
+    "articleRelatedLinkLabel": "Mở trang",
+    "emailLabel": "Địa chỉ email",
+    "emailPlaceholder": "Email của bạn"
+  },
+  "registries": {
+    "cta": {
+      "joinEarlyAccess": "Đăng ký sớm",
+      "readArchitecture": "Xem kiến trúc",
+      "contactUs": "Liên hệ với chúng tôi",
+      "emailDirect": "Gửi email trực tiếp",
+      "partnerInquiries": "Liên hệ đối tác",
+      "readSource": "Xem bản gốc tiếng Anh",
+      "downloadSource": "Xem tài liệu nguồn"
+    },
+    "forms": {
+      "waitlist": {
+        "field": "Địa chỉ email",
+        "submit": "Đăng ký"
+      }
+    }
+  },
+  "navigation": {
+    "home": [
+      { "label": "Luận điểm", "href": "#thesis" },
+      { "label": "Kiến trúc", "href": "#architecture" },
+      { "label": "Ứng dụng", "href": "#use-cases" },
+      { "label": "Nguyên tắc", "href": "#principles" },
+      { "label": "Lộ trình", "href": "#roadmap" },
+      { "label": "Tài liệu", "href": "/vi/docs/" },
+      { "label": "Đối tác", "href": "/vi/partners/" },
+      { "label": "Liên hệ", "href": "#contact" }
+    ],
+    "section": [
+      { "label": "Trang chủ", "href": "/vi/" },
+      { "label": "Kiến trúc", "href": "/vi/#architecture" },
+      { "label": "Tài liệu", "href": "/vi/docs/" },
+      { "label": "Đối tác", "href": "/vi/partners/" },
+      { "label": "Liên hệ", "href": "/vi/#contact" }
+    ]
+  },
+  "footers": {
+    "home": {
+      "columns": [
+        {
+          "heading": "Khám Phá",
+          "links": [
+            { "label": "Luận điểm", "href": "#thesis" },
+            { "label": "Kiến trúc", "href": "#architecture" },
+            { "label": "Ứng dụng", "href": "#use-cases" },
+            { "label": "Tin cậy & Bằng chứng", "href": "#proof" },
+            { "label": "Tài liệu", "href": "/vi/docs/" }
+          ]
+        },
+        {
+          "heading": "Nền Tảng",
+          "links": [
+            { "label": "Nguyên tắc", "href": "#principles" },
+            { "label": "Lộ trình", "href": "#roadmap" },
+            { "label": "Người xây dựng", "href": "#builders" },
+            { "label": "Đối tác", "href": "/vi/partners/" }
+          ]
+        },
+        {
+          "heading": "Trạng Thái",
+          "text": ["Trang công khai v1", "© 2026 IAI Foundation"]
+        }
+      ]
+    },
+    "docs": {
+      "columns": [
+        {
+          "heading": "Khám Phá",
+          "links": [
+            { "label": "Trang chủ", "href": "/vi/" },
+            { "label": "Kiến trúc", "href": "/vi/#architecture" },
+            { "label": "Nguyên tắc", "href": "/vi/#principles" }
+          ]
+        },
+        {
+          "heading": "Nền Tảng",
+          "links": [
+            { "label": "Lộ trình", "href": "/vi/#roadmap" },
+            { "label": "Đối tác", "href": "/vi/partners/" },
+            { "label": "Liên hệ", "href": "/vi/#contact" }
+          ]
+        },
+        {
+          "heading": "Trạng Thái",
+          "text": ["Tài liệu công khai v1", "© 2026 IAI Foundation"]
+        }
+      ]
+    },
+    "partners": {
+      "columns": [
+        {
+          "heading": "Khám Phá",
+          "links": [
+            { "label": "Trang chủ", "href": "/vi/" },
+            { "label": "Kiến trúc", "href": "/vi/#architecture" },
+            { "label": "Tài liệu", "href": "/vi/docs/" }
+          ]
+        },
+        {
+          "heading": "Nền Tảng",
+          "links": [
+            { "label": "Nguyên tắc", "href": "/vi/#principles" },
+            { "label": "Lộ trình", "href": "/vi/#roadmap" },
+            { "label": "Liên hệ", "href": "/vi/#contact" }
+          ]
+        },
+        {
+          "heading": "Trạng Thái",
+          "text": ["Trang công khai v1", "© 2026 IAI Foundation"]
+        }
+      ]
+    }
+  },
+  "pages": {
+    "home": {
+      "path": "/vi/",
+      "template": "home",
+      "title": "IAI Foundation - Intent OS / Hạ tầng Thực thi Ý định Phổ quát",
+      "description": "IAI Foundation đang xây dựng lớp tin cậy biến ý định của con người và doanh nghiệp thành kết quả ngoài đời thực với AI, quy trình, thanh toán, thiết bị, phê duyệt và bằng chứng.",
+      "ogTitle": "IAI Foundation - Intent OS / Hạ tầng Thực thi Ý định Phổ quát",
+      "ogDescription": "Trang công khai của IAI Foundation về Intent OS, lớp tin cậy giữa ý định và kết quả ngoài đời thực.",
+      "twitterTitle": "IAI Foundation - Intent OS / Hạ tầng Thực thi Ý định Phổ quát",
+      "twitterDescription": "Trang công khai của IAI Foundation về Intent OS, lớp tin cậy giữa ý định và kết quả ngoài đời thực.",
+      "ogImageAlt": "Nhận diện IAI Foundation Intent OS",
+      "footerKey": "home",
+      "eyebrow": "Intent OS / Hạ tầng Thực thi Ý định Phổ quát",
+      "h1": "Biến ý định thành kết quả ngoài đời thực.",
+      "lead": "IAI Foundation đang xây dựng lớp tin cậy có thể điều phối AI, quy trình, thanh toán, thiết bị, phê duyệt và bằng chứng trong một hệ thống thống nhất.",
+      "primaryCta": { "label": "Đăng ký sớm", "href": "#contact" },
+      "secondaryCta": { "label": "Xem kiến trúc", "href": "#architecture" },
+      "stackItems": ["Ý định", "Chính sách", "Phê duyệt", "Thực thi", "Thanh toán + Thiết bị", "Bằng chứng"],
+      "sections": {
+        "thesis": {
+          "label": "Luận điểm",
+          "title": "Thế giới đã có công cụ. Thứ còn thiếu là lớp thực thi.",
+          "paragraphs": [
+            "Chúng ta đã có AI mạnh, quy trình vận hành bền vững, thiết bị kết nối, thanh toán số và phần mềm có thể lập trình. Thứ vẫn còn thiếu là một lớp có thể điều phối tất cả dưới thẩm quyền rõ ràng, chính sách, thời điểm và bằng chứng.",
+            "Thế giới không cần thêm một ứng dụng rời rạc. Thứ đang thiếu là một lớp thực thi dùng chung có thể điều phối con người, tổ chức, tác tử AI, quy trình, dòng tiền, thiết bị kết nối, robot, phê duyệt, bằng chứng và trách nhiệm giải trình.",
+            "IAI Foundation tồn tại để định nghĩa và xây dựng lớp đó."
+          ]
+        },
+        "whatIs": {
+          "label": "Intent OS Là Gì",
+          "title": "Một lớp vận hành đáng tin cậy giữa ý định và kết quả.",
+          "paragraphs": [
+            "Intent OS là hệ thống chuyển ý định của người dùng hoặc tổ chức thành kết quả ngoài đời thực thông qua chính sách, điều phối, phê duyệt, thanh toán, hành động thiết bị và bằng chứng.",
+            "Người dùng cần có thể nói: \"Tôi muốn việc này xảy ra một cách an toàn, đúng điều kiện, đúng thẩm quyền, đúng thời điểm và có bằng chứng rõ ràng.\"",
+            "Và hệ thống phải biến yêu cầu đó thành intent hợp lệ, kế hoạch thực thi, phiên chạy có kiểm soát, kết quả đã ghi nhận và vệt bằng chứng có thể kiểm toán."
+          ]
+        },
+        "architecture": {
+          "label": "Kiến Trúc",
+          "title": "Bảy lớp của Intent OS",
+          "cards": [
+            { "title": "1. Danh tính", "text": "Con người, đội nhóm, tác tử, thiết bị và tổ chức." },
+            { "title": "2. Ví", "text": "Giá trị, giới hạn, đường dẫn thanh toán và ủy quyền được ủy thác." },
+            { "title": "3. Ý định", "text": "Mục tiêu được diễn đạt bằng ngôn ngữ tự nhiên hoặc mẫu có cấu trúc." },
+            { "title": "4. Điều phối", "text": "Kế hoạch, quy trình, phê duyệt, thử lại và xử lý ngoại lệ." },
+            { "title": "5. Thiết bị", "text": "Hệ thống kết nối, gateway, cảm biến và endpoint robot." },
+            { "title": "6. Bằng chứng", "text": "Biên lai, nhật ký, chữ ký, dữ liệu giám sát và chứng cứ." },
+            { "title": "7. Chính sách", "text": "Quy tắc quy định điều gì được phép, khi nào, bởi ai và trong điều kiện nào." }
+          ]
+        },
+        "useCases": {
+          "label": "Ứng Dụng",
+          "title": "Khởi đầu từ đâu",
+          "cards": [
+            { "title": "Ví Điều Hành Doanh Nghiệp", "text": "Phê duyệt chi trả, điều kiện giải ngân cho nhà cung cấp, bằng chứng hoàn thành dịch vụ, quy tắc leo thang, giải ngân theo chính sách và vệt kiểm toán đầy đủ cho doanh nghiệp và đội vận hành." },
+            { "title": "Ví Hành Động Cá Nhân", "text": "Tự động hóa nghĩa vụ lặp lại, kiểm soát dịch vụ và gói đăng ký, giao việc AI có hàng rào an toàn, hành động nhà cửa và truy cập, cùng bằng chứng hoàn tất cho cá nhân." },
+            { "title": "Lớp Vận Hành Tự Động", "text": "Luồng mua sắm, hành động cơ sở vật chất, điều phối dịch vụ hiện trường, quy trình thiết bị theo chính sách và hành động do máy kích hoạt với điểm kiểm soát của con người." },
+            { "title": "Giải Ngân Cho Nhà Cung Cấp", "text": "Chỉ giải ngân khi điều kiện đã được xác minh, với phê duyệt có chính sách và bằng chứng giao hàng hoàn tất." },
+            { "title": "AI + Phê Duyệt Con Người", "text": "Điều phối công việc AI, điểm kiểm soát phê duyệt của con người và đối soát cuối cùng trong một vòng lặp có quản trị." },
+            { "title": "Hành Động Thiết Bị Có Quản Trị", "text": "Kích hoạt hành động cơ sở vật chất hoặc thiết bị trong giới hạn chính sách, kèm thu thập bằng chứng ở mỗi bước." }
+          ]
+        },
+        "proof": {
+          "label": "Tin Cậy & Bằng Chứng",
+          "title": "Có bằng chứng trước khi có tuyên bố tin cậy.",
+          "paragraphs": [
+            "Tin cậy không phải là một lời tuyên bố. Nó là chuỗi bằng chứng có thể kiểm chuẩn. Mỗi hành động trong Intent OS tạo ra một gói bằng chứng: biên lai, nhật ký, chữ ký, dữ liệu giám sát và xác nhận của con người.",
+            "Không có bằng chứng, tự động hóa chỉ là tốc độ mà thiếu trách nhiệm giải trình. Khi có bằng chứng, mọi kết quả đều có thể kiểm toán, tranh chấp, đối soát và tin cậy.",
+            "Bằng chứng không phải phần thêm vào sau. Nó là đầu ra hàng đầu của mỗi phiên chạy, mỗi thanh toán, mỗi lệnh thiết bị và mỗi quyết định phê duyệt."
+          ]
+        },
+        "principles": {
+          "label": "Nguyên Tắc",
+          "title": "Được xây dựng cho thẩm quyền, trách nhiệm giải trình và sự tiết chế.",
+          "items": [
+            "Rõ ràng trước tự động hóa",
+            "Thẩm quyền trước hành động",
+            "Chính sách trước thực thi",
+            "Bằng chứng trước tuyên bố tin cậy",
+            "Con người có quyền can thiệp ghi đè với hành động rủi ro cao",
+            "Tiền là một đường ray, không phải thương hiệu",
+            "Thiết bị phải được quản trị, không chỉ kết nối",
+            "Mỗi hành động được ủy thác phải truy vết được",
+            "Thiết kế mặc định phải giảm phạm vi ảnh hưởng khi sự cố xảy ra",
+            "Nhật ký là một phần của sản phẩm, không phải tác dụng phụ"
+          ]
+        },
+        "roadmap": {
+          "label": "Lộ Trình",
+          "title": "Chúng tôi đang xây gì và khi nào.",
+          "items": [
+            { "title": "0 đến 30 ngày", "text": "Ra mắt website công khai. Chốt ngôn ngữ danh mục. Công bố kiến trúc và nguyên tắc. Tạo kênh tiếp nhận cho người xây dựng, đối tác và nhóm thí điểm." },
+            { "title": "30 đến 90 ngày", "text": "Thiết kế lược đồ control plane. Chốt mô hình danh tính, workspace, intent, phê duyệt và bằng chứng. Công bố tài liệu công khai v1." },
+            { "title": "3 đến 6 tháng", "text": "Xây dựng control-plane MVP. Xây dựng bộ chính sách và lớp thực thi MVP. Hỗ trợ phê duyệt thủ công và gói bằng chứng." },
+            { "title": "6 đến 12 tháng", "text": "Bổ sung lớp trừu tượng thanh toán. Bổ sung trường hợp giải ngân cho nhà cung cấp và hoàn tất dịch vụ. Bắt đầu đợt thí điểm đầu tiên với phạm vi hẹp." },
+            { "title": "12 đến 24 tháng", "text": "Bổ sung lớp trừu tượng cổng thiết bị. Mở rộng sang thí điểm mua sắm tự động và vận hành cơ sở vật chất. Tích hợp thiết bị tương thích Matter." }
+          ]
+        },
+        "builders": {
+          "label": "Người Xây Dựng",
+          "title": "Dành cho những người đang xây lớp vận hành tiếp theo.",
+          "paragraphs": [
+            "Chúng tôi quan tâm đến nhà phát triển, người vận hành, nhà nghiên cứu, đối tác hạ tầng và các tổ chức đang khám phá tương lai của thực thi đáng tin cậy trên phần mềm và thế giới vật lý.",
+            "Hệ thống này không phải thêm một ứng dụng chat AI, ví crypto, bảng điều khiển IoT hay công cụ tự động hóa tổng quát. Đây là lớp vận hành đáng tin cậy biến ý định thành kết quả với chính sách, điều phối, thanh toán, hành động thiết bị, phê duyệt của con người và bằng chứng trong một vòng lặp thống nhất."
+          ]
+        },
+        "contact": {
+          "label": "Liên Hệ",
+          "title": "Cùng định nghĩa lớp vận hành tiếp theo.",
+          "text": "Các cuộc trò chuyện về thí điểm, người xây dựng và đối tác đã sẵn sàng.",
+          "emailHref": "mailto:hello@iaifoundation.com",
+          "emailLabel": "Gửi email trực tiếp"
+        }
+      }
+    },
+    "docs": {
+      "path": "/vi/docs/",
+      "template": "docsHub",
+      "title": "IAI Foundation - Tài liệu công khai và đặc tả Intent OS",
+      "description": "Tổng hợp kiến trúc công khai, quản trị, mô hình dữ liệu và các đặc tả kỹ thuật cho Intent OS.",
+      "ogTitle": "IAI Foundation - Tài liệu công khai và đặc tả Intent OS",
+      "ogDescription": "Tổng hợp kiến trúc công khai, quản trị và tài liệu tham chiếu kỹ thuật cho Intent OS.",
+      "twitterTitle": "IAI Foundation - Tài liệu công khai và đặc tả Intent OS",
+      "twitterDescription": "Tổng hợp kiến trúc công khai, quản trị và tài liệu tham chiếu kỹ thuật cho Intent OS.",
+      "ogImageAlt": "Trang tài liệu IAI Foundation",
+      "footerKey": "docs",
+      "eyebrow": "Tài Liệu",
+      "h1": "Tổng hợp đặc tả công khai và kiến trúc.",
+      "lead": "Đây là lớp tổng hợp công khai để người xây dựng, đối tác và nhóm thí điểm có thể hiểu hệ thống trước khi nó được vận hành thực tế.",
+      "summaryNote": "Lưu ý: Để giữ ngôn ngữ hệ thống và hợp đồng kỹ thuật nhất quán, các tài liệu gốc chi tiết vẫn được giữ ở bản tiếng Anh. Lớp tóm tắt, điều hướng và SEO đã được chuẩn hóa song ngữ.",
+      "groups": [
+        {
+          "label": "Chiến Lược & Kiến Trúc",
+          "cards": [
+            { "title": "Master Spec", "text": "Luận điểm cốt lõi, định nghĩa sản phẩm, bảy lớp nền tảng và các nguyên tắc của sản phẩm.", "href": "/IAIFOUNDATION_MASTER_SPEC.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Information Architecture", "text": "Tuyến trang đề xuất, thứ tự chuyên mục trên trang chủ, nhãn điều hướng và giọng điệu nội dung.", "href": "/IAIFOUNDATION_INFORMATION_ARCHITECTURE.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Product Architecture", "text": "Bản đồ ưu tiên Cloudflare, vai trò tác tử và luồng thực thi từ intent đến kết quả.", "href": "/IAIFOUNDATION_PRODUCT_ARCHITECTURE.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Data Model", "text": "Các thực thể cốt lõi và quy tắc thiết kế dữ liệu cho nền tảng.", "href": "/IAIFOUNDATION_DATA_MODEL.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Policy Engine", "text": "Các miền chính sách, kết quả bắt buộc và nguyên tắc an toàn.", "href": "/IAIFOUNDATION_POLICY_ENGINE.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Roadmap", "text": "Kế hoạch 12 đến 24 tháng từ website công khai đến các chương trình thí điểm tự động.", "href": "/IAIFOUNDATION_ROADMAP_12_24_MONTHS.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Chuẩn Ngôn Ngữ & SEO Đa Ngôn Ngữ", "text": "Chuẩn khóa cho ngôn ngữ từng trang, metadata theo locale, SEO tiếng Việt và mở rộng đa ngôn ngữ sau này.", "href": "/vi/docs/language-seo-standard/", "linkLabel": "Đọc hướng dẫn →", "sourceHref": "/IAIFOUNDATION_LANGUAGE_AND_MULTILINGUAL_SEO_STANDARD.md", "sourceLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Mẫu Brief SEO Theo Locale", "text": "Biểu mẫu bắt buộc để khóa search intent, metadata, phạm vi route và cổng QA trước khi publish một locale mới.", "href": "/vi/docs/locale-seo-brief-template/", "linkLabel": "Mở biểu mẫu →", "sourceHref": "/LOCALE_SEO_BRIEF_TEMPLATE.md", "sourceLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Checklist QA Release Đa Ngôn Ngữ", "text": "Checklist release thống nhất cho dev, content, QA, SEO và AI agent khi phát hành nhiều ngôn ngữ.", "href": "/vi/docs/multilingual-release-qa-checklist/", "linkLabel": "Mở checklist →", "sourceHref": "/MULTILINGUAL_RELEASE_QA_CHECKLIST.md", "sourceLabel": "Xem bản gốc tiếng Anh →" }
+          ]
+        },
+        {
+          "label": "Intent OS - Đặc Tả Kỹ Thuật",
+          "cards": [
+            { "title": "MVP Build Order", "text": "Trình tự xây dựng theo từng giai đoạn, tiêu chí hoàn tất, bản đồ phụ thuộc và chiến lược kiểm thử.", "href": "/docs/INTENT_OS_MVP_BUILD_ORDER.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Database Schema", "text": "Schema D1 đầy đủ cho MVP: tenant, workspace, run, thanh toán, thiết bị, proof và audit.", "href": "/docs/INTENT_OS_DATABASE_SCHEMA.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "API Specification", "text": "Hợp đồng API hợp nhất cho Control Plane, Runtime, Payments và Device Gateway.", "href": "/docs/INTENT_OS_API_SPEC.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Admin Dashboard Spec", "text": "Bản đồ màn hình, persona, ma trận phân quyền và pattern UX cho admin UI.", "href": "/docs/INTENT_OS_ADMIN_DASHBOARD_SPEC.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Admin UI Routes & Screens", "text": "Định nghĩa tuyến trang chi tiết, bộ lọc, UX bảng dữ liệu và mẫu trạng thái trống.", "href": "/docs/INTENT_OS_ADMIN_UI_ROUTES_AND_SCREENS.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Run Detail Page", "text": "Màn hình quan trọng nhất: vòng đời, từng bước, phê duyệt, thanh toán, bằng chứng và đối soát.", "href": "/docs/INTENT_OS_RUN_DETAIL_PAGE_SPEC.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "D1 SQL Migrations V1", "text": "Kế hoạch migration, thứ tự file, seed data và chiến lược thực thi cho Cloudflare D1.", "href": "/docs/INTENT_OS_D1_SQL_MIGRATIONS_V1.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Backend Folder Structure", "text": "Cấu trúc monorepo, ranh giới module, quy ước đặt tên và mục tiêu kiểm thử.", "href": "/docs/INTENT_OS_BACKEND_FOLDER_STRUCTURE.md", "linkLabel": "Xem bản gốc tiếng Anh →" }
+          ]
+        },
+        {
+          "label": "Thiết Lập",
+          "cards": [
+            { "title": "Cloudflare + GitHub Setup", "text": "Cấu trúc repo, cấu hình Pages, DNS và baseline bảo mật.", "href": "/IAIFOUNDATION_CLOUDFLARE_GITHUB_SETUP.md", "linkLabel": "Xem bản gốc tiếng Anh →" }
+          ],
+          "narrow": true
+        },
+        {
+          "label": "Quản Trị AI",
+          "cards": [
+            { "title": "AI Governance Index", "text": "Lộ trình đọc thống nhất giữa các tài liệu vận hành AI Level 1, Level 2 và Level 3.", "href": "/docs/AI_GOVERNANCE_INDEX.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "AI System Rules", "text": "Quy tắc vận hành AI cốt lõi, giới hạn, quy trình và chuẩn đầu ra cho repo này.", "href": "/docs/IAI_FOUNDATION_AI_SYSTEM.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Prompt Templates", "text": "Mẫu prompt tái sử dụng cho phân tích, lập kế hoạch, xây dựng, debug, review và làm tài liệu.", "href": "/docs/AI_PROMPT_TEMPLATES.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Task Handoff Template", "text": "Mẫu bàn giao có cấu trúc để giao việc có phạm vi cho tác tử AI và cộng tác viên.", "href": "/docs/AI_TASK_HANDOFF_TEMPLATE.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Context Memory System", "text": "Quy tắc tái sử dụng tổng hợp, bộ nhớ suy diễn và giảm việc nạp lại ngữ cảnh lặp lại.", "href": "/docs/IAIFOUNDATION_CONTEXT_MEMORY_SYSTEM.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Agent Execution System", "text": "Quy trình AI theo vai trò cho kiến trúc sư, người xây dựng, người sửa lỗi, người phản biện và nhóm tài liệu.", "href": "/docs/IAIFOUNDATION_AGENT_EXECUTION_SYSTEM.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Multi-Model Router", "text": "Chiến lược chọn mô hình cho tác vụ đơn giản, tiêu chuẩn, phức tạp, khối lượng lớn và ngữ cảnh lớn.", "href": "/docs/IAIFOUNDATION_MULTI_MODEL_ROUTER.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Execution Engine (Level 3)", "text": "Luồng thực thi tự động từ phân loại, tách task đến validation và merge.", "href": "/docs/IAIFOUNDATION_EXECUTION_ENGINE.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Realtime Agent System", "text": "Quy tắc điều phối song song, kiểm soát xung đột, khả năng quan sát và bàn giao thời gian thực.", "href": "/docs/IAIFOUNDATION_REALTIME_AGENT_SYSTEM.md", "linkLabel": "Xem bản gốc tiếng Anh →" },
+            { "title": "Data Intelligence Layer", "text": "Cách AI nạp, lập chỉ mục, truy hồi và lý giải dữ liệu từ kho mã nguồn và lớp vận hành.", "href": "/docs/IAIFOUNDATION_DATA_INTELLIGENCE_LAYER.md", "linkLabel": "Xem bản gốc tiếng Anh →" }
+          ]
+        }
+      ],
+      "contact": {
+        "label": "Liên Hệ",
+        "title": "Muốn trao đổi sâu hơn về các đặc tả?",
+        "text": "Chúng tôi chào đón người xây dựng, đối tác và nhà nghiên cứu muốn đào sâu hơn vào hệ thống.",
+        "button": { "label": "Liên hệ với chúng tôi", "href": "mailto:hello@iaifoundation.com" }
+      }
+    },
+    "partners": {
+      "path": "/vi/partners/",
+      "template": "partners",
+      "title": "IAI Foundation - Đối tác thí điểm, hạ tầng và đồng xây",
+      "description": "Kết nối với IAI Foundation để đồng xây lớp tin cậy cho Intent OS qua đối tác hạ tầng, thí điểm, nghiên cứu và đồng xây.",
+      "ogTitle": "IAI Foundation - Đối tác thí điểm, hạ tầng và đồng xây",
+      "ogDescription": "Khám phá các hướng hợp tác với IAI Foundation cho hạ tầng, thí điểm, nghiên cứu và đồng xây.",
+      "twitterTitle": "IAI Foundation - Đối tác thí điểm, hạ tầng và đồng xây",
+      "twitterDescription": "Khám phá các hướng hợp tác với IAI Foundation cho hạ tầng, thí điểm, nghiên cứu và đồng xây.",
+      "ogImageAlt": "Trang đối tác IAI Foundation",
+      "footerKey": "partners",
+      "eyebrow": "Đối Tác",
+      "h1": "Cùng xây dựng lớp thực thi.",
+      "lead": "Chúng tôi tìm kiếm đối tác hạ tầng, tổ chức thí điểm và các nhóm đồng xây muốn cùng định hình lớp vận hành tiếp theo.",
+      "partnerTypes": {
+        "label": "Nhóm Đối Tác",
+        "cards": [
+          { "title": "Nhà cung cấp hạ tầng", "text": "Đối tác đám mây, danh tính, thanh toán và nền tảng thiết bị muốn hệ thống của mình được quản trị bởi một lớp thực thi dùng chung." },
+          { "title": "Tổ chức thí điểm", "text": "SME, doanh nghiệp lớn và đội vận hành sẵn sàng chạy những quy trình đầu tiên trên Intent OS trong môi trường kiểm soát." },
+          { "title": "Nghiên cứu & học thuật", "text": "Trường đại học và phòng thí nghiệm nghiên cứu tự động hóa đáng tin cậy, bộ máy chính sách và phối hợp đa tác tử." },
+          { "title": "Tích hợp hệ thống", "text": "Các đội hiểu cách kết nối hệ thống kế thừa, ERP và hạ tầng vật lý vào quy trình có quản trị." },
+          { "title": "Bảo mật & tuân thủ", "text": "Đối tác có thể giúp định nghĩa chuẩn kiểm toán, xác minh bằng chứng và ranh giới tuân thủ cho nền tảng." },
+          { "title": "Đồng xây", "text": "Nhà phát triển và kỹ sư muốn xây các mô-đun cốt lõi: bộ máy thực thi, bộ diễn giải chính sách, cổng thiết bị hoặc hạ tầng thanh toán." }
+        ]
+      },
+      "offer": {
+        "label": "Giá trị hợp tác",
+        "items": [
+          "Tiếp cận sớm với kiến trúc và đặc tả Intent OS",
+          "Cùng thiết kế quy trình thí điểm và mẫu chính sách",
+          "Có ảnh hưởng trực tiếp đến ưu tiên nền tảng",
+          "Dùng chung hạ tầng bằng chứng và kiểm toán",
+          "Hợp tác dài hạn, không khóa chặt nhà cung cấp"
+        ]
+      },
+      "contact": {
+        "label": "Làm việc cùng chúng tôi",
+        "title": "Bắt đầu một cuộc trao đổi.",
+        "text": "Hãy cho chúng tôi biết về tổ chức của bạn, quy trình của bạn và những gì bạn muốn đưa vào khuôn khổ quản trị.",
+        "button": { "label": "Liên hệ đối tác", "href": "mailto:partners@iaifoundation.com" }
+      }
+    },
+    "languageSeoStandard": {
+      "path": "/vi/docs/language-seo-standard/",
+      "template": "docArticle",
+      "title": "Chuẩn Ngôn Ngữ và SEO Đa Ngôn Ngữ - Tài liệu IAI Foundation",
+      "description": "Chuẩn vận hành cho ngôn ngữ từng trang, SEO theo locale, metadata tiếng Việt và cổng kiểm soát release đa ngôn ngữ.",
+      "ogTitle": "Chuẩn Ngôn Ngữ và SEO Đa Ngôn Ngữ - Tài liệu IAI Foundation",
+      "ogDescription": "Đọc chuẩn khóa cho ngôn ngữ từng trang, metadata theo locale, SEO tiếng Việt và mở rộng đa ngôn ngữ có kiểm soát.",
+      "twitterTitle": "Chuẩn Ngôn Ngữ và SEO Đa Ngôn Ngữ - Tài liệu IAI Foundation",
+      "twitterDescription": "Chuẩn vận hành khóa cho nội dung song ngữ, metadata theo locale và chất lượng release đa ngôn ngữ.",
+      "ogImageAlt": "Trang chuẩn ngôn ngữ và SEO đa ngôn ngữ",
+      "footerKey": "docs",
+      "eyebrow": "Chuẩn Vận Hành",
+      "h1": "Chuẩn Ngôn Ngữ và SEO Đa Ngôn Ngữ",
+      "lead": "Chuẩn này khóa cách IAIFoundation.com xử lý ngôn ngữ từng trang, route parity, metadata theo locale và chất lượng release đa ngôn ngữ.",
+      "summary": "Mỗi locale phải được đối xử như một bề mặt sản phẩm độc lập với nghĩa, metadata và cổng QA riêng.",
+      "sections": [
+        {
+          "label": "Baseline Khóa",
+          "title": "Giữ một route key thống nhất giữa các locale.",
+          "paragraphs": [
+            "Tiếng Anh ở route gốc. Mỗi locale không mặc định dùng tiền tố locale nhưng vẫn giữ nguyên route key để cấu trúc thông tin không bị lệch.",
+            "Canonical luôn trỏ về apex host và mỗi trang locale tự canonical về chính URL của mình."
+          ],
+          "items": [
+            "Host chính: https://iaifoundation.com",
+            "Locale mặc định: tiếng Anh trên /",
+            "Locale đang hoạt động: tiếng Việt trên /vi/",
+            "Route parity bắt buộc cho home, docs, partners và mọi route public trong tương lai"
+          ]
+        },
+        {
+          "label": "Quản Trị Ngôn Ngữ",
+          "title": "Một trang, một ngôn ngữ chủ đạo.",
+          "paragraphs": [
+            "Điều hướng, heading, body copy, CTA, metadata và structured data phải cùng khớp với locale của trang.",
+            "Ngoại lệ duy nhất là tên thương hiệu, tên sản phẩm đã khóa và một số thuật ngữ kỹ thuật được duyệt để giữ đúng nghĩa."
+          ],
+          "items": [
+            "Không trộn metadata tiếng Anh vào trang tiếng Việt",
+            "Không publish bản dịch giữ chỗ",
+            "Không ship menu hoặc footer lẫn ngôn ngữ",
+            "Không đổi thuật ngữ khóa nếu chưa có quyết định được ghi nhận"
+          ]
+        },
+        {
+          "label": "SEO Tiếng Việt",
+          "title": "Tiếng Việt là một bề mặt tìm kiếm độc lập.",
+          "paragraphs": [
+            "Nội dung tiếng Việt phải phục vụ người đọc tại Việt Nam và hành vi tìm kiếm bằng tiếng Việt. Nó không phải phần phụ của bản tiếng Anh.",
+            "Mỗi trang tiếng Việt phải có title, meta description, Open Graph, Twitter copy, ngôn ngữ schema và anchor text nội bộ của riêng mình."
+          ],
+          "items": [
+            "Dùng đầy đủ dấu tiếng Việt ở toàn bộ UI hiển thị và metadata",
+            "Dùng vi_VN làm locale Open Graph",
+            "Không tái sử dụng keyword cluster tiếng Anh cho trang tiếng Việt",
+            "Không index trang tiếng Việt trước khi metadata và schema đã được nội địa hóa"
+          ]
+        },
+        {
+          "label": "Cổng Release",
+          "title": "Mọi việc đa ngôn ngữ đều phải có bằng chứng hoàn tất.",
+          "paragraphs": [
+            "Một task ngôn ngữ hoặc SEO chỉ hoàn tất khi copy, metadata, hreflang, sitemap, schema và live smoke test cùng khớp nhau.",
+            "Đội release phải đi qua locale brief và checklist QA đa ngôn ngữ trước khi locale mới hoặc trang locale được cập nhật lên live."
+          ],
+          "items": [
+            "Cập nhật HTML, sitemap, locale manifest và switcher cùng lúc",
+            "Giữ người dùng ở đúng locale khi có route tương đương",
+            "Đính kèm bằng chứng QA trước khi báo hoàn thành",
+            "Escalate mọi thay đổi liên quan đến route model, locale mặc định hoặc thuật ngữ khóa"
+          ]
+        }
+      ],
+      "relatedLinks": [
+        { "label": "Mở mẫu brief SEO theo locale", "href": "/vi/docs/locale-seo-brief-template/" },
+        { "label": "Mở checklist QA release đa ngôn ngữ", "href": "/vi/docs/multilingual-release-qa-checklist/" }
+      ],
+      "sourceDoc": { "label": "Xem bản gốc tiếng Anh", "href": "/IAIFOUNDATION_LANGUAGE_AND_MULTILINGUAL_SEO_STANDARD.md" }
+    },
+    "localeSeoBriefTemplate": {
+      "path": "/vi/docs/locale-seo-brief-template/",
+      "template": "docArticle",
+      "title": "Mẫu Brief SEO Theo Locale - Tài liệu IAI Foundation",
+      "description": "Mẫu brief chuẩn để khóa search intent, metadata, route parity và cổng QA trước khi publish một locale mới.",
+      "ogTitle": "Mẫu Brief SEO Theo Locale - Tài liệu IAI Foundation",
+      "ogDescription": "Dùng mẫu này để khóa phạm vi route, search intent, metadata và yêu cầu QA cho từng locale mới.",
+      "twitterTitle": "Mẫu Brief SEO Theo Locale - Tài liệu IAI Foundation",
+      "twitterDescription": "Biểu mẫu vận hành bắt buộc cho planning route đa ngôn ngữ, metadata và kiểm soát release SEO.",
+      "ogImageAlt": "Trang mẫu brief SEO theo locale",
+      "footerKey": "docs",
+      "eyebrow": "Biểu Mẫu Vận Hành",
+      "h1": "Mẫu Brief SEO Theo Locale",
+      "lead": "Mỗi locale mới nên bắt đầu bằng một brief khóa rõ đối tượng, search intent, metadata, phạm vi route và kỳ vọng QA trước khi publish.",
+      "summary": "Dùng một brief riêng cho từng locale để search intent và phạm vi release được minh bạch trước khi viết nội dung.",
+      "sections": [
+        {
+          "label": "Danh Tính Brief",
+          "title": "Bắt đầu từ ownership và định nghĩa thị trường.",
+          "paragraphs": [
+            "Một locale brief cần ghi rõ mã locale, thị trường, bề mặt sản phẩm, ngày release mục tiêu và người chịu trách nhiệm trước khi bắt đầu viết.",
+            "Điều này giúp cả team đang khóa một thị trường thực, không chỉ xử lý một yêu cầu dịch thuật."
+          ],
+          "items": [
+            "Mã locale và language tag",
+            "Thị trường và nhóm người dùng mục tiêu",
+            "Bề mặt sản phẩm và phạm vi route",
+            "Owner và reviewer"
+          ]
+        },
+        {
+          "label": "Search Intent",
+          "title": "Lập kế hoạch từ ý định tìm kiếm theo route, không chỉ từ tiêu đề trang.",
+          "paragraphs": [
+            "Mỗi route cần có keyword cluster chính, semantic term hỗ trợ, chân dung người đọc và CTA mong muốn.",
+            "Brief cần phân tách rõ intent thông tin, intent điều hướng, intent tài liệu và intent đối tác."
+          ],
+          "items": [
+            "Keyword cluster chính theo route",
+            "Semantic term hỗ trợ",
+            "Audience và CTA theo route",
+            "Mục tiêu internal link"
+          ]
+        },
+        {
+          "label": "Gói Metadata",
+          "title": "Khóa metadata trước khi trang được xuất bản.",
+          "paragraphs": [
+            "Mỗi route indexable phải rời brief với H1, title, meta description, canonical, bản đồ alternate locale và ngôn ngữ schema đã được xác định.",
+            "Như vậy team sẽ không phải vá metadata vào phút cuối và tạo ra tiêu đề trùng hoặc yếu."
+          ],
+          "items": [
+            "H1 theo route",
+            "Title và description theo route",
+            "Canonical URL",
+            "Bản đồ alternate locale và ngôn ngữ schema"
+          ]
+        },
+        {
+          "label": "Cổng QA",
+          "title": "Locale không được publish nếu thiếu bằng chứng.",
+          "paragraphs": [
+            "Brief cần xác định rõ các bước kiểm trước khi publish cho copy, metadata, hreflang, sitemap, locale manifest và live verification.",
+            "Evidence link nên trỏ đến preview URL, screenshot và release note tương ứng."
+          ],
+          "items": [
+            "Preview URL và ghi chú QA",
+            "Bộ ảnh chụp cho route bị ảnh hưởng",
+            "Trường phê duyệt cho content, SEO, QA và product",
+            "Quyết định release rõ ràng"
+          ]
+        }
+      ],
+      "relatedLinks": [
+        { "label": "Đọc chuẩn ngôn ngữ và SEO đa ngôn ngữ", "href": "/vi/docs/language-seo-standard/" },
+        { "label": "Mở checklist QA release đa ngôn ngữ", "href": "/vi/docs/multilingual-release-qa-checklist/" }
+      ],
+      "sourceDoc": { "label": "Xem bản gốc tiếng Anh", "href": "/LOCALE_SEO_BRIEF_TEMPLATE.md" }
+    },
+    "multilingualReleaseQaChecklist": {
+      "path": "/vi/docs/multilingual-release-qa-checklist/",
+      "template": "docArticle",
+      "title": "Checklist QA Release Đa Ngôn Ngữ - Tài liệu IAI Foundation",
+      "description": "Checklist release cho trang đa ngôn ngữ bao phủ chất lượng ngôn ngữ, metadata, hreflang, sitemap, menu và live smoke test.",
+      "ogTitle": "Checklist QA Release Đa Ngôn Ngữ - Tài liệu IAI Foundation",
+      "ogDescription": "Dùng checklist chung này để khóa release đa ngôn ngữ giữa dev, content, QA, SEO và AI operation.",
+      "twitterTitle": "Checklist QA Release Đa Ngôn Ngữ - Tài liệu IAI Foundation",
+      "twitterDescription": "Checklist QA chung cho nội dung đa ngôn ngữ, metadata, hành vi browser và xác nhận live.",
+      "ogImageAlt": "Trang checklist QA release đa ngôn ngữ",
+      "footerKey": "docs",
+      "eyebrow": "Checklist Release",
+      "h1": "Checklist QA Release Đa Ngôn Ngữ",
+      "lead": "Checklist này tạo ra một cổng release chung cho dev, content, QA, SEO và AI agent mỗi khi có thay đổi về ngôn ngữ, metadata hoặc route locale.",
+      "summary": "Dùng cùng một checklist cho copy, metadata, routing, menu browser và live smoke validation.",
+      "sections": [
+        {
+          "label": "Preflight",
+          "title": "Khóa phạm vi trước khi chạm production.",
+          "paragraphs": [
+            "Locale bị ảnh hưởng, route bị ảnh hưởng và release note phải được xác định rõ trước khi đội ngũ bắt đầu validate bản candidate.",
+            "Không có release đa ngôn ngữ nào được đi tiếp với phạm vi ẩn hoặc copy chưa review."
+          ],
+          "items": [
+            "Phạm vi khớp với release note",
+            "Locale và route bị ảnh hưởng được ghi rõ",
+            "Copy review đã hoàn tất",
+            "Không còn placeholder hoặc bản dịch máy chưa duyệt"
+          ]
+        },
+        {
+          "label": "QA Ngôn Ngữ",
+          "title": "Kiểm tra chữ hiển thị trước tiên.",
+          "paragraphs": [
+            "Điều hướng, CTA, footer, form và trạng thái lỗi phải khớp đúng locale đang đọc.",
+            "Trang tiếng Việt phải có dấu đầy đủ và dùng đúng thuật ngữ khóa. Trang tiếng Anh phải tự nhiên, rõ ràng và đúng văn phong quốc tế."
+          ],
+          "items": [
+            "Một ngôn ngữ chủ đạo trên mỗi trang",
+            "Không còn chuỗi UI lẫn ngôn ngữ",
+            "Tên sản phẩm khóa giữ nguyên nhất quán",
+            "Dấu tiếng Việt và ngữ pháp tiếng Anh đều đúng"
+          ]
+        },
+        {
+          "label": "QA SEO",
+          "title": "Xác nhận gói metadata cho từng route.",
+          "paragraphs": [
+            "Mỗi trang indexable cần title, description, canonical, hreflang, Open Graph, Twitter copy và schema language riêng theo locale.",
+            "Checklist phải bắt được metadata trùng, alternate thiếu và internal link sai ngôn ngữ trước khi release."
+          ],
+          "items": [
+            "Một H1 cho mỗi trang",
+            "Title và description riêng theo locale",
+            "Canonical và hreflang đúng",
+            "Open Graph, Twitter và schema đã được nội địa hóa"
+          ]
+        },
+        {
+          "label": "Browser & Menu QA",
+          "title": "Không tách QA ngôn ngữ khỏi QA trình duyệt.",
+          "paragraphs": [
+            "Header navigation và language switcher là một phần của trải nghiệm đa ngôn ngữ, đặc biệt ở viewport nhỏ.",
+            "Đội ngũ phải xác nhận menu mở, đóng, resize về desktop sạch và không đẩy người dùng sang sai locale."
+          ],
+          "items": [
+            "Header menu chạy đúng trên desktop, tablet và mobile",
+            "Menu đóng khi bấm link, bấm ra ngoài, resize và phím Escape",
+            "Language switcher trỏ tới đúng trang tương đương",
+            "HTML và asset live khớp đúng bản release mong muốn"
+          ]
+        }
+      ],
+      "relatedLinks": [
+        { "label": "Đọc chuẩn ngôn ngữ và SEO đa ngôn ngữ", "href": "/vi/docs/language-seo-standard/" },
+        { "label": "Mở mẫu brief SEO theo locale", "href": "/vi/docs/locale-seo-brief-template/" }
+      ],
+      "sourceDoc": { "label": "Xem bản gốc tiếng Anh", "href": "/MULTILINGUAL_RELEASE_QA_CHECKLIST.md" }
+    },
+    "notFound": {
+      "path": "/404.html",
+      "template": "notFound",
+      "title": "IAI Foundation - Page Not Found",
+      "description": "The page you are looking for does not exist.",
+      "footerKey": "docs",
+      "eyebrow": "404",
+      "h1": "Page not found.",
+      "lead": "The page you are looking for does not exist or has been moved.",
+      "metaNote": "Trang bạn đang tìm không tồn tại hoặc đã được di chuyển.",
+      "actions": [
+        { "label": "Go Home", "href": "/", "style": "primary" },
+        { "label": "Trang tiếng Việt", "href": "/vi/", "style": "secondary" },
+        { "label": "Read the Docs", "href": "/docs/", "style": "secondary" }
+      ]
+    }
+  }
+}
