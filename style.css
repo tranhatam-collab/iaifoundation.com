@@ -121,3 +121,369 @@ a:focus-visible, button:focus-visible, input:focus-visible {
 .waitlist-form input[type="email"]:focus { border-color: var(--accent); }
 .waitlist-form input[type="email"]::placeholder { color: var(--muted); }
 .waitlist-message { margin-top: 12px; font-size: 14px; color: var(--accent); }
+
+/* ============================================================
+   IAI FOUNDATION — BRAND v2.0 "INTENT SOVEREIGN"
+   Append-only overlay. Existing tokens preserved as fallback.
+   Reference: docs/IAIFOUNDATION_V2_INTENT_SOVEREIGN.md
+
+   Tinh thần: foundational · sovereign · infrastructure-grade · intent-driven.
+   Deep ink + indigo violet (sovereign intent) + gold verification (IAI trust).
+   Different from OMDALA (cyan operating) and Nhà Chung (gold/community).
+   ============================================================ */
+
+:root {
+  /* ── INK SUBSTRATE (deeper, more authoritative than #0b1020) ── */
+  --iaif-ink-950: #080A12;
+  --iaif-ink-900: #0B0E1A;
+  --iaif-ink-800: #131826;
+  --iaif-ink-700: #1A2236;
+
+  /* ── INTENT VIOLET (sovereignty, intent, primary signal) ── */
+  --iaif-violet-700: #4A2FBF;
+  --iaif-violet-600: #6347D9;
+  --iaif-violet-500: #7C5CFF;       /* primary intent signal */
+  --iaif-violet-400: #9A82FF;       /* hover, lighter */
+  --iaif-violet-300: #BAA8FF;       /* tints */
+  --iaif-violet-200: #DCD0FF;       /* faint */
+  --iaif-violet-glow: rgba(124, 92, 255, 0.32);
+
+  /* ── PERIWINKLE (existing accent — becomes secondary in v2.0) ── */
+  --iaif-peri-500: #8FB3FF;
+  --iaif-peri-400: #A8C4FF;
+  --iaif-peri-soft: rgba(143, 179, 255, 0.18);
+
+  /* ── GOLD VERIFICATION (IAI ecosystem standard — proof, sovereignty seal) ── */
+  --iaif-gold-500: #D4AF37;         /* polished gold */
+  --iaif-gold-bright: #FFD700;      /* 24K success */
+  --iaif-gold-soft: rgba(212, 175, 55, 0.18);
+
+  /* ── TEXT (preserve existing) ── */
+  --iaif-white-100: #FFFFFF;
+  --iaif-white-200: #E8EDF5;
+  --iaif-white-300: #B8C1D3;        /* matches existing --muted */
+
+  /* ── GRADIENTS — sovereign intent flow ── */
+  --iaif-gradient-intent:
+    linear-gradient(135deg, #7C5CFF 0%, #4A2FBF 50%, #7C5CFF 100%);
+  --iaif-gradient-gold:
+    linear-gradient(135deg, #FFD700 0%, #D4AF37 50%, #B8910C 100%);
+  --iaif-gradient-text:
+    linear-gradient(180deg, #FFFFFF 0%, #BAA8FF 100%);
+
+  /* ── SHADOWS tuned to intent violet ── */
+  --iaif-shadow-intent: 0 0 0 1px rgba(124, 92, 255, 0.22), 0 12px 40px rgba(74, 47, 191, 0.25);
+  --iaif-shadow-intent-strong: 0 0 0 1px rgba(124, 92, 255, 0.4), 0 16px 48px rgba(124, 92, 255, 0.35);
+  --iaif-shadow-gold: 0 0 24px rgba(212, 175, 55, 0.22);
+
+  /* ── EASING (luxury cubic, IAI ecosystem standard) ── */
+  --iaif-ease-luxury: cubic-bezier(0.32, 0.72, 0, 1);
+  --iaif-transition-base: 0.42s var(--iaif-ease-luxury);
+
+  /* ── Override existing accent semantically ── */
+  /* Existing var --accent stays at #8fb3ff for backward compat,
+     but we add new --accent-intent var for v2.0 emphasis */
+  --accent-intent: var(--iaif-violet-500);
+}
+
+/* ─── Body — sovereign substrate with intent violet ambient ──── */
+
+body {
+  background:
+    /* Existing radial blue glow (keep) */
+    radial-gradient(circle at top, rgba(92, 126, 255, 0.22), transparent 30%),
+    /* NEW: intent violet ambient at bottom-left */
+    radial-gradient(circle at bottom left, rgba(124, 92, 255, 0.14), transparent 35%),
+    /* NEW: subtle vertical line grid (sovereignty / structure) */
+    linear-gradient(90deg, rgba(124, 92, 255, 0.04) 1px, transparent 1px),
+    /* Existing base gradient (deepened tones) */
+    linear-gradient(180deg, var(--iaif-ink-900) 0%, var(--iaif-ink-950) 100%);
+  background-size: auto, auto, 64px 100%, auto;
+  background-attachment: fixed;
+  position: relative;
+}
+
+/* Intent line sweep — sovereign signal moving slowly */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    transparent 49%,
+    rgba(124, 92, 255, 0.05) 50%,
+    transparent 51%,
+    transparent 100%);
+  background-size: 100% 200%;
+  animation: iaif-intent-sweep 22s linear infinite;
+  opacity: 0.5;
+}
+
+@keyframes iaif-intent-sweep {
+  0%   { background-position: 0% -100%; }
+  100% { background-position: 0% 200%; }
+}
+
+.site-header, main, footer { position: relative; z-index: 1; }
+
+/* ─── Hero — sovereign authority headline ──────────────────── */
+
+.hero h1,
+section.hero h1,
+.intro h1,
+h1 {
+  background: var(--iaif-gradient-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+}
+
+/* Hero edge — single-pixel intent violet line */
+.hero::before,
+section.hero::before,
+.intro::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 64px;
+  height: 1px;
+  background: var(--iaif-violet-500);
+  box-shadow: 0 0 14px var(--iaif-violet-500);
+}
+
+/* ─── Eyebrow — intent violet leading line ─────────────────── */
+
+.eyebrow,
+.kicker,
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--iaif-violet-400);
+  margin-bottom: 12px;
+}
+
+.eyebrow::before,
+.kicker::before,
+.section-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 1px;
+  background: var(--iaif-violet-500);
+  flex-shrink: 0;
+}
+
+/* ─── Buttons — intent violet primary, sovereign authority ─── */
+
+.btn,
+.button,
+.cta {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  transition: var(--iaif-transition-base);
+}
+
+.btn-primary,
+.button-primary,
+.cta-primary,
+a.btn-primary,
+.btn.is-primary {
+  background: var(--iaif-violet-500);
+  color: var(--iaif-white-100);
+  border-color: var(--iaif-violet-500);
+  box-shadow: var(--iaif-shadow-intent);
+}
+
+.btn-primary::after,
+.button-primary::after,
+.cta-primary::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -120%;
+  width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.45), transparent);
+  transition: left 0.7s var(--iaif-ease-luxury);
+}
+
+.btn-primary:hover::after,
+.button-primary:hover::after,
+.cta-primary:hover::after { left: 130%; }
+
+.btn-primary:hover,
+.button-primary:hover,
+.cta-primary:hover {
+  background: var(--iaif-violet-400);
+  border-color: var(--iaif-violet-400);
+  box-shadow: var(--iaif-shadow-intent-strong);
+  transform: translateY(-1px);
+}
+
+.btn-secondary,
+.button-secondary,
+.cta-secondary,
+.btn.is-ghost {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--iaif-white-100);
+  border: 1px solid rgba(124, 92, 255, 0.32);
+}
+
+.btn-secondary:hover,
+.button-secondary:hover,
+.cta-secondary:hover {
+  background: rgba(124, 92, 255, 0.1);
+  border-color: var(--iaif-violet-500);
+  color: var(--iaif-violet-400);
+}
+
+/* ─── Panels — intent corner ticks (sovereign card) ────────── */
+
+.panel,
+.card,
+.feature,
+.use-case {
+  position: relative;
+  background: linear-gradient(180deg, rgba(19, 24, 38, 0.6) 0%, rgba(11, 14, 26, 0.4) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: border-color var(--iaif-transition-base);
+}
+
+.panel:hover,
+.card:hover,
+.feature:hover,
+.use-case:hover {
+  border-color: rgba(124, 92, 255, 0.3);
+}
+
+/* Corner ticks — top-left + bottom-right intent violet */
+.panel::before,
+.card::before,
+.feature::before,
+.use-case::before,
+.panel::after,
+.card::after,
+.feature::after,
+.use-case::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 1px solid var(--iaif-violet-500);
+  opacity: 0.55;
+  transition: opacity var(--iaif-transition-base);
+  pointer-events: none;
+}
+
+.panel::before, .card::before, .feature::before, .use-case::before {
+  top: -1px; left: -1px;
+  border-right: 0; border-bottom: 0;
+}
+
+.panel::after, .card::after, .feature::after, .use-case::after {
+  bottom: -1px; right: -1px;
+  border-left: 0; border-top: 0;
+}
+
+.panel:hover::before, .panel:hover::after,
+.card:hover::before, .card:hover::after,
+.feature:hover::before, .feature:hover::after,
+.use-case:hover::before, .use-case:hover::after { opacity: 1; }
+
+/* ─── Verified seal — gold sovereignty proof ──────────────── */
+
+.verified-seal,
+.proof-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--iaif-gold-soft);
+  color: var(--iaif-gold-500);
+  border: 1px solid rgba(212, 175, 55, 0.32);
+  border-radius: 999px;
+}
+
+.verified-seal::before,
+.proof-badge::before {
+  content: '✓';
+  font-weight: 700;
+  color: var(--iaif-gold-bright);
+}
+
+/* ─── Inline links — intent violet underlined ─────────────── */
+
+.prose a,
+.content a,
+article p a,
+section p a,
+.docs-content a {
+  color: var(--iaif-violet-400);
+  text-decoration: underline;
+  text-decoration-color: rgba(124, 92, 255, 0.45);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  font-weight: 500;
+  transition: var(--iaif-transition-base);
+}
+
+.prose a:hover,
+.content a:hover,
+article p a:hover,
+section p a:hover,
+.docs-content a:hover {
+  color: var(--iaif-violet-300);
+  text-decoration-color: var(--iaif-violet-500);
+  text-shadow: 0 0 10px rgba(124, 92, 255, 0.4);
+}
+
+/* ─── Scrollbar — intent violet ───────────────────────────── */
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--iaif-ink-950); }
+::-webkit-scrollbar-thumb { background: rgba(124, 92, 255, 0.4); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--iaif-violet-500); }
+
+/* ─── Selection — intent violet ──────────────────────────── */
+
+::selection {
+  background: var(--iaif-violet-500);
+  color: var(--iaif-ink-950);
+}
+
+/* ─── Reduced motion ─────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  .btn-primary::after,
+  .button-primary::after,
+  .cta-primary::after {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* ============================================================
+   END IAI FOUNDATION Brand v2.0 Intent Sovereign overlay
+   ============================================================ */
