@@ -1,0 +1,19 @@
+"$schema" = "../../node_modules/wrangler/config-schema.json"
+
+name = "intent-os-runtime"
+main = "src/index.ts"
+compatibility_date = "2026-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "intent-os-db"
+database_id = ""
+migrations_dir = "../../packages/db/migrations"
+
+[[r2_buckets]]
+binding = "ARTIFACTS"
+bucket_name = "intent-os-artifacts"
+
+[vars]
+LOG_LEVEL = "debug"
