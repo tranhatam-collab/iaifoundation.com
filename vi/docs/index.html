@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IAI Foundation - Tài liệu công khai và đặc tả Intent OS</title>
+  <meta name="description" content="Tổng hợp kiến trúc công khai, quản trị, mô hình dữ liệu và các đặc tả kỹ thuật cho Intent OS." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="IAI Foundation" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta property="og:title" content="IAI Foundation - Tài liệu công khai và đặc tả Intent OS" />
+  <meta property="og:description" content="Tổng hợp kiến trúc công khai, quản trị và tài liệu tham chiếu kỹ thuật cho Intent OS." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iaifoundation.com/vi/docs/" />
+  <meta property="og:site_name" content="IAI Foundation" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="og:image" content="https://iaifoundation.com/og-image.svg" />
+  <meta property="og:image:alt" content="Trang tài liệu IAI Foundation" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IAI Foundation - Tài liệu công khai và đặc tả Intent OS" />
+  <meta name="twitter:description" content="Tổng hợp kiến trúc công khai, quản trị và tài liệu tham chiếu kỹ thuật cho Intent OS." />
+  <link rel="canonical" href="https://iaifoundation.com/vi/docs/" />
+  <link rel="alternate" hreflang="en" href="https://iaifoundation.com/docs/" />
+  <link rel="alternate" hreflang="vi" href="https://iaifoundation.com/vi/docs/" />
+  <link rel="alternate" hreflang="x-default" href="https://iaifoundation.com/docs/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Bỏ qua và đi đến nội dung chính</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/vi/">IAI Foundation</a>
+      <div class="nav-actions">
+        <nav class="desktop-nav" aria-label="Điều hướng chính">
+          <a href="/vi/">Trang chủ</a>
+          <a href="/vi/#architecture">Kiến trúc</a>
+          <a href="/vi/docs/">Tài liệu</a>
+          <a href="/vi/partners/">Đối tác</a>
+          <a href="/vi/#contact">Liên hệ</a>
+        </nav>
+        <div class="lang-switch" aria-label="Chuyển ngôn ngữ">
+          <a class="lang-link" href="/docs/" hreflang="en" lang="en">🇺🇸 English</a>
+          <a class="lang-link is-active" href="/vi/docs/" hreflang="vi" lang="vi" aria-current="page">🇻🇳 Tiếng Việt</a>
+        </div>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu container" hidden>
+      <a href="/vi/">Trang chủ</a>
+      <a href="/vi/#architecture">Kiến trúc</a>
+      <a href="/vi/docs/">Tài liệu</a>
+      <a href="/vi/partners/">Đối tác</a>
+      <a href="/vi/#contact">Liên hệ</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="section">
+      <div class="container narrow">
+        <p class="section-label">Tài Liệu</p>
+        <h1>Tổng hợp đặc tả công khai và kiến trúc.</h1>
+        <p class="lead">
+          Đây là lớp tổng hợp công khai để người xây dựng, đối tác và nhóm thí điểm có thể hiểu
+          hệ thống trước khi nó được vận hành thực tế.
+        </p>
+        <p class="meta-note">
+          <strong>Lưu ý:</strong> Để giữ hợp đồng kỹ thuật và ngôn ngữ hệ thống nhất quán,
+          các file đặc tả chi tiết hiện đang được công bố bằng tiếng Anh. Lớp tóm tắt,
+          điều hướng và SEO đã song ngữ và sẵn sàng mở rộng thêm tài liệu dịch trong bước tiếp theo.
+        </p>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container">
+        <p class="section-label">Chiến Lược &amp; Kiến Trúc</p>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Master Spec</h3>
+            <p>Luận điểm cốt lõi, định nghĩa sản phẩm, bảy lớp nền tảng và các nguyên tắc của sản phẩm.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_MASTER_SPEC.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Information Architecture</h3>
+            <p>Tuyến trang đề xuất, thứ tự chuyên mục trên trang chủ, nhãn điều hướng và giọng điệu nội dung.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_INFORMATION_ARCHITECTURE.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Product Architecture</h3>
+            <p>Bản đồ ưu tiên Cloudflare, vai trò tác tử và luồng thực thi từ intent đến kết quả.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_PRODUCT_ARCHITECTURE.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Data Model</h3>
+            <p>Các thực thể cốt lõi và quy tắc thiết kế dữ liệu cho nền tảng.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_DATA_MODEL.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Policy Engine</h3>
+            <p>Các miền chính sách, kết quả bắt buộc và nguyên tắc an toàn.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_POLICY_ENGINE.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Roadmap</h3>
+            <p>Kế hoạch 12 đến 24 tháng từ website công khai đến các chương trình thí điểm tự động.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_ROADMAP_12_24_MONTHS.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Language &amp; Multilingual SEO Standard</h3>
+            <p>Chuẩn khóa cho ngôn ngữ từng trang, metadata theo locale, SEO tiếng Việt và mở rộng đa ngôn ngữ sau này.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_LANGUAGE_AND_MULTILINGUAL_SEO_STANDARD.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Locale SEO Brief Template</h3>
+            <p>Biểu mẫu bắt buộc để khóa search intent, metadata, phạm vi route và cổng QA trước khi publish một locale mới.</p>
+            <a class="doc-link" href="/LOCALE_SEO_BRIEF_TEMPLATE.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Multilingual Release QA Checklist</h3>
+            <p>Checklist release thống nhất cho dev, content, QA, SEO và AI agent khi phát hành nhiều ngôn ngữ.</p>
+            <a class="doc-link" href="/MULTILINGUAL_RELEASE_QA_CHECKLIST.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Intent OS - Đặc Tả Kỹ Thuật</p>
+        <div class="card-grid">
+          <article class="card">
+            <h3>MVP Build Order</h3>
+            <p>Trình tự xây dựng theo từng giai đoạn, tiêu chí hoàn tất, bản đồ phụ thuộc và chiến lược kiểm thử.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_MVP_BUILD_ORDER.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Database Schema</h3>
+            <p>Schema D1 đầy đủ cho MVP: tenant, workspace, run, thanh toán, thiết bị, proof và audit.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_DATABASE_SCHEMA.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>API Specification</h3>
+            <p>Hợp đồng API hợp nhất cho Control Plane, Runtime, Payments và Device Gateway.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_API_SPEC.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Admin Dashboard Spec</h3>
+            <p>Bản đồ màn hình, persona, ma trận phân quyền và pattern UX cho admin UI.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_ADMIN_DASHBOARD_SPEC.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Admin UI Routes &amp; Screens</h3>
+            <p>Định nghĩa tuyến trang chi tiết, bộ lọc, UX bảng dữ liệu và mẫu trạng thái trống.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_ADMIN_UI_ROUTES_AND_SCREENS.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Run Detail Page</h3>
+            <p>Màn hình quan trọng nhất: vòng đời, từng bước, phê duyệt, thanh toán, bằng chứng và đối soát.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_RUN_DETAIL_PAGE_SPEC.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>D1 SQL Migrations V1</h3>
+            <p>Kế hoạch migration, thứ tự file, seed data và chiến lược thực thi cho Cloudflare D1.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_D1_SQL_MIGRATIONS_V1.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Backend Folder Structure</h3>
+            <p>Cấu trúc monorepo, ranh giới module, quy ước đặt tên và mục tiêu testing.</p>
+            <a class="doc-link" href="/docs/INTENT_OS_BACKEND_FOLDER_STRUCTURE.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt">
+      <div class="container narrow">
+        <p class="section-label">Thiết lập</p>
+        <div class="card">
+          <h3>Cloudflare + GitHub Setup</h3>
+          <p>Cấu trúc repo, cấu hình Pages, DNS và baseline bảo mật.</p>
+          <a class="doc-link" href="/IAIFOUNDATION_CLOUDFLARE_GITHUB_SETUP.md">Xem bản gốc tiếng Anh &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <p class="section-label">Quản trị AI</p>
+        <div class="card-grid">
+          <article class="card">
+            <h3>AI Governance Index</h3>
+            <p>Lộ trình đọc thống nhất giữa các tài liệu vận hành AI Level 1, Level 2 và Level 3.</p>
+            <a class="doc-link" href="/docs/AI_GOVERNANCE_INDEX.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>AI System Rules</h3>
+            <p>Quy tắc vận hành AI cốt lõi, giới hạn, quy trình và chuẩn đầu ra cho repo này.</p>
+            <a class="doc-link" href="/docs/IAI_FOUNDATION_AI_SYSTEM.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Prompt Templates</h3>
+            <p>Mẫu prompt tái sử dụng cho phân tích, lập kế hoạch, xây dựng, debug, review và làm tài liệu.</p>
+            <a class="doc-link" href="/docs/AI_PROMPT_TEMPLATES.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Task Handoff Template</h3>
+            <p>Mẫu bàn giao có cấu trúc để giao việc có phạm vi cho tác tử AI và cộng tác viên.</p>
+            <a class="doc-link" href="/docs/AI_TASK_HANDOFF_TEMPLATE.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Context Memory System</h3>
+            <p>Quy tắc tái sử dụng tổng hợp, bộ nhớ suy diễn và giảm việc nạp lại ngữ cảnh lặp lại.</p>
+            <a class="doc-link" href="/docs/IAIFOUNDATION_CONTEXT_MEMORY_SYSTEM.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Agent Execution System</h3>
+            <p>Quy trình AI theo vai trò cho kiến trúc sư, người xây dựng, người sửa lỗi, người phản biện và nhóm tài liệu.</p>
+            <a class="doc-link" href="/docs/IAIFOUNDATION_AGENT_EXECUTION_SYSTEM.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Multi-Model Router</h3>
+            <p>Chiến lược chọn mô hình cho tác vụ đơn giản, tiêu chuẩn, phức tạp, khối lượng lớn và ngữ cảnh lớn.</p>
+            <a class="doc-link" href="/docs/IAIFOUNDATION_MULTI_MODEL_ROUTER.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Execution Engine (Level 3)</h3>
+            <p>Luồng thực thi tự động từ phân loại, tách task đến validation và merge.</p>
+            <a class="doc-link" href="/docs/IAIFOUNDATION_EXECUTION_ENGINE.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Realtime Agent System</h3>
+            <p>Quy tắc điều phối song song, kiểm soát xung đột, observability và handoff thời gian thực.</p>
+            <a class="doc-link" href="/docs/IAIFOUNDATION_REALTIME_AGENT_SYSTEM.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+          <article class="card">
+            <h3>Data Intelligence Layer</h3>
+            <p>Cách AI nạp, lập chỉ mục, truy hồi và lý giải dữ liệu từ kho mã nguồn và lớp vận hành.</p>
+            <a class="doc-link" href="/docs/IAIFOUNDATION_DATA_INTELLIGENCE_LAYER.md">Xem bản gốc tiếng Anh &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section cta-section">
+      <div class="container cta-card">
+        <div>
+          <p class="section-label">Liên Hệ</p>
+          <h2>Muốn trao đổi sâu hơn về các đặc tả?</h2>
+          <p>Chúng tôi chào đón người xây dựng, đối tác và nhà nghiên cứu muốn đào sâu hơn vào hệ thống.</p>
+        </div>
+        <a class="button primary" href="mailto:hello@iaifoundation.com">Liên hệ với chúng tôi</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand footer-brand">IAI Foundation</p>
+        <p class="footer-text">Xây dựng lớp tin cậy biến ý định thành kết quả ngoài đời thực.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Khám Phá</p>
+        <a href="/vi/">Trang chủ</a>
+        <a href="/vi/#architecture">Kiến trúc</a>
+        <a href="/vi/#principles">Nguyên tắc</a>
+      </div>
+      <div>
+        <p class="footer-heading">Nền Tảng</p>
+        <a href="/vi/#roadmap">Lộ trình</a>
+        <a href="/vi/partners/">Đối tác</a>
+        <a href="/vi/#contact">Liên hệ</a>
+      </div>
+      <div>
+        <p class="footer-heading">Trạng Thái</p>
+        <p class="footer-text">Tài liệu công khai v1</p>
+        <p class="footer-text">&copy; 2026 IAI Foundation</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
