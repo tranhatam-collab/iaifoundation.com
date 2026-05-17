@@ -6,7 +6,7 @@ import { tenantScopeMiddleware } from '../middleware/tenant-scope.js';
 import { workspaceScopeMiddleware } from '../middleware/workspace-scope.js';
 import { idempotencyMiddleware } from '../middleware/idempotency.js';
 import { okResponse } from '../common/response/envelope.js';
-import { handleLogin, handleLogout, handleGetMe } from '../modules/auth/auth.controller.js';
+import { handleLogin, handleLogout, handleGetMe, handleRegister, handleMagicLinkRequest, handleMagicLinkVerify } from '../modules/auth/auth.controller.js';
 import { createTenantService } from '../modules/tenants/tenants.service.js';
 import { createWorkspaceService, listWorkspacesService } from '../modules/workspaces/workspaces.service.js';
 import { createRoleBindingService, listRolesService } from '../modules/roles/roles.service.js';
@@ -25,8 +25,11 @@ import { getUsageSummary } from '../modules/usage-billing/usage-billing.service.
 
 const v1 = new Hono<{ Bindings: Env; Variables: { auth: AuthContext } }>();
 
-// Public auth route
+// Public auth routes
 v1.post('/auth/login', handleLogin);
+v1.post('/auth/register', handleRegister);
+v1.post('/auth/magic-link/request', handleMagicLinkRequest);
+v1.get('/auth/magic-link/verify', handleMagicLinkVerify);
 
 // Protected routes
 v1.use('*', authMiddleware);

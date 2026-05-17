@@ -1,14 +1,26 @@
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
 import { requestId } from 'hono/request-id';
-import type { D1Database, R2Bucket } from '@cloudflare/workers-types';
+import type { D1Database, R2Bucket, KVNamespace } from '@cloudflare/workers-types';
 import { AppError, ERROR_CODES } from '@intent-os/contracts/api';
 
 export interface Env {
   DB: D1Database;
   ARTIFACTS: R2Bucket;
+  CACHE: KVNamespace;
   ENVIRONMENT: string;
   LOG_LEVEL: string;
+  // Email
+  MAIL_API_BASE_URL: string;
+  EMAIL_FROM: string;
+  MAIL_API_WORKSPACE_ID: string;
+  MAIL_API_KEY?: string;
+  // Auth secrets
+  SESSION_SECRET?: string;
+  MAGIC_LINK_SECRET?: string;
+  GOOGLE_CLIENT_ID?: string;
+  GOOGLE_CLIENT_SECRET?: string;
+  GOOGLE_OAUTH_STATE_SECRET?: string;
 }
 
 const app = new Hono<{ Bindings: Env }>();

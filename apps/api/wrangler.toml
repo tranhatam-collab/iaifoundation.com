@@ -4,6 +4,7 @@ name = "intent-os-api"
 main = "src/index.ts"
 compatibility_date = "2026-01-01"
 compatibility_flags = ["nodejs_compat"]
+account_id = "93112cc89181e75335cbd7ef7e392ba3"
 
 [observability]
 enabled = true
@@ -11,7 +12,7 @@ enabled = true
 [[d1_databases]]
 binding = "DB"
 database_name = "intent-os-db"
-database_id = ""
+database_id = "541634ee-ec04-42c1-b8a6-be97e70a370b"
 migrations_dir = "../../packages/db/migrations"
 
 [[r2_buckets]]
@@ -20,12 +21,20 @@ bucket_name = "intent-os-artifacts"
 
 [[kv_namespaces]]
 binding = "CACHE"
-id = ""
+id = "bed91f451f6d43b4bd94e2a9c9918bde"
 
 [vars]
 ENVIRONMENT = "development"
 LOG_LEVEL = "debug"
+MAIL_API_BASE_URL = "https://api.mail.iai.one/v1"
+EMAIL_FROM = "IAI Foundation <noreply@iaifoundation.com>"
+MAIL_API_WORKSPACE_ID = "iaifoundation.com"
+
+[env.production]
 
 [env.production.vars]
 ENVIRONMENT = "production"
 LOG_LEVEL = "info"
+MAIL_API_BASE_URL = "https://api.mail.iai.one/v1"
+EMAIL_FROM = "IAI Foundation <noreply@iaifoundation.com>"
+MAIL_API_WORKSPACE_ID = "iaifoundation.com"
