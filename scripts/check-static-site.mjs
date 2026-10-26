@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { dirname, extname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { parse } from 'parse5';
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
 const rootDir = resolve(scriptDir, '..');
@@ -51,6 +52,7 @@ finish();
 function checkHtml(file) {
   const html = readFileSync(file, 'utf8');
   const relative = relativePath(file);
+  const dom = inspectDom(html, relative);
   const h1Count = (html.match(/<h1(?:\s|>)/g) || []).length;
   const sectionLabelCount = (html.match(/class="section-label"/g) || []).length;
 
@@ -68,19 +70,20 @@ function checkHtml(file) {
   }
   if (sectionLabelCount > 1) fail(relative, `too many repeated section labels (${sectionLabelCount})`);
   if (/\sstyle="/i.test(html)) fail(relative, 'inline style attribute is not allowed');
-  if (/<form(?:\s|>)/i.test(html)) fail(relative, 'form found without an active server-side workflow');
+  if (dom.elementNames.has('form')) fail(relative, 'form found without an active server-side workflow');
   if (/api\.iaifoundation\.com|magic-link|auth\/google/i.test(html)) fail(relative, 'inactive private-runtime endpoint exposed');
-  if (/[—–]/.test(stripJsonLd(html))) fail(relative, 'visible copy contains a prohibited long dash');
-  if (/\.\.\./.test(stripJsonLd(html))) fail(relative, 'visible copy uses three periods instead of an ellipsis');
+  if (/[—–]/.test(dom.visibleText)) fail(relative, 'visible copy contains a prohibited long dash');
+  if (/\.\.\./.test(dom.visibleText)) fail(relative, 'visible copy uses three periods instead of an ellipsis');
 
-  const scriptOpenCount = (html.match(/<script\b/gi) || []).length;
-  const scripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)];
-  if (scripts.length !== scriptOpenCount) fail(relative, 'malformed or unclosed script element');
-
-  for (const script of scripts) {
-    const attrs = script[1];
-    const body = script[2].trim();
-    if (!/\ssrc="/.test(attrs) && body && !/type="application\/ld\+json"/.test(attrs)) {
+  for (const script of dom.scripts) {
+    const attrs = Object.fromEntries((script.attrs || []).map(({ name, value }) => [name, value]));
+    const body = (script.childNodes || [])
+      .filter((child) => child.nodeName === '#text')
+      .map((child) => child.value || '')
+      .join('')
+      .trim();
+    if (!script.sourceCodeLocation?.endTag) fail(relative, 'malformed or unclosed script element');
+    if (!attrs.src && body && attrs.type !== 'application/ld+json') {
       fail(relative, 'inline executable script is not allowed by CSP');
     }
   }
@@ -187,11 +190,40 @@ function walk(directory) {
   });
 }
 
-function stripJsonLd(html) {
-  return html.replace(
-    /<script\b(?=[^>]*\btype="application\/ld\+json")[^>]*>[\s\S]*?<\/script\s*>/gi,
-    '',
-  );
+function inspectDom(html, relative) {
+  const parseErrors = [];
+  const document = parse(html, {
+    sourceCodeLocationInfo: true,
+    onParseError: ({ code }) => parseErrors.push(code),
+  });
+  if (parseErrors.length) fail(relative, `HTML parse errors: ${[...new Set(parseErrors)].join(', ')}`);
+
+  const scripts = [];
+  const elementNames = new Set();
+  const visibleText = [];
+
+  visit(document, []);
+  return { scripts, elementNames, visibleText: visibleText.join(' ') };
+
+  function visit(node, ancestors) {
+    const nodeName = node.nodeName || '';
+    if (nodeName === 'script') scripts.push(node);
+    if (nodeName && !nodeName.startsWith('#')) elementNames.add(nodeName);
+    if (nodeName === '#text' && !ancestors.some(({ nodeName: ancestorName }) => (
+      ancestorName === 'script' || ancestorName === 'style'
+    ))) {
+      visibleText.push(node.value || '');
+    }
+
+    for (const { name, value } of node.attrs || []) {
+      if (name.startsWith('on')) fail(relative, `inline event handler ${name} is not allowed`);
+      if ((name === 'href' || name === 'src') && /^\s*javascript:/i.test(value)) {
+        fail(relative, `javascript URL is not allowed in ${name}`);
+      }
+    }
+
+    for (const child of node.childNodes || []) visit(child, [...ancestors, node]);
+  }
 }
 
 function requireMatch(value, pattern, label, message) {
