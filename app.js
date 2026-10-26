@@ -15,7 +15,6 @@
     toggle.setAttribute('aria-label', isOpen ? closeAria : openAria);
     toggle.textContent = isOpen ? closeText : openText;
     menu.hidden = !isOpen;
-    document.body.classList.toggle('menu-open', isOpen);
     header.classList.toggle('is-menu-open', isOpen);
     if (restoreFocus) toggle.focus();
   };

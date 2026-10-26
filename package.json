@@ -24,6 +24,7 @@
     "typecheck": "tsc --noEmit",
     "pretest": "npm run build",
     "test": "vitest run",
+    "pretest:e2e": "npm run build",
     "test:e2e": "vitest run tests/site.e2e.test.ts tests/integration.http.test.ts",
     "test:db": "node scripts/check-d1.mjs",
     "smoke:production": "node scripts/smoke-production.mjs",

@@ -47,6 +47,7 @@ for (const file of htmlFiles) {
 checkLocaleParity();
 checkCss();
 checkHeaders();
+checkSitemap();
 finish();
 
 function checkHtml(file) {
@@ -174,6 +175,12 @@ function checkHeaders() {
   requireMatch(headers, /Content-Security-Policy:/, '_headers', 'missing CSP');
   if (/unsafe-inline/.test(headers)) fail('_headers', 'CSP must not allow unsafe-inline');
   requireMatch(headers, /frame-ancestors 'none'/, '_headers', 'clickjacking protection must fail closed');
+}
+
+function checkSitemap() {
+  const sitemap = readFileSync(resolve(outputDir, 'sitemap.xml'), 'utf8');
+  requireMatch(sitemap, /xmlns="http:\/\/www\.sitemaps\.org\/schemas\/sitemap\/0\.9"/, 'sitemap.xml', 'invalid sitemap namespace');
+  requireMatch(sitemap, /xmlns:xhtml="http:\/\/www\.w3\.org\/1999\/xhtml"/, 'sitemap.xml', 'invalid XHTML namespace');
 }
 
 function routeToFile(route) {

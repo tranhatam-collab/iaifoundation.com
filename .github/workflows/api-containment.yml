@@ -52,7 +52,7 @@ jobs:
           fi
 
       - name: Deploy containment Worker
-        run: wrangler deploy --config apps/api/wrangler.toml
+        run: ./node_modules/.bin/wrangler deploy --config apps/api/wrangler.toml
 
       - name: Verify containment boundary
         run: npm run smoke:api

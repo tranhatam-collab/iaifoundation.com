@@ -48,10 +48,6 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-body.menu-open {
-  overflow: hidden;
-}
-
 [hidden] {
   display: none !important;
 }
@@ -255,9 +251,12 @@ h3[id] {
 .mobile-menu {
   display: grid;
   gap: 2px;
+  max-height: calc(100dvh - var(--header-height));
+  overflow-y: auto;
   padding-block: 6px 18px;
   border-top: 1px solid var(--line);
   overscroll-behavior: contain;
+  scrollbar-gutter: stable;
 }
 
 .mobile-menu a {
