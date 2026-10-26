@@ -34,12 +34,12 @@ jobs:
       SMOKE_RETRY_DELAY_MS: '5000'
     steps:
       - name: Checkout verified revision
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           ref: ${{ github.event.workflow_run.head_sha || github.sha }}
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm

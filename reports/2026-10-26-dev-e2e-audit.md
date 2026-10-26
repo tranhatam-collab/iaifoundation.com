@@ -47,6 +47,6 @@ Verdict: **PASS** for the public-site release candidate; **HOLD** for all privat
 
 - Local D1 checks are development evidence only; no remote or production database migration was run.
 - OpenAPI files are marked `design-only`; they are not proof of implemented runtime behavior.
-- GitHub environments `production` and `preview` exist with branch policies for `main` and `brand/*`, respectively. Neither environment currently contains `CLOUDFLARE_API_TOKEN`.
+- GitHub environments `production` and `preview` exist with branch policies for `main` and same-repository feature/PR refs, respectively. Neither environment currently contains `CLOUDFLARE_API_TOKEN`.
 - A passing local gate is not a passing GitHub run. GitHub Actions evidence is produced only after the candidate is pushed.
 - Current production deployment evidence is recorded separately in `reports/2026-10-26-production-release-receipt.md`.

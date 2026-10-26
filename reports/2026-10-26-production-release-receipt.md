@@ -68,6 +68,6 @@ The private runtime remains blocked by absent production authentication, real or
 
 - GitHub Actions definitions exist for CI, preview Pages CD, production Pages CD, manual API containment CD, and CodeQL.
 - Dependabot is configured for npm and GitHub Actions.
-- GitHub environment `production` accepts only `main`; `preview` accepts only `brand/*`.
+- GitHub environment `production` accepts only `main`; `preview` accepts the `brand/*` head branches and GitHub's corresponding pull-request merge refs.
 - Blocker: neither environment currently has `CLOUDFLARE_API_TOKEN`. Automatic preview and production deployment therefore remain unavailable until that secret is configured directly in GitHub.
 - No DNS, remote D1 migration, runtime/connector deployment, payment action, or production data mutation was performed as part of post-release hardening.
