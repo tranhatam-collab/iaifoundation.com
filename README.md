@@ -74,7 +74,7 @@ npm run smoke:api
 - `.github/workflows/api-containment.yml` is manual-only and requires the exact confirmation `DEPLOY CONTAINMENT`; it deploys only the fail-closed API boundary and verifies that private `/v1/*` routes remain unavailable.
 - `.github/workflows/codeql.yml` scans JavaScript and TypeScript on changes and weekly. Dependabot covers npm and GitHub Actions updates.
 
-Both the `preview` and `production` GitHub environments use an environment secret named `CLOUDFLARE_API_TOKEN`. The token is exposed only to the credential check and deploy steps, never dependency installation or tests. It must be created directly in GitHub with the minimum Cloudflare Pages/Workers permissions needed for the selected workflow; never commit or paste it into repository files. Production approvals and branch policies remain GitHub environment settings, not code defaults.
+The `preview` and `production` GitHub environments use separate least-privilege secrets: `CLOUDFLARE_PAGES_API_TOKEN` for Pages and `CLOUDFLARE_WORKERS_API_TOKEN` for the manual API containment workflow. Each secret is exposed only to its credential check and deploy steps, never dependency installation or tests. Create them directly in GitHub with only the permissions needed for their workflow; never commit or paste them into repository files. Production approvals and branch policies remain GitHub environment settings, not code defaults.
 
 ## Governance references
 

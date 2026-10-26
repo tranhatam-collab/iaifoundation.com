@@ -44,17 +44,17 @@ jobs:
       - name: Require Cloudflare production credential
         shell: bash
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN }}
         run: |
           if [[ -z "$CLOUDFLARE_API_TOKEN" ]]; then
-            echo "::error::production environment secret CLOUDFLARE_API_TOKEN is not configured"
+            echo "::error::production environment secret CLOUDFLARE_WORKERS_API_TOKEN is not configured"
             exit 1
           fi
 
       - name: Deploy containment Worker
         run: ./node_modules/.bin/wrangler deploy --config apps/api/wrangler.toml
         env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_WORKERS_API_TOKEN }}
 
       - name: Verify containment boundary
         run: npm run smoke:api
