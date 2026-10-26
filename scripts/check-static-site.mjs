@@ -73,7 +73,11 @@ function checkHtml(file) {
   if (/[—–]/.test(stripJsonLd(html))) fail(relative, 'visible copy contains a prohibited long dash');
   if (/\.\.\./.test(stripJsonLd(html))) fail(relative, 'visible copy uses three periods instead of an ellipsis');
 
-  for (const script of html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/gi)) {
+  const scriptOpenCount = (html.match(/<script\b/gi) || []).length;
+  const scripts = [...html.matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script\s*>/gi)];
+  if (scripts.length !== scriptOpenCount) fail(relative, 'malformed or unclosed script element');
+
+  for (const script of scripts) {
     const attrs = script[1];
     const body = script[2].trim();
     if (!/\ssrc="/.test(attrs) && body && !/type="application\/ld\+json"/.test(attrs)) {
@@ -184,7 +188,10 @@ function walk(directory) {
 }
 
 function stripJsonLd(html) {
-  return html.replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/gi, '');
+  return html.replace(
+    /<script\b(?=[^>]*\btype="application\/ld\+json")[^>]*>[\s\S]*?<\/script\s*>/gi,
+    '',
+  );
 }
 
 function requireMatch(value, pattern, label, message) {
