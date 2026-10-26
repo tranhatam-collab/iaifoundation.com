@@ -1,0 +1,26 @@
+"$schema" = "../../node_modules/wrangler/config-schema.json"
+
+name = "intent-os-connectors"
+main = "src/index.ts"
+compatibility_date = "2026-10-26"
+compatibility_flags = ["nodejs_compat"]
+account_id = "93112cc89181e75335cbd7ef7e392ba3"
+workers_dev = false
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "intent-os-db"
+database_id = "541634ee-ec04-42c1-b8a6-be97e70a370b"
+migrations_dir = "../../packages/db/migrations"
+
+[[r2_buckets]]
+binding = "ARTIFACTS"
+bucket_name = "intent-os-artifacts"
+
+[vars]
+ENVIRONMENT = "production"
+CONNECTORS_MODE = "disabled"
+LOG_LEVEL = "info"

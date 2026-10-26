@@ -16,49 +16,16 @@ export interface LoginResult {
 }
 
 export async function loginService(
-  db: D1Database,
-  input: LoginInput,
-  requestId: string,
+  _db: D1Database,
+  _input: LoginInput,
+  _requestId: string,
 ): Promise<LoginResult> {
-  const user = await db.prepare(
-    'SELECT * FROM users WHERE primary_email = ? AND status = ?'
-  ).bind(input.email, 'active').first();
-
-  if (!user) {
-    throw new AppError(ERROR_CODES.UNAUTHORIZED, 'Invalid credentials');
-  }
-
-  // TODO: Implement actual password/assertion verification
-  // TODO: Generate JWT token with proper claims
-
-  const workspaces = await db.prepare(
-    'SELECT workspace_id FROM role_bindings WHERE user_id = ? AND workspace_id IS NOT NULL'
-  ).bind((user as any).id).all();
-
-  const workspaceIds = (workspaces.results || []).map((w: any) => w.workspace_id);
-
-  await emitAuditEvent(db, createAuditEvent({
-    tenant_id: (user as any).tenant_id,
-    workspace_id: null,
-    actor_id: (user as any).id,
-    action_type: 'auth.login',
-    resource_type: 'user',
-    resource_id: (user as any).id,
-    before_json: null,
-    after_json: JSON.stringify({ email: input.email }),
-    reason: null,
-    request_id: requestId,
-    source_ip: null,
-    session_id: null,
-  }));
-
-  return {
-    access_token: `jwt_${crypto.randomUUID().replace(/-/g, '').slice(0, 24)}`,
-    refresh_token: `rt_${crypto.randomUUID().replace(/-/g, '').slice(0, 24)}`,
-    expires_in: 3600,
-    tenant_id: (user as any).tenant_id,
-    workspace_ids: workspaceIds,
-  };
+  throw new AppError(
+    ERROR_CODES.UNAUTHORIZED,
+    'Interactive authentication is not implemented in the public foundation project',
+    undefined,
+    503,
+  );
 }
 
 export async function logoutService(

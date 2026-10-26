@@ -3,197 +3,276 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>IAI Foundation — Public Documentation</title>
+  <title>IAI Foundation Docs - Public Architecture and Intent OS Specifications</title>
   <meta name="description" content="Public architecture, data model, policy engine, and product specs for Intent OS." />
-  <meta name="theme-color" content="#0b1020" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="IAI Foundation" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#0c0d12" />
+  <meta property="og:title" content="IAI Foundation Docs - Public Architecture and Intent OS Specifications" />
+  <meta property="og:description" content="Public architecture, governance, and technical reference materials for Intent OS." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iaifoundation.com/docs/" />
+  <meta property="og:site_name" content="IAI Foundation" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://iaifoundation.com/og-image.svg" />
+  <meta property="og:image:alt" content="IAI Foundation documentation cover image" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IAI Foundation Docs - Public Architecture and Intent OS Specifications" />
+  <meta name="twitter:description" content="Browse public architecture, governance, and technical reference materials for Intent OS." />
+  <link rel="canonical" href="https://iaifoundation.com/docs/" />
+  <link rel="alternate" hreflang="en" href="https://iaifoundation.com/docs/" />
+  <link rel="alternate" hreflang="vi" href="https://iaifoundation.com/vi/docs/" />
+  <link rel="alternate" hreflang="x-default" href="https://iaifoundation.com/docs/" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="stylesheet" href="/style.css" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="/style.css?v=7163707838b5" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://iaifoundation.com/docs/#page",
+      "url": "https://iaifoundation.com/docs/",
+      "name": "IAI Foundation Docs - Public Architecture and Intent OS Specifications",
+      "description": "Public architecture, data model, policy engine, and product specs for Intent OS.",
+      "isPartOf": {
+        "@id": "https://iaifoundation.com/#website"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://iaifoundation.com/docs/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://iaifoundation.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Public specs and architecture docs.",
+          "item": "https://iaifoundation.com/docs/"
+        }
+      ]
+    }
+  ]
+}</script>
 </head>
-<body>
+<body data-menu-open-text="Menu" data-menu-close-text="Close" data-menu-open-aria="Open menu" data-menu-close-aria="Close menu">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="/">IAI Foundation</a>
-      <nav class="desktop-nav" aria-label="Primary">
-        <a href="/">Home</a>
-        <a href="/#architecture">Architecture</a>
-        <a href="/docs">Docs</a>
-        <a href="/#contact">Contact</a>
-      </nav>
+      <div class="nav-actions">
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="/">Home</a>
+          <a href="/#architecture">Architecture</a>
+          <a href="/docs/">Docs</a>
+          <a href="/partners/">Partners</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <a class="lang-link is-active" href="/docs/" hreflang="en" lang="en" aria-current="page">EN</a>
+          <a class="lang-link" href="/vi/docs/" hreflang="vi" lang="vi">VI</a>
+        </div>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">Menu</button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu container" hidden>
+      <a href="/">Home</a>
+      <a href="/#architecture">Architecture</a>
+      <a href="/docs/">Docs</a>
+      <a href="/partners/">Partners</a>
+      <a href="/#contact">Contact</a>
+      <a href="/vi/docs/" hreflang="vi" lang="vi">Tiếng Việt</a>
     </div>
   </header>
-
   <main id="main-content">
     <section class="section">
       <div class="container narrow">
         <p class="section-label">Documentation</p>
-        <h2>Public specs and architecture docs.</h2>
-        <p>
-          These documents define the foundation of Intent OS. They are public so builders,
-          partners, and pilot teams can understand the system before it ships.
-        </p>
+        <h1>Public specs and architecture docs.</h1>
+        <p class="lead">These documents define the foundation of Intent OS. They are public so builders, partners, and pilot teams can understand the system before it ships.</p>
       </div>
     </section>
-
     <section class="section alt">
       <div class="container">
-        <p class="section-label">Strategy & Architecture</p>
+        <h2>Strategy &amp; Architecture</h2>
         <div class="card-grid">
           <article class="card">
             <h3>Master Spec</h3>
             <p>Core thesis, product definition, seven platform layers, and product principles.</p>
-            <a class="doc-link" href="/IAIFOUNDATION_MASTER_SPEC.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/IAIFOUNDATION_MASTER_SPEC.md">Read spec →</a>
           </article>
           <article class="card">
             <h3>Information Architecture</h3>
             <p>Recommended routes, homepage section order, navigation labels, and content tone.</p>
-            <a class="doc-link" href="/IAIFOUNDATION_INFORMATION_ARCHITECTURE.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/IAIFOUNDATION_INFORMATION_ARCHITECTURE.md">Read spec →</a>
           </article>
           <article class="card">
             <h3>Product Architecture</h3>
             <p>Cloudflare-first mapping, agent roles, and runtime flow from intent to outcome.</p>
-            <a class="doc-link" href="/IAIFOUNDATION_PRODUCT_ARCHITECTURE.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/IAIFOUNDATION_PRODUCT_ARCHITECTURE.md">Read spec →</a>
           </article>
           <article class="card">
             <h3>Data Model</h3>
             <p>Core entities and data design rules for the platform.</p>
-            <a class="doc-link" href="/IAIFOUNDATION_DATA_MODEL.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/IAIFOUNDATION_DATA_MODEL.md">Read spec →</a>
           </article>
           <article class="card">
             <h3>Policy Engine</h3>
             <p>Policy domains, required outcomes, and safety principles.</p>
-            <a class="doc-link" href="/IAIFOUNDATION_POLICY_ENGINE.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/IAIFOUNDATION_POLICY_ENGINE.md">Read spec →</a>
           </article>
           <article class="card">
             <h3>Roadmap</h3>
             <p>12 to 24 month build plan from website launch to autonomous pilots.</p>
-            <a class="doc-link" href="/IAIFOUNDATION_ROADMAP_12_24_MONTHS.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/IAIFOUNDATION_ROADMAP_12_24_MONTHS.md">Read spec →</a>
+          </article>
+          <article class="card">
+            <h3>Language &amp; Multilingual SEO Standard</h3>
+            <p>Locked rules for page language, locale-specific metadata, Vietnamese SEO, and future multilingual expansion.</p>
+            <a class="doc-link" href="/docs/language-seo-standard/">Read guide →</a>
+            <a class="doc-link" href="/IAIFOUNDATION_LANGUAGE_AND_MULTILINGUAL_SEO_STANDARD.md">Read source doc →</a>
+          </article>
+          <article class="card">
+            <h3>Locale SEO Brief Template</h3>
+            <p>Required form for defining search intent, metadata, route scope, and QA gates before a new locale can publish.</p>
+            <a class="doc-link" href="/docs/locale-seo-brief-template/">Open template →</a>
+            <a class="doc-link" href="/LOCALE_SEO_BRIEF_TEMPLATE.md">Read source doc →</a>
+          </article>
+          <article class="card">
+            <h3>Multilingual Release QA Checklist</h3>
+            <p>Shared release checklist for dev, content, QA, SEO, and AI agents working across multiple locales.</p>
+            <a class="doc-link" href="/docs/multilingual-release-qa-checklist/">Open checklist →</a>
+            <a class="doc-link" href="/MULTILINGUAL_RELEASE_QA_CHECKLIST.md">Read source doc →</a>
           </article>
         </div>
       </div>
     </section>
-
     <section class="section">
       <div class="container">
-        <p class="section-label">Intent OS — Technical Specs</p>
+        <h2>Intent OS - Technical Specs</h2>
         <div class="card-grid">
           <article class="card">
             <h3>MVP Build Order</h3>
             <p>Phase-by-phase build sequence with done criteria, dependency map, and test strategy.</p>
-            <a class="doc-link" href="/docs/INTENT_OS_MVP_BUILD_ORDER.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/docs/INTENT_OS_MVP_BUILD_ORDER.md">Read spec →</a>
           </article>
           <article class="card">
             <h3>Database Schema</h3>
             <p>Full D1 schema for MVP: tenants, workspaces, runs, payments, devices, proofs, audit.</p>
-            <a class="doc-link" href="/docs/INTENT_OS_DATABASE_SCHEMA.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/docs/INTENT_OS_DATABASE_SCHEMA.md">Read spec →</a>
           </article>
           <article class="card">
             <h3>API Specification</h3>
             <p>Unified API contract for Control Plane, Runtime, Payments, and Device Gateway.</p>
-            <a class="doc-link" href="/docs/INTENT_OS_API_SPEC.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/docs/INTENT_OS_API_SPEC.md">Read spec →</a>
           </article>
           <article class="card">
             <h3>Admin Dashboard Spec</h3>
             <p>Screen map, personas, authorization matrix, and UX patterns for the admin UI.</p>
-            <a class="doc-link" href="/docs/INTENT_OS_ADMIN_DASHBOARD_SPEC.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/docs/INTENT_OS_ADMIN_DASHBOARD_SPEC.md">Read spec →</a>
           </article>
           <article class="card">
-            <h3>Admin UI Routes & Screens</h3>
+            <h3>Admin UI Routes &amp; Screens</h3>
             <p>Detailed route definitions, filter bars, table UX, and empty state patterns.</p>
-            <a class="doc-link" href="/docs/INTENT_OS_ADMIN_UI_ROUTES_AND_SCREENS.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/docs/INTENT_OS_ADMIN_UI_ROUTES_AND_SCREENS.md">Read spec →</a>
           </article>
           <article class="card">
             <h3>Run Detail Page</h3>
             <p>The most important screen: lifecycle, steps, approvals, payments, proofs, reconciliation.</p>
-            <a class="doc-link" href="/docs/INTENT_OS_RUN_DETAIL_PAGE_SPEC.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/docs/INTENT_OS_RUN_DETAIL_PAGE_SPEC.md">Read spec →</a>
           </article>
           <article class="card">
             <h3>D1 SQL Migrations V1</h3>
             <p>Migration plan, file order, seed data, and execution strategy for Cloudflare D1.</p>
-            <a class="doc-link" href="/docs/INTENT_OS_D1_SQL_MIGRATIONS_V1.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/docs/INTENT_OS_D1_SQL_MIGRATIONS_V1.md">Read spec →</a>
           </article>
           <article class="card">
             <h3>Backend Folder Structure</h3>
             <p>Monorepo layout, module boundaries, naming conventions, and testing targets.</p>
-            <a class="doc-link" href="/docs/INTENT_OS_BACKEND_FOLDER_STRUCTURE.md">Read spec &rarr;</a>
+            <a class="doc-link" href="/docs/INTENT_OS_BACKEND_FOLDER_STRUCTURE.md">Read spec →</a>
           </article>
         </div>
       </div>
     </section>
-
     <section class="section alt">
       <div class="container narrow">
-        <p class="section-label">Setup</p>
-        <div class="card">
-          <h3>Cloudflare + GitHub Setup</h3>
-          <p>Repo structure, Pages configuration, DNS, and security baseline.</p>
-          <a class="doc-link" href="/IAIFOUNDATION_CLOUDFLARE_GITHUB_SETUP.md">Read guide &rarr;</a>
+        <h2>Setup</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Cloudflare + GitHub Setup</h3>
+            <p>Repo structure, Pages configuration, DNS, and security baseline.</p>
+            <a class="doc-link" href="/IAIFOUNDATION_CLOUDFLARE_GITHUB_SETUP.md">Read guide →</a>
+          </article>
         </div>
       </div>
     </section>
-
     <section class="section">
       <div class="container">
-        <p class="section-label">AI Governance</p>
+        <h2>AI Governance</h2>
         <div class="card-grid">
           <article class="card">
             <h3>AI Governance Index</h3>
             <p>Single reading path across Level 1, Level 2, and Level 3 AI operating documents.</p>
-            <a class="doc-link" href="/docs/AI_GOVERNANCE_INDEX.md">Read index &rarr;</a>
+            <a class="doc-link" href="/docs/AI_GOVERNANCE_INDEX.md">Read index →</a>
           </article>
           <article class="card">
             <h3>AI System Rules</h3>
             <p>Core AI operating rules, constraints, workflow, and output standards for this repository.</p>
-            <a class="doc-link" href="/docs/IAI_FOUNDATION_AI_SYSTEM.md">Read rules &rarr;</a>
+            <a class="doc-link" href="/docs/IAI_FOUNDATION_AI_SYSTEM.md">Read rules →</a>
           </article>
           <article class="card">
             <h3>Prompt Templates</h3>
             <p>Reusable prompt formats for analysis, planning, building, debugging, review, and docs work.</p>
-            <a class="doc-link" href="/docs/AI_PROMPT_TEMPLATES.md">Read templates &rarr;</a>
+            <a class="doc-link" href="/docs/AI_PROMPT_TEMPLATES.md">Read templates →</a>
           </article>
           <article class="card">
             <h3>Task Handoff Template</h3>
             <p>Structured handoff format for assigning scoped work to AI agents and collaborators.</p>
-            <a class="doc-link" href="/docs/AI_TASK_HANDOFF_TEMPLATE.md">Read template &rarr;</a>
+            <a class="doc-link" href="/docs/AI_TASK_HANDOFF_TEMPLATE.md">Read template →</a>
           </article>
           <article class="card">
             <h3>Context Memory System</h3>
             <p>Rules for summary reuse, derived memory, and minimizing repeated context loading.</p>
-            <a class="doc-link" href="/docs/IAIFOUNDATION_CONTEXT_MEMORY_SYSTEM.md">Read system &rarr;</a>
+            <a class="doc-link" href="/docs/IAIFOUNDATION_CONTEXT_MEMORY_SYSTEM.md">Read system →</a>
           </article>
           <article class="card">
             <h3>Agent Execution System</h3>
             <p>Role-based AI workflow for architect, builder, debugger, reviewer, and docs execution.</p>
-            <a class="doc-link" href="/docs/IAIFOUNDATION_AGENT_EXECUTION_SYSTEM.md">Read system &rarr;</a>
+            <a class="doc-link" href="/docs/IAIFOUNDATION_AGENT_EXECUTION_SYSTEM.md">Read system →</a>
           </article>
           <article class="card">
             <h3>Multi-Model Router</h3>
             <p>Model selection strategy for simple, standard, complex, bulk, and large-context tasks.</p>
-            <a class="doc-link" href="/docs/IAIFOUNDATION_MULTI_MODEL_ROUTER.md">Read router &rarr;</a>
+            <a class="doc-link" href="/docs/IAIFOUNDATION_MULTI_MODEL_ROUTER.md">Read router →</a>
           </article>
           <article class="card">
             <h3>Execution Engine (Level 3)</h3>
             <p>Autonomous task execution flow from classification and splitting to validation and merge.</p>
-            <a class="doc-link" href="/docs/IAIFOUNDATION_EXECUTION_ENGINE.md">Read engine &rarr;</a>
+            <a class="doc-link" href="/docs/IAIFOUNDATION_EXECUTION_ENGINE.md">Read engine →</a>
           </article>
           <article class="card">
             <h3>Realtime Agent System</h3>
             <p>Coordination rules for parallel agents, conflict control, observability, and live handoff.</p>
-            <a class="doc-link" href="/docs/IAIFOUNDATION_REALTIME_AGENT_SYSTEM.md">Read system &rarr;</a>
+            <a class="doc-link" href="/docs/IAIFOUNDATION_REALTIME_AGENT_SYSTEM.md">Read system →</a>
           </article>
           <article class="card">
             <h3>Data Intelligence Layer</h3>
             <p>How AI ingests, indexes, retrieves, and reasons over repository and runtime data.</p>
-            <a class="doc-link" href="/docs/IAIFOUNDATION_DATA_INTELLIGENCE_LAYER.md">Read layer &rarr;</a>
+            <a class="doc-link" href="/docs/IAIFOUNDATION_DATA_INTELLIGENCE_LAYER.md">Read layer →</a>
           </article>
         </div>
       </div>
     </section>
-
     <section id="contact" class="section cta-section">
       <div class="container cta-card">
         <div>
-          <p class="section-label">Contact</p>
           <h2>Questions about the specs?</h2>
           <p>We welcome builders, partners, and researchers who want to dig deeper.</p>
         </div>
@@ -201,12 +280,11 @@
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
         <p class="brand footer-brand">IAI Foundation</p>
-        <p class="footer-text">Building the trust layer that turns intent into real-world outcomes.</p>
+        <p class="footer-text">Building the trust layer that turns human and business intent into real-world outcomes.</p>
       </div>
       <div>
         <p class="footer-heading">Explore</p>
@@ -217,14 +295,16 @@
       <div>
         <p class="footer-heading">Foundation</p>
         <a href="/#roadmap">Roadmap</a>
+        <a href="/partners/">Partners</a>
         <a href="/#contact">Contact</a>
       </div>
       <div>
         <p class="footer-heading">Status</p>
         <p class="footer-text">Public docs v1</p>
-        <p class="footer-text">&copy; 2026 IAI Foundation</p>
+        <p class="footer-text">© 2026 IAI Foundation</p>
       </div>
     </div>
   </footer>
+  <script src="/app.js?v=9cf2fd526ac1"></script>
 </body>
 </html>

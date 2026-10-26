@@ -1,0 +1,64 @@
+{
+  "defaultLocale": "en",
+  "supportedLocales": [
+    {
+      "code": "en",
+      "label": "English",
+      "hreflang": "en",
+      "ogLocale": "en_US",
+      "basePath": "/"
+    },
+    {
+      "code": "vi",
+      "label": "Tiếng Việt",
+      "hreflang": "vi",
+      "ogLocale": "vi_VN",
+      "basePath": "/vi/"
+    }
+  ],
+  "plannedLocales": [],
+  "localizedRoutes": [
+    {
+      "key": "home",
+      "alternates": {
+        "en": "https://iaifoundation.com/",
+        "vi": "https://iaifoundation.com/vi/"
+      }
+    },
+    {
+      "key": "docs",
+      "alternates": {
+        "en": "https://iaifoundation.com/docs/",
+        "vi": "https://iaifoundation.com/vi/docs/"
+      }
+    },
+    {
+      "key": "partners",
+      "alternates": {
+        "en": "https://iaifoundation.com/partners/",
+        "vi": "https://iaifoundation.com/vi/partners/"
+      }
+    },
+    {
+      "key": "languageSeoStandard",
+      "alternates": {
+        "en": "https://iaifoundation.com/docs/language-seo-standard/",
+        "vi": "https://iaifoundation.com/vi/docs/language-seo-standard/"
+      }
+    },
+    {
+      "key": "localeSeoBriefTemplate",
+      "alternates": {
+        "en": "https://iaifoundation.com/docs/locale-seo-brief-template/",
+        "vi": "https://iaifoundation.com/vi/docs/locale-seo-brief-template/"
+      }
+    },
+    {
+      "key": "multilingualReleaseQaChecklist",
+      "alternates": {
+        "en": "https://iaifoundation.com/docs/multilingual-release-qa-checklist/",
+        "vi": "https://iaifoundation.com/vi/docs/multilingual-release-qa-checklist/"
+      }
+    }
+  ]
+}

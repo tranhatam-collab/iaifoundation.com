@@ -7,22 +7,39 @@ export interface PaymentWebhookContext {
   webhookSecret: string;
 }
 
+const MAX_WEBHOOK_BYTES = 1_048_576;
+const STRIPE_SIGNATURE_TOLERANCE_SECONDS = 300;
+
 export async function handlePaymentWebhook(
   ctx: PaymentWebhookContext,
   provider: string,
   request: Request,
 ): Promise<Response> {
-  const rawBody = await request.text();
-  const signature = request.headers.get('X-Webhook-Signature') || request.headers.get('Stripe-Signature') || '';
-
-  if (!verifyWebhookSignature(rawBody, signature, ctx.webhookSecret, provider)) {
-    return new Response(JSON.stringify({ ok: false, error: 'Invalid webhook signature' }), {
-      status: 401,
-      headers: { 'Content-Type': 'application/json' },
-    });
+  if (request.method !== 'POST') {
+    return jsonResponse({ ok: false, error: 'Method not allowed' }, 405, { Allow: 'POST' });
   }
 
-  const rawPayload = JSON.parse(rawBody) as Record<string, unknown>;
+  const contentLength = Number(request.headers.get('Content-Length') || '0');
+  if (Number.isFinite(contentLength) && contentLength > MAX_WEBHOOK_BYTES) {
+    return jsonResponse({ ok: false, error: 'Payload too large' }, 413);
+  }
+
+  const rawBody = await request.text();
+  if (new TextEncoder().encode(rawBody).byteLength > MAX_WEBHOOK_BYTES) {
+    return jsonResponse({ ok: false, error: 'Payload too large' }, 413);
+  }
+  const signature = request.headers.get('X-Webhook-Signature') || request.headers.get('Stripe-Signature') || '';
+
+  if (!await verifyWebhookSignature(rawBody, signature, ctx.webhookSecret, provider)) {
+    return jsonResponse({ ok: false, error: 'Invalid webhook signature' }, 401);
+  }
+
+  let rawPayload: Record<string, unknown>;
+  try {
+    rawPayload = JSON.parse(rawBody) as Record<string, unknown>;
+  } catch {
+    return jsonResponse({ ok: false, error: 'Invalid JSON payload' }, 400);
+  }
   const normalized = normalizePaymentEvent(rawPayload);
 
   // Store raw payload in R2
@@ -40,45 +57,49 @@ export async function handlePaymentWebhook(
     await handlePaymentRefunded(ctx, normalized, rawRef);
   }
 
-  return new Response(JSON.stringify({ ok: true }), {
-    headers: { 'Content-Type': 'application/json' },
-  });
+  return jsonResponse({ ok: true });
 }
 
-function verifyWebhookSignature(rawBody: string, signatureHeader: string, secret: string, provider: string): boolean {
+export async function verifyWebhookSignature(
+  rawBody: string,
+  signatureHeader: string,
+  secret: string,
+  provider: string,
+  nowSeconds = Math.floor(Date.now() / 1000),
+): Promise<boolean> {
   if (!signatureHeader || !secret) return false;
 
   // Stripe uses format: t=timestamp,v1=signature
   if (provider === 'stripe') {
-    const parts = signatureHeader.split(',');
+    const parts = signatureHeader.split(',').map((part) => part.trim());
     const tsPart = parts.find((p) => p.startsWith('t='));
-    const sigPart = parts.find((p) => p.startsWith('v1='));
-    if (!tsPart || !sigPart) return false;
+    const signatures = parts.filter((p) => p.startsWith('v1=')).map((part) => part.slice(3));
+    if (!tsPart || signatures.length === 0) return false;
 
-    const timestamp = tsPart.replace('t=', '');
-    const expected = hmacSha256(`${timestamp}.${rawBody}`, secret);
-    const provided = sigPart.replace('v1=', '');
-    return safeEqual(expected, provided);
+    const timestamp = Number(tsPart.slice(2));
+    if (!Number.isInteger(timestamp) || Math.abs(nowSeconds - timestamp) > STRIPE_SIGNATURE_TOLERANCE_SECONDS) {
+      return false;
+    }
+    const expected = await hmacSha256(`${timestamp}.${rawBody}`, secret);
+    return signatures.some((provided) => safeEqual(expected, provided));
   }
 
   // Generic HMAC-SHA256 for other providers
-  const expected = hmacSha256(rawBody, secret);
+  const expected = await hmacSha256(rawBody, secret);
   return safeEqual(expected, signatureHeader);
 }
 
-function hmacSha256(payload: string, secret: string): string {
-  // Web Crypto based HMAC (sync-like wrapper for simplicity in worker)
+export async function hmacSha256(payload: string, secret: string): Promise<string> {
   const encoder = new TextEncoder();
-  const keyData = encoder.encode(secret);
-  const msgData = encoder.encode(payload);
-
-  // NOTE: we cannot block on async crypto here in a sync function,
-  // so this fallback is deterministic placeholder for MVP scaffolding.
-  // In production, replace with async crypto.subtle.sign implementation.
-  let hash = 0;
-  for (let i = 0; i < msgData.length; i++) hash = (hash + msgData[i]) % 0xffffffff;
-  for (let i = 0; i < keyData.length; i++) hash = (hash ^ keyData[i]) >>> 0;
-  return hash.toString(16);
+  const key = await crypto.subtle.importKey(
+    'raw',
+    encoder.encode(secret),
+    { name: 'HMAC', hash: 'SHA-256' },
+    false,
+    ['sign'],
+  );
+  const signature = await crypto.subtle.sign('HMAC', key, encoder.encode(payload));
+  return Array.from(new Uint8Array(signature), (byte) => byte.toString(16).padStart(2, '0')).join('');
 }
 
 function safeEqual(a: string, b: string): boolean {
@@ -88,6 +109,13 @@ function safeEqual(a: string, b: string): boolean {
     result |= a.charCodeAt(i) ^ b.charCodeAt(i);
   }
   return result === 0;
+}
+
+function jsonResponse(payload: Record<string, unknown>, status = 200, headers: Record<string, string> = {}): Response {
+  return new Response(JSON.stringify(payload), {
+    status,
+    headers: { 'Content-Type': 'application/json; charset=utf-8', ...headers },
+  });
 }
 
 async function handlePaymentSettled(

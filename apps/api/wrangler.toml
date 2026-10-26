@@ -1,0 +1,35 @@
+"$schema" = "../../node_modules/wrangler/config-schema.json"
+
+name = "intent-os-api"
+main = "src/index.ts"
+compatibility_date = "2026-10-26"
+compatibility_flags = ["nodejs_compat"]
+account_id = "93112cc89181e75335cbd7ef7e392ba3"
+
+[[routes]]
+pattern = "api.iaifoundation.com"
+custom_domain = true
+
+[observability]
+enabled = true
+
+[[d1_databases]]
+binding = "DB"
+database_name = "intent-os-db"
+database_id = "541634ee-ec04-42c1-b8a6-be97e70a370b"
+migrations_dir = "../../packages/db/migrations"
+
+[[r2_buckets]]
+binding = "ARTIFACTS"
+bucket_name = "intent-os-artifacts"
+
+[[kv_namespaces]]
+binding = "CACHE"
+id = "bed91f451f6d43b4bd94e2a9c9918bde"
+
+[vars]
+ENVIRONMENT = "production"
+LOG_LEVEL = "info"
+MAIL_API_BASE_URL = "https://api.mail.iai.one/v1"
+EMAIL_FROM = "IAI Foundation <noreply@iaifoundation.com>"
+MAIL_API_WORKSPACE_ID = "iaifoundation.com"

@@ -7,21 +7,36 @@
     "apps/*"
   ],
   "scripts": {
-    "dev": "wrangler dev",
-    "deploy": "wrangler deploy",
-    "db:migrate": "wrangler d1 migrations apply intent-os-db",
-    "db:migrate:local": "wrangler d1 migrations apply intent-os-db --local",
-    "db:seed": "wrangler d1 execute intent-os-db --file=packages/db/seeds/mvp-dev-seed.sql",
-    "lint": "eslint . --ext .ts",
+    "dev": "npm run build && wrangler pages dev .wrangler/pages-build",
+    "dev:api": "wrangler dev --config apps/api/wrangler.toml --var ENVIRONMENT:development --var RUNTIME_API_MODE:unsafe-local-development",
+    "build": "node scripts/build-pages-static.mjs",
+    "check": "npm run build && npm run typecheck && npm run check:site && npm test",
+    "check:api": "npm run check:release",
+    "check:release": "npm run check && npm run test:db && npm run check:workers",
+    "check:site": "node scripts/check-static-site.mjs",
+    "check:workers": "node scripts/check-worker-bundles.mjs",
+    "deploy": "npm run check:release && node scripts/site-deploy.mjs",
+    "deploy:api": "npm run check:api && wrangler deploy --config apps/api/wrangler.toml",
+    "db:migrate": "wrangler d1 migrations apply intent-os-db --config apps/api/wrangler.toml --remote",
+    "db:migrate:local": "wrangler d1 migrations apply intent-os-db --config apps/api/wrangler.toml --local",
+    "db:seed": "wrangler d1 execute intent-os-db --config apps/api/wrangler.toml --local --file=packages/db/seeds/mvp-dev-seed.sql",
+    "lint": "npm run typecheck && npm run check:site",
     "typecheck": "tsc --noEmit",
+    "pretest": "npm run build",
     "test": "vitest run",
+    "pretest:e2e": "npm run build",
+    "test:e2e": "vitest run tests/site.e2e.test.ts tests/integration.http.test.ts",
+    "test:db": "node scripts/check-d1.mjs",
+    "smoke:production": "node scripts/smoke-production.mjs",
+    "smoke:api": "node scripts/smoke-api-containment.mjs",
     "test:watch": "vitest"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20260101.0",
+    "@cloudflare/workers-types": "^5.20261026.1",
     "@types/node": "^24.3.0",
+    "parse5": "^8.0.1",
     "typescript": "^5.7.0",
-    "vitest": "^3.0.0",
-    "wrangler": "^4.0.0"
+    "vitest": "^5.0.5",
+    "wrangler": "^4.153.0"
   }
 }

@@ -2,10 +2,12 @@ openapi: 3.0.3
 info:
   title: Intent OS — Runtime API
   version: 0.1.0
-  description: Runtime endpoints for intent execution, runs, approvals, and proof.
+  description: Design-only contract for a future runtime. Execution, approvals, and proof operations are not released.
+x-release-status: design-only
 
 servers:
   - url: https://api.iaifoundation.com/v1
+    description: Containment endpoint; private operations currently return HTTP 503.
 
 components:
   securitySchemes:

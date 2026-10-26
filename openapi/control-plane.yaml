@@ -2,10 +2,12 @@ openapi: 3.0.3
 info:
   title: Intent OS — Control Plane API
   version: 0.1.0
-  description: Control Plane endpoints for tenants, workspaces, identity, policy, templates, and connectors.
+  description: Design-only contract for future control-plane endpoints. The private runtime is disabled and these operations are not released.
+x-release-status: design-only
 
 servers:
   - url: https://api.iaifoundation.com/v1
+    description: Containment endpoint; private operations currently return HTTP 503.
 
 components:
   securitySchemes:

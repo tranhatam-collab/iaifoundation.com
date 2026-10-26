@@ -17,11 +17,16 @@ export const authMiddleware: MiddlewareHandler<{ Bindings: Env; Variables: { aut
   }
 
   const token = authHeader.slice(7);
+  const developmentToken = c.env.DEV_BEARER_TOKEN;
+  if (c.env.ENVIRONMENT !== 'development' || !developmentToken) {
+    throw new AppError(ERROR_CODES.UNAUTHORIZED, 'Runtime authentication is unavailable', undefined, 401);
+  }
+  if (!timingSafeEqual(token, developmentToken)) {
+    throw new AppError(ERROR_CODES.UNAUTHORIZED, 'Invalid development token', undefined, 401);
+  }
 
-  // TODO: Implement JWT verification with Cloudflare Access or custom JWT
-  // For MVP skeleton, parse minimal claims from token
   const auth: AuthContext = {
-    userId: 'usr_placeholder',
+    userId: 'usr_local_development',
     tenantId: c.req.header('X-Tenant-Id') || '',
     workspaceIds: c.req.header('X-Workspace-Id') ? [c.req.header('X-Workspace-Id')!] : [],
     roles: [],
@@ -35,3 +40,12 @@ export const authMiddleware: MiddlewareHandler<{ Bindings: Env; Variables: { aut
   c.set('auth', auth);
   await next();
 };
+
+function timingSafeEqual(a: string, b: string): boolean {
+  if (a.length !== b.length) return false;
+  let difference = 0;
+  for (let index = 0; index < a.length; index += 1) {
+    difference |= a.charCodeAt(index) ^ b.charCodeAt(index);
+  }
+  return difference === 0;
+}

@@ -1,0 +1,87 @@
+{
+  "status": "locked",
+  "sourceLocale": "vi",
+  "supportedLocales": ["vi", "en"],
+  "voice": {
+    "vi": {
+      "tone": "Rõ ràng, nghiêm túc, hiện đại, không phô trương",
+      "must": [
+        "Dùng đầy đủ dấu tiếng Việt",
+        "Câu ngắn, rõ nghĩa, nhất quán",
+        "Giữ giọng hệ thống nghiêm túc"
+      ],
+      "mustNot": [
+        "Slang",
+        "Giọng quảng cáo rẻ tiền",
+        "Viết tắt tùy tiện",
+        "Pha trộn tiếng Anh không cần thiết"
+      ]
+    },
+    "en": {
+      "tone": "International US English, clear, calm, product-grade",
+      "must": [
+        "Read naturally for an international technical audience",
+        "Preserve the same system meaning as Vietnamese",
+        "Stay precise and restrained"
+      ],
+      "mustNot": [
+        "Word-by-word translation from Vietnamese",
+        "Machine-translation syntax",
+        "Cheap hype or weak sales copy"
+      ]
+    }
+  },
+  "lockedTerms": {
+    "brand": ["IAI Foundation", "Intent OS"],
+    "vi": {
+      "trust layer": "lớp tin cậy",
+      "execution layer": "lớp thực thi",
+      "workflow": "quy trình",
+      "orchestration": "điều phối",
+      "proof": "bằng chứng",
+      "governed run": "phiên chạy có kiểm soát",
+      "policy": "chính sách",
+      "governance": "quản trị",
+      "pilot": "thí điểm",
+      "builder": "người xây dựng"
+    }
+  },
+  "forbiddenPatterns": {
+    "vi": ["Tieng Viet", "Dang ky", "Tai lieu", "Doi tac"],
+    "en": ["best-in-class", "game-changing", "revolutionary", "seamlessly"]
+  },
+  "ctaRegistry": {
+    "home": {
+      "vi": ["Đăng ký sớm", "Xem kiến trúc", "Gửi email trực tiếp"],
+      "en": ["Join Early Access", "Read the Architecture", "Email Us Directly"]
+    },
+    "partners": {
+      "vi": ["Liên hệ đối tác"],
+      "en": ["Partner Inquiries"]
+    },
+    "docs": {
+      "vi": ["Liên hệ với chúng tôi"],
+      "en": ["Contact Us"]
+    }
+  },
+  "formRegistry": {
+    "waitlist": {
+      "vi": {
+        "fieldLabel": "Địa chỉ email",
+        "placeholder": "Email của bạn",
+        "submit": "Đăng ký"
+      },
+      "en": {
+        "fieldLabel": "Email address",
+        "placeholder": "Your email",
+        "submit": "Join Waitlist"
+      }
+    }
+  },
+  "errorRegistry": {
+    "notFound": {
+      "vi": "Trang bạn đang tìm không tồn tại hoặc đã được di chuyển.",
+      "en": "The page you are looking for does not exist or has been moved."
+    }
+  }
+}
