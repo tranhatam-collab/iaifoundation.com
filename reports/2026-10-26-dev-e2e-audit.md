@@ -13,7 +13,7 @@ Verdict: **PASS** for the public-site release candidate; **HOLD** for all privat
 - No open P0/P1 blocker was found for the public static website candidate.
 - Private authentication, orchestration, notifications, payments, device control, connectors, and gateway health remain unavailable by design. They are not part of this public-site release.
 - Runtime and connector Workers remain undeployed. The API Worker exposes health only and returns `503 SERVICE_UNAVAILABLE` for `/v1/*` in production.
-- GitHub CD cannot execute until the `CLOUDFLARE_API_TOKEN` environment secret is configured directly in GitHub. No credential was copied from local Wrangler state.
+- GitHub production CD cannot execute until the `CLOUDFLARE_API_TOKEN` environment secret is configured directly in GitHub. Preview CD also requires `CF_PREVIEW_ENABLED=true`; it defaults to disabled. No credential was copied from local Wrangler state.
 
 ## Fixed findings
 
@@ -47,6 +47,6 @@ Verdict: **PASS** for the public-site release candidate; **HOLD** for all privat
 
 - Local D1 checks are development evidence only; no remote or production database migration was run.
 - OpenAPI files are marked `design-only`; they are not proof of implemented runtime behavior.
-- GitHub environments `production` and `preview` exist with branch policies for `main` and same-repository feature/PR refs, respectively. Neither environment currently contains `CLOUDFLARE_API_TOKEN`.
+- GitHub environments `production` and `preview` exist with branch policies for `main` and same-repository feature/PR refs, respectively. Neither environment currently contains `CLOUDFLARE_API_TOKEN`; deployment credentials are scoped only to credential-check/deploy steps.
 - A passing local gate is not a passing GitHub run. GitHub Actions evidence is produced only after the candidate is pushed.
 - Current production deployment evidence is recorded separately in `reports/2026-10-26-production-release-receipt.md`.

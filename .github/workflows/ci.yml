@@ -68,13 +68,15 @@ jobs:
 
   preview:
     name: Pages preview
-    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      vars.CF_PREVIEW_ENABLED == 'true'
     needs: verify
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment: preview
     env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CF_PAGES_BRANCH: pr-${{ github.event.number }}
       CF_PAGES_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
       CF_PAGES_COMMIT_MESSAGE: PR ${{ github.event.number }} preview
@@ -99,6 +101,8 @@ jobs:
 
       - name: Deploy preview when Cloudflare credentials are configured
         shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           if [[ -z "$CLOUDFLARE_API_TOKEN" ]]; then
             echo "::notice::Preview deploy skipped because the preview environment has no CLOUDFLARE_API_TOKEN."

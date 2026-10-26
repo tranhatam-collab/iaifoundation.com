@@ -28,7 +28,6 @@ jobs:
       name: production
       url: https://iaifoundation.com
     env:
-      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
       CF_PAGES_BRANCH: main
       CF_PAGES_COMMIT_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
       CF_PAGES_COMMIT_MESSAGE: Automated production release
@@ -58,6 +57,8 @@ jobs:
 
       - name: Require Cloudflare production credential
         shell: bash
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
           if [[ -z "$CLOUDFLARE_API_TOKEN" ]]; then
             echo "::error::production environment secret CLOUDFLARE_API_TOKEN is not configured"
@@ -66,6 +67,8 @@ jobs:
 
       - name: Deploy verified Pages artifact
         run: node scripts/site-deploy.mjs
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
 
       - name: Smoke production
         run: npm run smoke:production

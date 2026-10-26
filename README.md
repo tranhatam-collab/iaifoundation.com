@@ -69,12 +69,12 @@ npm run smoke:api
 ## CI and CD
 
 - `.github/workflows/ci.yml` runs the complete release gate on pull requests, `main`, and `brand/**`; it uploads the verified Pages artifact and checksum manifest.
-- Same-repository pull requests can deploy a Pages preview through the protected `preview` GitHub environment. The job records a notice and remains non-blocking when its Cloudflare token is not configured.
+- Same-repository pull requests can deploy a Pages preview through the protected `preview` GitHub environment only when repository variable `CF_PREVIEW_ENABLED` is explicitly set to `true`. It defaults to disabled until the environment token and approval policy are configured.
 - `.github/workflows/deploy.yml` deploys only a successful `main` CI revision through the serialized `production` environment, re-runs the release gate, and then smokes the public custom domain.
 - `.github/workflows/api-containment.yml` is manual-only and requires the exact confirmation `DEPLOY CONTAINMENT`; it deploys only the fail-closed API boundary and verifies that private `/v1/*` routes remain unavailable.
 - `.github/workflows/codeql.yml` scans JavaScript and TypeScript on changes and weekly. Dependabot covers npm and GitHub Actions updates.
 
-Both the `preview` and `production` GitHub environments use an environment secret named `CLOUDFLARE_API_TOKEN`. The token must be created directly in GitHub with the minimum Cloudflare Pages/Workers permissions needed for the selected workflow; never commit or paste it into repository files. Production approvals and branch policies remain GitHub environment settings, not code defaults.
+Both the `preview` and `production` GitHub environments use an environment secret named `CLOUDFLARE_API_TOKEN`. The token is exposed only to the credential check and deploy steps, never dependency installation or tests. It must be created directly in GitHub with the minimum Cloudflare Pages/Workers permissions needed for the selected workflow; never commit or paste it into repository files. Production approvals and branch policies remain GitHub environment settings, not code defaults.
 
 ## Governance references
 
