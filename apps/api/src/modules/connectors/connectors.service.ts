@@ -52,17 +52,10 @@ export async function testConnectorService(
     throw new AppError(ERROR_CODES.RESOURCE_NOT_FOUND, 'Connector not found');
   }
 
-  // TODO: Implement actual health check against provider
-  const result = {
-    health_status: 'healthy',
-    latency_ms: 120,
-    quota_status: 'available',
-    degraded_mode: false,
-  };
-
-  await db.prepare(`
-    UPDATE connectors SET health_status = ?, last_checked_at = ?, updated_at = ? WHERE id = ?
-  `).bind(result.health_status, new Date().toISOString(), new Date().toISOString(), connectorId).run();
-
-  return result;
+  throw new AppError(
+    ERROR_CODES.CONNECTOR_UNAVAILABLE,
+    'Connector health checks are not implemented in the public foundation project',
+    undefined,
+    503,
+  );
 }

@@ -16,8 +16,7 @@ export class MqttAdapter implements DeviceGatewayAdapter {
   }
 
   async discoverDevices(): Promise<Array<{ id: string; type: string; status: string }>> {
-    // TODO: Discover MQTT devices via topic scanning
-    return [];
+    throw new Error('MQTT discovery is not implemented');
   }
 
   async sendCommand(params: {
@@ -26,21 +25,11 @@ export class MqttAdapter implements DeviceGatewayAdapter {
     payload: Record<string, unknown>;
     idempotency_key: string;
   }): Promise<{ command_id: string; acknowledged: boolean }> {
-    // TODO: Publish command to MQTT topic
-    // Topic: devices/{device_id}/commands/{command_type}
-    return {
-      command_id: `mqtt_cmd_${params.idempotency_key.slice(0, 12)}`,
-      acknowledged: true,
-    };
+    throw new Error('MQTT commands are not implemented');
   }
 
   async getState(deviceId: string): Promise<{ status: string; last_seen: string; state_json: string }> {
-    // TODO: Get last retained state from MQTT topic
-    return {
-      status: 'online',
-      last_seen: new Date().toISOString(),
-      state_json: '{}',
-    };
+    throw new Error('MQTT state reads are not implemented');
   }
 
   normalizeEvent(raw: Record<string, unknown>): Record<string, unknown> {

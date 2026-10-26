@@ -2,10 +2,12 @@ openapi: 3.0.3
 info:
   title: Intent OS — Payments API
   version: 0.1.0
-  description: Payment rails endpoints for intents, settlements, beneficiaries, and wallets.
+  description: Design-only contract for future payment rails. No payment or money-movement product is released.
+x-release-status: design-only
 
 servers:
   - url: https://api.iaifoundation.com/v1
+    description: Containment endpoint; private operations currently return HTTP 503.
 
 components:
   securitySchemes:

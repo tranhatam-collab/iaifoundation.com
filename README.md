@@ -1,117 +1,89 @@
 # iaifoundation.com
 
-Public website for IAI Foundation — Intent OS / Universal Intent Infrastructure.
+Static-first public website for IAI Foundation. The deploy target is Cloudflare Pages at the repository root.
 
-## Current scope
+## Scope boundary
 
-This repository now contains two aligned layers:
+This repository publishes the foundation's public thesis, principles, architecture, roadmap, and documentation. It does not provide a production private runtime, customer sign-in, payment processing, device control, or connector service.
 
-- a static, Cloudflare Pages-friendly public website for IAIFoundation.com
-- an initial Intent OS monorepo foundation for API, runtime, connectors, shared packages, OpenAPI specs, migrations, and tests
+The `apps/`, `packages/`, `openapi/`, and `migrations/` directories contain future-runtime design and development scaffolding. All runtime workers fail closed by default. They can be exercised only in an explicitly enabled local-development mode and are not part of the default Pages build or deploy path.
 
-## AI Governance
+## Public site
 
-- Index: `docs/AI_GOVERNANCE_INDEX.md`
-- System rules: `docs/IAI_FOUNDATION_AI_SYSTEM.md`
-- Prompt templates: `docs/AI_PROMPT_TEMPLATES.md`
-- Context memory: `docs/IAIFOUNDATION_CONTEXT_MEMORY_SYSTEM.md`
-- Agent execution: `docs/IAIFOUNDATION_AGENT_EXECUTION_SYSTEM.md`
-- Multi-model router: `docs/IAIFOUNDATION_MULTI_MODEL_ROUTER.md`
-- Execution Engine (Level 3): `docs/IAIFOUNDATION_EXECUTION_ENGINE.md`
-- Realtime agent system: `docs/IAIFOUNDATION_REALTIME_AGENT_SYSTEM.md`
-- Data intelligence layer: `docs/IAIFOUNDATION_DATA_INTELLIGENCE_LAYER.md`
+- Localized source content: `content/en.json`, `content/vi.json`
+- Static generator: `scripts/build-pages-static.mjs`
+- Generated deploy artifact: `.wrangler/pages-build/`
+- Root-compatible HTML snapshots: refreshed by every `npm run build`
+- Shared presentation and behavior: `style.css`, `app.js`
+- Public documentation: `docs/`
+- Security and routing: `_headers`, `_redirects`
 
-## Site structure
-
-### Monorepo
-- `apps/` — deployable application surfaces (`api`, `workers-runtime`, `workers-connectors`)
-- `packages/` — shared contracts, DB layer, policy engine, runtime-core, observability, idempotency, audit SDK
-- `openapi/` — public API specifications
-- `tests/` — Vitest test coverage
-- `docs/` — public specs, AI governance system, and documentation index
-
-### Pages
-- `/` — Homepage (thesis, architecture, use cases, principles, roadmap, contact)
-- `/docs/` — Public documentation and spec index
-- `/partners/` — Partner types and collaboration info
-- `/404.html` — Not found page
-
-### Root files
-- `index.html` — Main homepage
-- `style.css` — Global styles
-- `app.js` — Client-side interactions (mobile menu, waitlist form)
-- `_headers` — Cloudflare Pages security headers
-- `_redirects` — HTTP-to-HTTPS and www-to-naked redirects
-- `robots.txt` — Search engine directives
-- `sitemap.xml` — Sitemap for all public pages
-- `site.webmanifest` — PWA manifest
-- `favicon.svg` — Site favicon
-- `og-image.svg` — Open Graph image
-- `404.html` — Custom 404 page
-
-### Documentation
-- `IAIFOUNDATION_MASTER_SPEC.md` — Core product and platform spec
-- `IAIFOUNDATION_INFORMATION_ARCHITECTURE.md` — Site IA and content tone
-- `IAIFOUNDATION_PRODUCT_ARCHITECTURE.md` — Cloudflare mapping and runtime flow
-- `IAIFOUNDATION_DATA_MODEL.md` — Core entities and data design rules
-- `IAIFOUNDATION_POLICY_ENGINE.md` — Policy domains and safety principles
-- `IAIFOUNDATION_ROADMAP_12_24_MONTHS.md` — Build timeline
-- `IAIFOUNDATION_WEB_CONTENT_AND_COPY.md` — Website copy reference
-- `IAIFOUNDATION_CLOUDFLARE_GITHUB_SETUP.md` — Deployment guide
-- `README_MASTER_HANDOFF.md` — Master handoff document
-
-### Technical specs (`docs/`)
-- `INTENT_OS_MVP_BUILD_ORDER.md` — Phase-by-phase build plan
-- `INTENT_OS_DATABASE_SCHEMA.md` — Full D1 schema for MVP
-- `INTENT_OS_API_SPEC.md` — Unified API contract
-- `INTENT_OS_ADMIN_DASHBOARD_SPEC.md` — Admin UI screen map
-- `INTENT_OS_ADMIN_UI_ROUTES_AND_SCREENS.md` — Detailed route definitions
-- `INTENT_OS_RUN_DETAIL_PAGE_SPEC.md` — Run detail page spec
-- `INTENT_OS_D1_SQL_MIGRATIONS_V1.md` — Migration plan and runbook
-- `INTENT_OS_BACKEND_FOLDER_STRUCTURE.md` — Monorepo layout and conventions
-
-### AI governance (`docs/`)
-- `AI_GOVERNANCE_INDEX.md` — Single reading path across all AI governance layers
-- `IAI_FOUNDATION_AI_SYSTEM.md` — Core operating rules for AI work in this repo
-- `AI_PROMPT_TEMPLATES.md` — Ready-to-use prompt templates
-- `AI_TASK_HANDOFF_TEMPLATE.md` — Structured task handoff template
-- `IAIFOUNDATION_CONTEXT_MEMORY_SYSTEM.md` — Context reuse and token discipline
-- `IAIFOUNDATION_AGENT_EXECUTION_SYSTEM.md` — Agent role system and execution flow
-- `IAIFOUNDATION_MULTI_MODEL_ROUTER.md` — Model routing strategy
-- `IAIFOUNDATION_EXECUTION_ENGINE.md` — Level 3 execution engine
-- `IAIFOUNDATION_REALTIME_AGENT_SYSTEM.md` — Realtime multi-agent coordination
-- `IAIFOUNDATION_DATA_INTELLIGENCE_LAYER.md` — Data-aware reasoning layer
-
-## Deploy target
-
-- Cloudflare Pages
-- production branch: `main`
-- root deployment
-- Domain: `https://iaifoundation.com`
+Stable public routes include `/`, `/about/`, `/principles/`, `/architecture/`, `/roadmap/`, `/docs/`, `/contact/`, `/support/`, `/privacy/`, `/terms/`, `/sign-in/`, and their published Vietnamese equivalents.
 
 ## Development
 
-Frontend pages remain static-first and can be edited directly.
+Use Node.js 22 as declared in `.nvmrc`.
 
-Backend and shared packages use the monorepo toolchain:
-
-- `npm install`
-- `npm run typecheck`
-- `npm run test`
-
-## AI Working Rules
-
-- Primary system rule file: `docs/IAI_FOUNDATION_AI_SYSTEM.md`
-- Always start AI tasks with: `Follow docs/IAI_FOUNDATION_AI_SYSTEM.md strictly.`
-- Recommended first step for any non-trivial task: `Start with ANALYZE only.`
-
-### Quick prompt format
-
-```text
-Follow docs/IAI_FOUNDATION_AI_SYSTEM.md strictly.
-
-Start with ANALYZE only.
-
-Task:
-[describe your task]
+```sh
+npm install
+npm run dev
 ```
+
+`npm run dev` rebuilds the static site and serves the Cloudflare Pages artifact. It does not start the private API worker.
+
+Useful checks:
+
+```sh
+npm run build
+npm run lint
+npm run typecheck
+npm run test
+npm run check
+npm run test:db
+npm run check:workers
+npm run check:release
+npm run test:e2e
+```
+
+`npm run check:release` is the complete deterministic local gate. It validates the static site, TypeScript, tests, a fresh six-migration D1 database with an idempotent seed, and dry-run bundles for the API, runtime, and connector Workers. CI and CD also run `npm audit --audit-level=high` against the current registry before accepting a revision. The static-site checker validates required routes, internal links, language alternates, metadata, accessibility basics, content parity, image dimensions, and security headers.
+
+## Deployment
+
+```sh
+npm run deploy
+```
+
+The default command builds, validates, and deploys `.wrangler/pages-build/` to Cloudflare Pages. A production deploy still requires current Cloudflare credentials and explicit release authorization.
+
+Canonical `www` to apex host routing must be configured at the Cloudflare zone or custom-domain layer; Pages `_redirects` does not carry that host-level rule.
+
+`npm run dev:api` and `npm run deploy:api` are intentionally separate commands for the future runtime scaffold. Do not use them for the public website.
+
+Production verification is read-only:
+
+```sh
+npm run smoke:production
+npm run smoke:api
+```
+
+## CI and CD
+
+- `.github/workflows/ci.yml` runs the complete release gate on pull requests, `main`, and `brand/**`; it uploads the verified Pages artifact and checksum manifest.
+- Same-repository pull requests can deploy a Pages preview through the protected `preview` GitHub environment. The job records a notice and remains non-blocking when its Cloudflare token is not configured.
+- `.github/workflows/deploy.yml` deploys only a successful `main` CI revision through the serialized `production` environment, re-runs the release gate, and then smokes the public custom domain.
+- `.github/workflows/api-containment.yml` is manual-only and requires the exact confirmation `DEPLOY CONTAINMENT`; it deploys only the fail-closed API boundary and verifies that private `/v1/*` routes remain unavailable.
+- `.github/workflows/codeql.yml` scans JavaScript and TypeScript on changes and weekly. Dependabot covers npm and GitHub Actions updates.
+
+Both the `preview` and `production` GitHub environments use an environment secret named `CLOUDFLARE_API_TOKEN`. The token must be created directly in GitHub with the minimum Cloudflare Pages/Workers permissions needed for the selected workflow; never commit or paste it into repository files. Production approvals and branch policies remain GitHub environment settings, not code defaults.
+
+## Governance references
+
+- `docs/AI_GOVERNANCE_INDEX.md`
+- `docs/IAI_FOUNDATION_AI_SYSTEM.md`
+- `docs/AI_PROMPT_TEMPLATES.md`
+- `docs/IAIFOUNDATION_CONTEXT_MEMORY_SYSTEM.md`
+- `docs/IAIFOUNDATION_AGENT_EXECUTION_SYSTEM.md`
+- `docs/IAIFOUNDATION_MULTI_MODEL_ROUTER.md`
+- `docs/IAIFOUNDATION_EXECUTION_ENGINE.md`
+- `docs/IAIFOUNDATION_REALTIME_AGENT_SYSTEM.md`
+- `docs/IAIFOUNDATION_DATA_INTELLIGENCE_LAYER.md`

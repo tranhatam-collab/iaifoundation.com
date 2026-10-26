@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checklist QA Release Đa Ngôn Ngữ - Tài liệu IAI Foundation</title>
+  <meta name="description" content="Checklist release cho trang đa ngôn ngữ bao phủ chất lượng ngôn ngữ, metadata, hreflang, sitemap, menu và live smoke test." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="IAI Foundation" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#0c0d12" />
+  <meta property="og:title" content="Checklist QA Release Đa Ngôn Ngữ - Tài liệu IAI Foundation" />
+  <meta property="og:description" content="Dùng checklist chung này để khóa release đa ngôn ngữ giữa dev, content, QA, SEO và AI operation." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iaifoundation.com/vi/docs/multilingual-release-qa-checklist/" />
+  <meta property="og:site_name" content="IAI Foundation" />
+  <meta property="og:locale" content="vi_VN" />
+  <meta property="og:image" content="https://iaifoundation.com/og-image.svg" />
+  <meta property="og:image:alt" content="Trang checklist QA release đa ngôn ngữ" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Checklist QA Release Đa Ngôn Ngữ - Tài liệu IAI Foundation" />
+  <meta name="twitter:description" content="Checklist QA chung cho nội dung đa ngôn ngữ, metadata, hành vi browser và xác nhận live." />
+  <link rel="canonical" href="https://iaifoundation.com/vi/docs/multilingual-release-qa-checklist/" />
+  <link rel="alternate" hreflang="en" href="https://iaifoundation.com/docs/multilingual-release-qa-checklist/" />
+  <link rel="alternate" hreflang="vi" href="https://iaifoundation.com/vi/docs/multilingual-release-qa-checklist/" />
+  <link rel="alternate" hreflang="x-default" href="https://iaifoundation.com/docs/multilingual-release-qa-checklist/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="/style.css?v=7d49f05a2ff0" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://iaifoundation.com/vi/docs/multilingual-release-qa-checklist/#page",
+      "url": "https://iaifoundation.com/vi/docs/multilingual-release-qa-checklist/",
+      "name": "Checklist QA Release Đa Ngôn Ngữ - Tài liệu IAI Foundation",
+      "description": "Checklist release cho trang đa ngôn ngữ bao phủ chất lượng ngôn ngữ, metadata, hreflang, sitemap, menu và live smoke test.",
+      "isPartOf": {
+        "@id": "https://iaifoundation.com/#website"
+      },
+      "inLanguage": "vi"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://iaifoundation.com/vi/docs/multilingual-release-qa-checklist/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Trang chủ",
+          "item": "https://iaifoundation.com/vi/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tài liệu",
+          "item": "https://iaifoundation.com/vi/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Checklist QA Release Đa Ngôn Ngữ",
+          "item": "https://iaifoundation.com/vi/docs/multilingual-release-qa-checklist/"
+        }
+      ]
+    }
+  ]
+}</script>
+</head>
+<body data-menu-open-text="Trình đơn" data-menu-close-text="Đóng" data-menu-open-aria="Mở menu" data-menu-close-aria="Đóng menu">
+  <a class="skip-link" href="#main-content">Bỏ qua và đi đến nội dung chính</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/vi/">IAI Foundation</a>
+      <div class="nav-actions">
+        <nav class="desktop-nav" aria-label="Điều hướng chính">
+          <a href="/vi/">Trang chủ</a>
+          <a href="/vi/#architecture">Kiến trúc</a>
+          <a href="/vi/docs/">Tài liệu</a>
+          <a href="/vi/partners/">Đối tác</a>
+          <a href="/vi/#contact">Liên hệ</a>
+        </nav>
+        <div class="lang-switch" aria-label="Chuyển ngôn ngữ">
+          <a class="lang-link" href="/docs/multilingual-release-qa-checklist/" hreflang="en" lang="en">EN</a>
+          <a class="lang-link is-active" href="/vi/docs/multilingual-release-qa-checklist/" hreflang="vi" lang="vi" aria-current="page">VI</a>
+        </div>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Mở menu">Trình đơn</button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu container" hidden>
+      <a href="/vi/">Trang chủ</a>
+      <a href="/vi/#architecture">Kiến trúc</a>
+      <a href="/vi/docs/">Tài liệu</a>
+      <a href="/vi/partners/">Đối tác</a>
+      <a href="/vi/#contact">Liên hệ</a>
+      <a href="/docs/multilingual-release-qa-checklist/" hreflang="en" lang="en">English</a>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="hero">
+      <div class="container narrow">
+        <p class="eyebrow">Checklist Release</p>
+        <h1>Checklist QA Release Đa Ngôn Ngữ</h1>
+        <p class="lead">Checklist này tạo ra một cổng release chung cho dev, content, QA, SEO và AI agent mỗi khi có thay đổi về ngôn ngữ, metadata hoặc route locale.</p>
+        <p class="meta-note">Dùng cùng một checklist cho copy, metadata, routing, menu browser và live smoke validation.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container narrow">
+        <h2>Khóa phạm vi trước khi chạm production.</h2>
+        <p>Locale bị ảnh hưởng, route bị ảnh hưởng và release note phải được xác định rõ trước khi đội ngũ bắt đầu validate bản candidate.</p>
+        <p>Không có release đa ngôn ngữ nào được đi tiếp với phạm vi ẩn hoặc copy chưa review.</p>
+        <ul class="principles">
+          <li>Phạm vi khớp với release note</li>
+          <li>Locale và route bị ảnh hưởng được ghi rõ</li>
+          <li>Copy review đã hoàn tất</li>
+          <li>Không còn placeholder hoặc bản dịch máy chưa duyệt</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="container narrow">
+        <h2>Kiểm tra chữ hiển thị trước tiên.</h2>
+        <p>Điều hướng, CTA, footer, form và trạng thái lỗi phải khớp đúng locale đang đọc.</p>
+        <p>Trang tiếng Việt phải có dấu đầy đủ và dùng đúng thuật ngữ khóa. Trang tiếng Anh phải tự nhiên, rõ ràng và đúng văn phong quốc tế.</p>
+        <ul class="principles">
+          <li>Một ngôn ngữ chủ đạo trên mỗi trang</li>
+          <li>Không còn chuỗi UI lẫn ngôn ngữ</li>
+          <li>Tên sản phẩm khóa giữ nguyên nhất quán</li>
+          <li>Dấu tiếng Việt và ngữ pháp tiếng Anh đều đúng</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container narrow">
+        <h2>Xác nhận gói metadata cho từng route.</h2>
+        <p>Mỗi trang indexable cần title, description, canonical, hreflang, Open Graph, Twitter copy và schema language riêng theo locale.</p>
+        <p>Checklist phải bắt được metadata trùng, alternate thiếu và internal link sai ngôn ngữ trước khi release.</p>
+        <ul class="principles">
+          <li>Một H1 cho mỗi trang</li>
+          <li>Title và description riêng theo locale</li>
+          <li>Canonical và hreflang đúng</li>
+          <li>Open Graph, Twitter và schema đã được nội địa hóa</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="container narrow">
+        <h2>Không tách QA ngôn ngữ khỏi QA trình duyệt.</h2>
+        <p>Header navigation và language switcher là một phần của trải nghiệm đa ngôn ngữ, đặc biệt ở viewport nhỏ.</p>
+        <p>Đội ngũ phải xác nhận menu mở, đóng, resize về desktop sạch và không đẩy người dùng sang sai locale.</p>
+        <ul class="principles">
+          <li>Header menu chạy đúng trên desktop, tablet và mobile</li>
+          <li>Menu đóng khi bấm link, bấm ra ngoài, resize và phím Escape</li>
+          <li>Language switcher trỏ tới đúng trang tương đương</li>
+          <li>HTML và asset live khớp đúng bản release mong muốn</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section cta-section">
+      <div class="container cta-card">
+        <div>
+          <h2>Xem bản gốc tiếng Anh</h2>
+          <p>Dùng trang HTML để đọc thuận tiện và bản markdown gốc cho mục đích đối chiếu, khóa chuẩn và lưu vết kiểm toán.</p>
+        </div>
+        <a class="button primary" href="/MULTILINGUAL_RELEASE_QA_CHECKLIST.md">Xem bản gốc tiếng Anh</a>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="container narrow">
+        <h2>Liên quan</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Đọc chuẩn ngôn ngữ và SEO đa ngôn ngữ</h3>
+            <a class="doc-link" href="/vi/docs/language-seo-standard/">Mở trang →</a>
+          </article>
+          <article class="card">
+            <h3>Mở mẫu brief SEO theo locale</h3>
+            <a class="doc-link" href="/vi/docs/locale-seo-brief-template/">Mở trang →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand footer-brand">IAI Foundation</p>
+        <p class="footer-text">Xây dựng lớp tin cậy biến ý định của con người và doanh nghiệp thành kết quả ngoài đời thực.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Khám Phá</p>
+        <a href="/vi/">Trang chủ</a>
+        <a href="/vi/#architecture">Kiến trúc</a>
+        <a href="/vi/#principles">Nguyên tắc</a>
+      </div>
+      <div>
+        <p class="footer-heading">Nền Tảng</p>
+        <a href="/vi/#roadmap">Lộ trình</a>
+        <a href="/vi/partners/">Đối tác</a>
+        <a href="/vi/#contact">Liên hệ</a>
+      </div>
+      <div>
+        <p class="footer-heading">Trạng Thái</p>
+        <p class="footer-text">Tài liệu công khai v1</p>
+        <p class="footer-text">© 2026 IAI Foundation</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/app.js?v=565acf3d7421"></script>
+</body>
+</html>

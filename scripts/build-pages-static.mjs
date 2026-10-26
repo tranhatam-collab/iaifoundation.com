@@ -10,6 +10,7 @@ const buildDate = new Date().toISOString().slice(0, 10);
 const assetUrls = {
   app: `/app.js?v=${hashFile(resolve(rootDir, 'app.js'))}`,
   style: `/style.css?v=${hashFile(resolve(rootDir, 'style.css'))}`,
+  hero: `/assets/intent-governance-hero.jpg?v=${hashFile(resolve(rootDir, 'assets', 'intent-governance-hero.jpg'))}`,
 };
 
 const localeFiles = ['en', 'vi'];
@@ -18,16 +19,17 @@ const locales = Object.fromEntries(
 );
 const defaultLocale = 'en';
 const routeKeys = Object.keys(locales[defaultLocale].pages);
+const sitemapUtilityRoutes = ['/contact/', '/support/', '/privacy/', '/terms/'];
 
 rmSync(outputDir, { recursive: true, force: true });
 mkdirSync(outputDir, { recursive: true });
 
 copyStaticAssets();
 renderPublicPages();
-writeFileSync(resolve(outputDir, 'site.webmanifest'), renderManifest(), 'utf8');
-writeFileSync(resolve(outputDir, 'sitemap.xml'), renderSitemap(), 'utf8');
-mkdirSync(resolve(outputDir, 'locales'), { recursive: true });
-writeFileSync(resolve(outputDir, 'locales/site.locales.json'), renderLocaleManifest(), 'utf8');
+renderUtilityPages();
+writeGeneratedFile('site.webmanifest', renderManifest());
+writeGeneratedFile('sitemap.xml', renderSitemap());
+writeGeneratedFile('locales/site.locales.json', renderLocaleManifest());
 
 console.log(outputDir);
 
@@ -48,6 +50,11 @@ function copyStaticAssets() {
   if (existsSync(resolve(rootDir, 'content'))) {
     cpSync(resolve(rootDir, 'content'), resolve(outputDir, 'content'), { recursive: true });
   }
+
+  if (existsSync(resolve(rootDir, 'assets'))) {
+    cpSync(resolve(rootDir, 'assets'), resolve(outputDir, 'assets'), { recursive: true });
+  }
+
 }
 
 function renderPublicPages() {
@@ -59,6 +66,143 @@ function renderPublicPages() {
       writeRouteFile(page.path, html);
     }
   }
+}
+
+function renderUtilityPages() {
+  const pages = [
+    {
+      path: '/contact/',
+      title: 'Contact - IAI Foundation',
+      description: 'Contact IAI Foundation about public documentation, research, partnerships, or a bounded pilot.',
+      h1: 'Contact IAI Foundation.',
+      lead: 'Use email for public documentation feedback, research, partnerships, or a tightly scoped pilot discussion.',
+      content: [
+        '<div class="status-card">',
+        '  <h2>Email</h2>',
+        '  <p>Use a clear subject such as DOCS, RESEARCH, PARTNER, PILOT, PRIVACY, SUPPORT, or SECURITY.</p>',
+        '  <a class="button primary" href="mailto:hello@iaifoundation.com">Email IAI Foundation</a>',
+        '</div>',
+      ].join('\n'),
+    },
+    {
+      path: '/support/',
+      title: 'Support - IAI Foundation',
+      description: 'Support channels for the IAI Foundation public website and documentation.',
+      h1: 'Public site support.',
+      lead: 'Report a broken page, documentation issue, privacy concern, security issue, or impersonation attempt.',
+      content: [
+        '<div class="status-card">',
+        '  <h2>Before you contact us</h2>',
+        '  <p>Authentication, payments, device control, and the private runtime are not active on this public website.</p>',
+        '  <p>Do not send passwords, private keys, payment credentials, session cookies, or identity documents by email.</p>',
+        '  <a class="button primary" href="mailto:hello@iaifoundation.com?subject=SUPPORT">Email Support</a>',
+        '</div>',
+      ].join('\n'),
+    },
+    {
+      path: '/privacy/',
+      title: 'Privacy Policy - IAI Foundation',
+      description: 'Privacy information for the IAI Foundation public website and inquiry channels.',
+      h1: 'Privacy Policy.',
+      lead: 'This public website is informational and does not operate production identity, payment, device, or runtime workflows.',
+      content: [
+        '<div class="status-card">',
+        '  <h2>Information we handle</h2>',
+        '  <p>We may process contact details and inquiry content that you choose to send by email, together with basic technical logs used to protect the site.</p>',
+        '  <h2>How information is used</h2>',
+        '  <p>Information is used to respond to inquiries, maintain the public website, and investigate security or impersonation reports.</p>',
+        '  <h2>Contact</h2>',
+        '  <p>For a privacy request, email <a href="mailto:hello@iaifoundation.com?subject=PRIVACY">hello@iaifoundation.com</a>.</p>',
+        '</div>',
+      ].join('\n'),
+    },
+    {
+      path: '/terms/',
+      title: 'Terms of Use - IAI Foundation',
+      description: 'Terms for the IAI Foundation public website, public specifications, and inquiry channels.',
+      h1: 'Terms of Use.',
+      lead: 'The public website explains proposed architecture, principles, and documentation. It does not grant production authority.',
+      content: [
+        '<div class="status-card">',
+        '  <h2>Informational scope</h2>',
+        '  <p>Public materials may change as implementation, review, and pilot planning continue.</p>',
+        '  <h2>No production authority</h2>',
+        '  <p>Nothing on this website authorizes an AI agent, payment, device action, legal commitment, or access to a private runtime.</p>',
+        '  <h2>Contact</h2>',
+        '  <p>For terms questions, email <a href="mailto:hello@iaifoundation.com?subject=TERMS">hello@iaifoundation.com</a>.</p>',
+        '</div>',
+      ].join('\n'),
+    },
+    {
+      path: '/sign-in/',
+      title: 'Access Status - IAI Foundation',
+      description: 'Status of private runtime access for IAI Foundation.',
+      robots: 'noindex,nofollow',
+      h1: 'Private runtime access is not available.',
+      lead: 'This repository and website are the public foundation layer. They do not provide a production sign-in flow.',
+      content: [
+        '<div class="status-card">',
+        '  <h2>Use the public resources</h2>',
+        '  <p>Review the architecture and specifications, or contact the foundation about a bounded research or pilot discussion.</p>',
+        '  <div class="hero-actions">',
+        '    <a class="button primary" href="/docs/">Explore Public Docs</a>',
+        '    <a class="button secondary" href="mailto:hello@iaifoundation.com?subject=ACCESS">Contact IAI Foundation</a>',
+        '  </div>',
+        '</div>',
+      ].join('\n'),
+    },
+  ];
+
+  for (const page of pages) writeRouteFile(page.path, renderUtilityPage(page));
+}
+
+function renderUtilityPage(page) {
+  const locale = locales.en;
+  const canonical = absoluteUrl(page.path);
+  const navItems = locale.navigation.section;
+  return [
+    '<!doctype html>',
+    '<html lang="en">',
+    '<head>',
+    '  <meta charset="utf-8" />',
+    '  <meta name="viewport" content="width=device-width,initial-scale=1" />',
+    `  <title>${escapeHtml(page.title)}</title>`,
+    `  <meta name="description" content="${escapeAttribute(page.description)}" />`,
+    `  <meta name="robots" content="${escapeAttribute(page.robots || 'index,follow,max-image-preview:large')}" />`,
+    `  <meta name="theme-color" content="${escapeAttribute(locale.site.themeColor)}" />`,
+    `  <link rel="canonical" href="${escapeAttribute(canonical)}" />`,
+    `  <link rel="icon" type="image/svg+xml" href="${escapeAttribute(locale.site.favicon)}" />`,
+    `  <link rel="stylesheet" href="${escapeAttribute(assetUrls.style)}" />`,
+    '</head>',
+    `<body data-menu-open-text="${escapeAttribute(locale.ui.menuOpenText)}" data-menu-close-text="${escapeAttribute(locale.ui.menuCloseText)}" data-menu-open-aria="${escapeAttribute(locale.ui.menuOpenAria)}" data-menu-close-aria="${escapeAttribute(locale.ui.menuCloseAria)}">`,
+    `  <a class="skip-link" href="#main-content">${escapeHtml(locale.ui.skipLink)}</a>`,
+    '  <header class="site-header">',
+    '    <div class="container nav">',
+    '      <a class="brand" href="/">IAI Foundation</a>',
+    '      <div class="nav-actions">',
+    `        <nav class="desktop-nav" aria-label="${escapeAttribute(locale.ui.primaryNavLabel)}">`,
+    ...navItems.map((item) => `          <a href="${escapeAttribute(item.href)}">${escapeHtml(item.label)}</a>`),
+    '        </nav>',
+    `        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="${escapeAttribute(locale.ui.menuOpenAria)}">${escapeHtml(locale.ui.menuOpenText)}</button>`,
+    '      </div>',
+    '    </div>',
+    '    <div id="mobile-menu" class="mobile-menu container" hidden>',
+    ...navItems.map((item) => `      <a href="${escapeAttribute(item.href)}">${escapeHtml(item.label)}</a>`),
+    '      <a href="/vi/" hreflang="vi" lang="vi">Tiếng Việt</a>',
+    '    </div>',
+    '  </header>',
+    '  <main id="main-content" class="simple-page">',
+    '    <div class="container narrow">',
+    `      <h1>${escapeHtml(page.h1)}</h1>`,
+    `      <p class="lead">${escapeHtml(page.lead)}</p>`,
+    page.content.split('\n').map((line) => `      ${line}`).join('\n'),
+    '    </div>',
+    '  </main>',
+    renderFooter('en', 'docs'),
+    `  <script src="${escapeAttribute(assetUrls.app)}"></script>`,
+    '</body>',
+    '</html>',
+  ].join('\n');
 }
 
 function renderPage(localeCode, pageKey, page) {
@@ -74,7 +218,6 @@ function renderPage(localeCode, pageKey, page) {
     `data-menu-close-text="${escapeAttribute(locale.ui.menuCloseText)}"`,
     `data-menu-open-aria="${escapeAttribute(locale.ui.menuOpenAria)}"`,
     `data-menu-close-aria="${escapeAttribute(locale.ui.menuCloseAria)}"`,
-    `data-waitlist-success="${escapeAttribute(locale.ui.waitlistSuccess)}"`,
   ].join(' ');
 
   const headParts = [
@@ -145,14 +288,15 @@ function renderHeader(localeCode, pageKey, page) {
     ...navItems.map((item) => `          <a href="${escapeAttribute(item.href)}">${escapeHtml(item.label)}</a>`),
     '        </nav>',
     `        <div class="lang-switch" aria-label="${escapeAttribute(locale.ui.languageSwitcherLabel)}">`,
-    `          <a class="lang-link${localeCode === 'en' ? ' is-active' : ''}" href="${escapeAttribute(localeCode === 'en' ? currentPath : alternatePath)}" hreflang="en" lang="en"${localeCode === 'en' ? ' aria-current="page"' : ''}>🇺🇸 English</a>`,
-    `          <a class="lang-link${localeCode === 'vi' ? ' is-active' : ''}" href="${escapeAttribute(localeCode === 'vi' ? currentPath : alternatePath)}" hreflang="vi" lang="vi"${localeCode === 'vi' ? ' aria-current="page"' : ''}>🇻🇳 Tiếng Việt</a>`,
+    `          <a class="lang-link${localeCode === 'en' ? ' is-active' : ''}" href="${escapeAttribute(localeCode === 'en' ? currentPath : alternatePath)}" hreflang="en" lang="en"${localeCode === 'en' ? ' aria-current="page"' : ''}>EN</a>`,
+    `          <a class="lang-link${localeCode === 'vi' ? ' is-active' : ''}" href="${escapeAttribute(localeCode === 'vi' ? currentPath : alternatePath)}" hreflang="vi" lang="vi"${localeCode === 'vi' ? ' aria-current="page"' : ''}>VI</a>`,
     '        </div>',
     `        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="${escapeAttribute(locale.ui.menuOpenAria)}">${escapeHtml(locale.ui.menuOpenText)}</button>`,
     '      </div>',
     '    </div>',
-    '    <div id="mobile-menu" class="mobile-menu container" hidden style="display:none;">',
+    '    <div id="mobile-menu" class="mobile-menu container" hidden>',
     ...navItems.map((item) => `      <a href="${escapeAttribute(item.href)}">${escapeHtml(item.label)}</a>`),
+    `      <a href="${escapeAttribute(alternatePath)}" hreflang="${getAlternateLocale(localeCode)}" lang="${getAlternateLocale(localeCode)}">${localeCode === 'en' ? 'Tiếng Việt' : 'English'}</a>`,
     '    </div>',
     '  </header>',
   ].join('\n');
@@ -191,9 +335,9 @@ function renderHome(localeCode, page) {
     `            <a class="button secondary" href="${escapeAttribute(page.secondaryCta.href)}">${escapeHtml(page.secondaryCta.label)}</a>`,
     '          </div>',
     '        </div>',
-    '        <div class="hero-card">',
-    ...page.stackItems.map((item) => `          <div class="stack-item">${escapeHtml(item)}</div>`),
-    '        </div>',
+    '        <figure class="hero-visual">',
+    `          <img src="${escapeAttribute(assetUrls.hero)}" width="1600" height="650" alt="${escapeAttribute(page.heroImageAlt)}" fetchpriority="high" decoding="async" />`,
+    '        </figure>',
     '      </div>',
     '    </section>',
     renderTextSection('thesis', sections.thesis),
@@ -207,16 +351,10 @@ function renderHome(localeCode, page) {
     '    <section id="contact" class="section cta-section">',
     '      <div class="container cta-card">',
     '        <div>',
-    `          <p class="section-label">${escapeHtml(sections.contact.label)}</p>`,
     `          <h2>${escapeHtml(sections.contact.title)}</h2>`,
     `          <p>${escapeHtml(sections.contact.text)}</p>`,
     '        </div>',
-    '        <form id="waitlist-form" class="waitlist-form">',
-    `          <input type="email" id="waitlist-email" name="email" placeholder="${escapeAttribute(locale.ui.emailPlaceholder)}" required aria-label="${escapeAttribute(locale.ui.emailLabel)}" />`,
-    `          <button type="submit" class="button primary">${escapeHtml(locale.registries.forms.waitlist.submit)}</button>`,
-    '        </form>',
-    '        <p id="waitlist-message" class="waitlist-message" hidden></p>',
-    `        <a class="button secondary" href="${escapeAttribute(sections.contact.emailHref)}">${escapeHtml(sections.contact.emailLabel)}</a>`,
+    `        <a class="button primary" href="${escapeAttribute(sections.contact.emailHref)}">${escapeHtml(sections.contact.emailLabel)}</a>`,
     '      </div>',
     '    </section>',
     '  </main>',
@@ -238,7 +376,6 @@ function renderDocsHub(page) {
     '    <section id="contact" class="section cta-section">',
     '      <div class="container cta-card">',
     '        <div>',
-    `          <p class="section-label">${escapeHtml(page.contact.label)}</p>`,
     `          <h2>${escapeHtml(page.contact.title)}</h2>`,
     `          <p>${escapeHtml(page.contact.text)}</p>`,
     '        </div>',
@@ -256,7 +393,7 @@ function renderDocsGroup(group, isAlt) {
   return [
     `    <section class="${classes.join(' ')}">`,
     `      <div class="${containerClass}">`,
-    `        <p class="section-label">${escapeHtml(group.label)}</p>`,
+    `        <h2>${escapeHtml(group.label)}</h2>`,
     '        <div class="card-grid">',
     ...group.cards.map((card) => [
       '          <article class="card">',
@@ -287,7 +424,6 @@ function renderPartners(page) {
     '    <section id="contact" class="section cta-section">',
     '      <div class="container cta-card">',
     '        <div>',
-    `          <p class="section-label">${escapeHtml(page.contact.label)}</p>`,
     `          <h2>${escapeHtml(page.contact.title)}</h2>`,
     `          <p>${escapeHtml(page.contact.text)}</p>`,
     '        </div>',
@@ -314,7 +450,6 @@ function renderDocArticle(localeCode, page) {
     '    <section class="section cta-section">',
     '      <div class="container cta-card">',
     '        <div>',
-    `          <p class="section-label">${escapeHtml(locale.ui.articleNextStepLabel)}</p>`,
     `          <h2>${escapeHtml(page.sourceDoc.label)}</h2>`,
     `          <p>${escapeHtml(locale.ui.articleSourceNote)}</p>`,
     '        </div>',
@@ -324,7 +459,7 @@ function renderDocArticle(localeCode, page) {
     ...(page.relatedLinks?.length ? [
       '    <section class="section alt">',
       '      <div class="container narrow">',
-      `        <p class="section-label">${escapeHtml(locale.ui.articleRelatedLabel)}</p>`,
+      `        <h2>${escapeHtml(locale.ui.articleRelatedLabel)}</h2>`,
       '        <div class="card-grid">',
       ...page.relatedLinks.map((link) => [
         '          <article class="card">',
@@ -346,7 +481,6 @@ function renderArticleSection(section, isAlt) {
   return [
     `    <section class="${classes.join(' ')}">`,
     '      <div class="container narrow">',
-    `        <p class="section-label">${escapeHtml(section.label)}</p>`,
     `        <h2>${escapeHtml(section.title)}</h2>`,
     ...(section.paragraphs || []).map((paragraph) => `        <p>${escapeHtml(paragraph)}</p>`),
     ...(section.items?.length ? [
@@ -362,13 +496,13 @@ function renderArticleSection(section, isAlt) {
 function renderNotFound(page) {
   return [
     '  <main id="main-content">',
-    '    <section class="section" style="min-height:60vh;display:flex;align-items:center;">',
-    '      <div class="container narrow" style="text-align:center;">',
+    '    <section class="not-found">',
+    '      <div class="container narrow">',
     `        <p class="eyebrow">${escapeHtml(page.eyebrow)}</p>`,
-    `        <h1 style="max-width:none;">${escapeHtml(page.h1)}</h1>`,
-    `        <p class="lead" style="margin:0 auto 12px;">${escapeHtml(page.lead)}</p>`,
-    `        <p class="meta-note" style="margin:0 auto 28px;">${escapeHtml(page.metaNote)}</p>`,
-    '        <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">',
+    `        <h1>${escapeHtml(page.h1)}</h1>`,
+    `        <p class="lead">${escapeHtml(page.lead)}</p>`,
+    `        <p class="meta-note">${escapeHtml(page.metaNote)}</p>`,
+    '        <div class="not-found-actions">',
     ...page.actions.map((action) => `          <a class="button ${action.style}" href="${escapeAttribute(action.href)}">${escapeHtml(action.label)}</a>`),
     '        </div>',
     '      </div>',
@@ -383,7 +517,6 @@ function renderTextSection(id, section, isAlt = false) {
   return [
     `    <section${id ? ` id="${escapeAttribute(id)}"` : ''} class="${classes.join(' ')}">`,
     '      <div class="container narrow">',
-    `        <p class="section-label">${escapeHtml(section.label)}</p>`,
     `        <h2>${escapeHtml(section.title)}</h2>`,
     ...(section.paragraphs || []).map((paragraph) => `        <p>${escapeHtml(paragraph)}</p>`),
     '      </div>',
@@ -397,8 +530,7 @@ function renderCardSection(id, section, isAlt = false) {
   return [
     `    <section${id ? ` id="${escapeAttribute(id)}"` : ''} class="${classes.join(' ')}">`,
     '      <div class="container">',
-    `        <p class="section-label">${escapeHtml(section.label)}</p>`,
-    `        <h2>${escapeHtml(section.title)}</h2>`,
+    `        <h2>${escapeHtml(section.title || section.label)}</h2>`,
     '        <div class="card-grid">',
     ...section.cards.map((card) => `          <article class="card"><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.text)}</p></article>`),
     '        </div>',
@@ -413,7 +545,6 @@ function renderListCardSection(id, section, isAlt = false) {
   return [
     `    <section id="${escapeAttribute(id)}" class="${classes.join(' ')}">`,
     '      <div class="container">',
-    `        <p class="section-label">${escapeHtml(section.label)}</p>`,
     `        <h2>${escapeHtml(section.title)}</h2>`,
     '        <div class="list-grid">',
     ...section.cards.map((card) => `          <div class="list-card"><h3>${escapeHtml(card.title)}</h3><p>${escapeHtml(card.text)}</p></div>`),
@@ -429,8 +560,7 @@ function renderListSection(id, section, isAlt = false) {
   return [
     `    <section${id ? ` id="${escapeAttribute(id)}"` : ''} class="${classes.join(' ')}">`,
     '      <div class="container narrow">',
-    `        <p class="section-label">${escapeHtml(section.label)}</p>`,
-    `        <h2>${escapeHtml(section.title)}</h2>`,
+    `        <h2>${escapeHtml(section.title || section.label)}</h2>`,
     '        <ul class="principles">',
     ...section.items.map((item) => `          <li>${escapeHtml(item)}</li>`),
     '        </ul>',
@@ -443,7 +573,6 @@ function renderTimelineSection(id, section) {
   return [
     `    <section id="${escapeAttribute(id)}" class="section">`,
     '      <div class="container narrow">',
-    `        <p class="section-label">${escapeHtml(section.label)}</p>`,
     `        <h2>${escapeHtml(section.title)}</h2>`,
     '        <div class="timeline">',
     ...section.items.map((item) => [
@@ -622,7 +751,7 @@ function renderLocaleManifest() {
 }
 
 function renderSitemap() {
-  const entries = routeKeys.filter((key) => key !== 'notFound').flatMap((key) => (
+  const localizedEntries = routeKeys.filter((key) => key !== 'notFound').flatMap((key) => (
     localeFiles.map((code) => {
       const page = locales[code].pages[key];
       const alternates = localeFiles.map((localeCode) => `    <xhtml:link rel="alternate" hreflang="${localeCode}" href="${escapeAttribute(absoluteUrl(locales[localeCode].pages[key].path))}" />`).join('\n');
@@ -640,11 +769,20 @@ function renderSitemap() {
       ].join('\n');
     })
   ));
+  const utilityEntries = sitemapUtilityRoutes.map((route) => [
+    '  <url>',
+    `    <loc>${escapeHtml(absoluteUrl(route))}</loc>`,
+    `    <lastmod>${buildDate}</lastmod>`,
+    '    <changefreq>monthly</changefreq>',
+    '    <priority>0.5</priority>',
+    '  </url>',
+  ].join('\n'));
 
   return [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="https://www.w3.org/1999/xhtml">',
-    ...entries,
+    ...localizedEntries,
+    ...utilityEntries,
     '</urlset>',
   ].join('\n');
 }
@@ -652,9 +790,15 @@ function renderSitemap() {
 function writeRouteFile(routePath, html) {
   const normalizedPath = routePath === '/' ? '/index.html' : routePath;
   const finalPath = normalizedPath.endsWith('/') ? join(normalizedPath, 'index.html') : normalizedPath;
-  const target = resolve(outputDir, `.${finalPath}`);
-  mkdirSync(dirname(target), { recursive: true });
-  writeFileSync(target, html, 'utf8');
+  writeGeneratedFile(finalPath.slice(1), html);
+}
+
+function writeGeneratedFile(relativePath, contents) {
+  for (const baseDirectory of [outputDir, rootDir]) {
+    const target = resolve(baseDirectory, relativePath);
+    mkdirSync(dirname(target), { recursive: true });
+    writeFileSync(target, contents, 'utf8');
+  }
 }
 
 function copyDirectoryFiltered(sourceDir, targetDir, shouldCopy) {

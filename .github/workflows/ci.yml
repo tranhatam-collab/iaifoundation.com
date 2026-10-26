@@ -1,55 +1,107 @@
 name: CI
+
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+      - 'brand/**'
   pull_request:
-    branches: [main]
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '22'
 
 jobs:
-  typecheck:
+  verify:
+    name: Release gate
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npx tsc --noEmit
+      - name: Checkout source
+        uses: actions/checkout@v4
 
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 22
+          node-version: ${{ env.NODE_VERSION }}
           cache: npm
-      - run: npm ci
-      - run: npm run lint
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: npm
-      - run: npm ci
-      - run: npm test
+      - name: Install locked dependencies
+        run: npm ci
 
-  deploy:
-    needs: [typecheck, lint, test]
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Audit dependency advisories
+        run: npm audit --audit-level=high
+
+      - name: Run site, API, database, and Worker release gates
+        run: npm run check:release
+
+      - name: Create Pages checksum manifest
+        shell: bash
+        run: |
+          mkdir -p release-artifacts
+          (
+            cd .wrangler/pages-build
+            find . -type f -print0 | sort -z | xargs -0 sha256sum
+          ) > release-artifacts/pages-sha256.txt
+
+      - name: Upload verified Pages artifact
+        uses: actions/upload-artifact@v4
         with:
-          node-version: 22
+          name: pages-${{ github.sha }}
+          path: |
+            .wrangler/pages-build
+            release-artifacts/pages-sha256.txt
+            reports/2026-10-26-dev-e2e-audit.md
+            reports/2026-10-26-production-release-receipt.md
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
+
+  preview:
+    name: Pages preview
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    needs: verify
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: preview
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CF_PAGES_BRANCH: pr-${{ github.event.number }}
+      CF_PAGES_COMMIT_SHA: ${{ github.event.pull_request.head.sha }}
+      CF_PAGES_COMMIT_MESSAGE: PR ${{ github.event.number }} preview
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
           cache: npm
-      - run: npm ci
-      - run: npx wrangler deploy
-        env:
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Download verified Pages artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: pages-${{ github.sha }}
+          path: .
+
+      - name: Deploy preview when Cloudflare credentials are configured
+        shell: bash
+        run: |
+          if [[ -z "$CLOUDFLARE_API_TOKEN" ]]; then
+            echo "::notice::Preview deploy skipped because the preview environment has no CLOUDFLARE_API_TOKEN."
+            exit 0
+          fi
+          node scripts/site-deploy.mjs

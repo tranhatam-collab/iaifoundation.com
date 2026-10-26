@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Language and Multilingual SEO Standard - IAI Foundation Docs</title>
+  <meta name="description" content="Operational standard for page language, locale-specific SEO, Vietnamese metadata rules, and multilingual release gates." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="IAI Foundation" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#0c0d12" />
+  <meta property="og:title" content="Language and Multilingual SEO Standard - IAI Foundation Docs" />
+  <meta property="og:description" content="Read the locked standard for page language, per-locale metadata, Vietnamese SEO, and multilingual expansion governance." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iaifoundation.com/docs/language-seo-standard/" />
+  <meta property="og:site_name" content="IAI Foundation" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://iaifoundation.com/og-image.svg" />
+  <meta property="og:image:alt" content="Language and multilingual SEO standard document cover" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Language and Multilingual SEO Standard - IAI Foundation Docs" />
+  <meta name="twitter:description" content="Locked operating standard for bilingual content, per-locale metadata, and multilingual release quality." />
+  <link rel="canonical" href="https://iaifoundation.com/docs/language-seo-standard/" />
+  <link rel="alternate" hreflang="en" href="https://iaifoundation.com/docs/language-seo-standard/" />
+  <link rel="alternate" hreflang="vi" href="https://iaifoundation.com/vi/docs/language-seo-standard/" />
+  <link rel="alternate" hreflang="x-default" href="https://iaifoundation.com/docs/language-seo-standard/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="/style.css?v=7d49f05a2ff0" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://iaifoundation.com/docs/language-seo-standard/#page",
+      "url": "https://iaifoundation.com/docs/language-seo-standard/",
+      "name": "Language and Multilingual SEO Standard - IAI Foundation Docs",
+      "description": "Operational standard for page language, locale-specific SEO, Vietnamese metadata rules, and multilingual release gates.",
+      "isPartOf": {
+        "@id": "https://iaifoundation.com/#website"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://iaifoundation.com/docs/language-seo-standard/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://iaifoundation.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Docs",
+          "item": "https://iaifoundation.com/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Language and Multilingual SEO Standard",
+          "item": "https://iaifoundation.com/docs/language-seo-standard/"
+        }
+      ]
+    }
+  ]
+}</script>
+</head>
+<body data-menu-open-text="Menu" data-menu-close-text="Close" data-menu-open-aria="Open menu" data-menu-close-aria="Close menu">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">IAI Foundation</a>
+      <div class="nav-actions">
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="/">Home</a>
+          <a href="/#architecture">Architecture</a>
+          <a href="/docs/">Docs</a>
+          <a href="/partners/">Partners</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <a class="lang-link is-active" href="/docs/language-seo-standard/" hreflang="en" lang="en" aria-current="page">EN</a>
+          <a class="lang-link" href="/vi/docs/language-seo-standard/" hreflang="vi" lang="vi">VI</a>
+        </div>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">Menu</button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu container" hidden>
+      <a href="/">Home</a>
+      <a href="/#architecture">Architecture</a>
+      <a href="/docs/">Docs</a>
+      <a href="/partners/">Partners</a>
+      <a href="/#contact">Contact</a>
+      <a href="/vi/docs/language-seo-standard/" hreflang="vi" lang="vi">Tiếng Việt</a>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="hero">
+      <div class="container narrow">
+        <p class="eyebrow">Operational Standard</p>
+        <h1>Language and Multilingual SEO Standard</h1>
+        <p class="lead">This standard locks how IAIFoundation.com handles page language, route parity, locale-specific metadata, and multilingual release quality.</p>
+        <p class="meta-note">Treat each locale as a first-class product surface with its own meaning, metadata, and QA gate.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container narrow">
+        <h2>Use one route key across locales.</h2>
+        <p>English stays on the root route. Every non-default locale uses a locale prefix while keeping the same route key.</p>
+        <p>Canonical URLs always point to the apex host and each locale page self-canonicalizes to its own URL.</p>
+        <ul class="principles">
+          <li>Primary host: https://iaifoundation.com</li>
+          <li>Default locale: English on /</li>
+          <li>Active localized locale: Vietnamese on /vi/</li>
+          <li>Route parity required for home, docs, partners, and future public routes</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="container narrow">
+        <h2>One page, one dominant language.</h2>
+        <p>Navigation, headings, body copy, CTA labels, metadata, and structured data must all match the page locale.</p>
+        <p>The only exceptions are locked brand or product names and approved technical nouns that would lose meaning if translated.</p>
+        <ul class="principles">
+          <li>Do not mix English metadata into Vietnamese pages</li>
+          <li>Do not publish placeholder translations</li>
+          <li>Do not ship mixed-language navigation or footer labels</li>
+          <li>Do not change locked terminology without an approved decision record</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container narrow">
+        <h2>Vietnamese is its own search surface.</h2>
+        <p>Vietnamese content targets Vietnam-based readers and search behavior. It is not a side effect of English localization.</p>
+        <p>Every Vietnamese page must carry its own title, meta description, Open Graph copy, Twitter copy, structured data language, and internal anchor language.</p>
+        <ul class="principles">
+          <li>Use full Vietnamese diacritics everywhere in visible UI and metadata</li>
+          <li>Use vi_VN as the Open Graph locale</li>
+          <li>Do not reuse the English keyword cluster on Vietnamese pages</li>
+          <li>Do not index a Vietnamese page before its metadata and schema are localized</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="container narrow">
+        <h2>No multilingual work is complete without proof.</h2>
+        <p>A locale or SEO task is only done when the localized copy, metadata, hreflang cluster, sitemap, schema, and live smoke checks all agree.</p>
+        <p>The release team must use the locale brief and the multilingual QA checklist before a new locale or updated localized page goes live.</p>
+        <ul class="principles">
+          <li>Update localized HTML, sitemap, locale manifest, and switchers together</li>
+          <li>Keep users inside the same locale whenever an equivalent route exists</li>
+          <li>Attach QA evidence before claiming completion</li>
+          <li>Escalate any change to route model, default locale, or locked terminology</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section cta-section">
+      <div class="container cta-card">
+        <div>
+          <h2>Read source markdown</h2>
+          <p>Use the HTML page for browsing and the source markdown for locked reference and audit trails.</p>
+        </div>
+        <a class="button primary" href="/IAIFOUNDATION_LANGUAGE_AND_MULTILINGUAL_SEO_STANDARD.md">Read source markdown</a>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="container narrow">
+        <h2>Related</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Open the locale SEO brief template</h3>
+            <a class="doc-link" href="/docs/locale-seo-brief-template/">Open page →</a>
+          </article>
+          <article class="card">
+            <h3>Open the multilingual release QA checklist</h3>
+            <a class="doc-link" href="/docs/multilingual-release-qa-checklist/">Open page →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand footer-brand">IAI Foundation</p>
+        <p class="footer-text">Building the trust layer that turns human and business intent into real-world outcomes.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Explore</p>
+        <a href="/">Home</a>
+        <a href="/#architecture">Architecture</a>
+        <a href="/#principles">Principles</a>
+      </div>
+      <div>
+        <p class="footer-heading">Foundation</p>
+        <a href="/#roadmap">Roadmap</a>
+        <a href="/partners/">Partners</a>
+        <a href="/#contact">Contact</a>
+      </div>
+      <div>
+        <p class="footer-heading">Status</p>
+        <p class="footer-text">Public docs v1</p>
+        <p class="footer-text">© 2026 IAI Foundation</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/app.js?v=565acf3d7421"></script>
+</body>
+</html>

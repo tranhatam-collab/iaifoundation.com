@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Multilingual Release QA Checklist - IAI Foundation Docs</title>
+  <meta name="description" content="Release checklist for multilingual pages covering language quality, metadata, hreflang, sitemap, menu behavior, and live smoke tests." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="IAI Foundation" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#0c0d12" />
+  <meta property="og:title" content="Multilingual Release QA Checklist - IAI Foundation Docs" />
+  <meta property="og:description" content="Use this shared checklist to gate multilingual releases across dev, content, QA, SEO, and AI operations." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iaifoundation.com/docs/multilingual-release-qa-checklist/" />
+  <meta property="og:site_name" content="IAI Foundation" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://iaifoundation.com/og-image.svg" />
+  <meta property="og:image:alt" content="Multilingual release QA checklist document cover" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Multilingual Release QA Checklist - IAI Foundation Docs" />
+  <meta name="twitter:description" content="Shared QA checklist for multilingual content, metadata, browser behavior, and live smoke validation." />
+  <link rel="canonical" href="https://iaifoundation.com/docs/multilingual-release-qa-checklist/" />
+  <link rel="alternate" hreflang="en" href="https://iaifoundation.com/docs/multilingual-release-qa-checklist/" />
+  <link rel="alternate" hreflang="vi" href="https://iaifoundation.com/vi/docs/multilingual-release-qa-checklist/" />
+  <link rel="alternate" hreflang="x-default" href="https://iaifoundation.com/docs/multilingual-release-qa-checklist/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="stylesheet" href="/style.css?v=7d49f05a2ff0" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://iaifoundation.com/docs/multilingual-release-qa-checklist/#page",
+      "url": "https://iaifoundation.com/docs/multilingual-release-qa-checklist/",
+      "name": "Multilingual Release QA Checklist - IAI Foundation Docs",
+      "description": "Release checklist for multilingual pages covering language quality, metadata, hreflang, sitemap, menu behavior, and live smoke tests.",
+      "isPartOf": {
+        "@id": "https://iaifoundation.com/#website"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://iaifoundation.com/docs/multilingual-release-qa-checklist/#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://iaifoundation.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Docs",
+          "item": "https://iaifoundation.com/docs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Multilingual Release QA Checklist",
+          "item": "https://iaifoundation.com/docs/multilingual-release-qa-checklist/"
+        }
+      ]
+    }
+  ]
+}</script>
+</head>
+<body data-menu-open-text="Menu" data-menu-close-text="Close" data-menu-open-aria="Open menu" data-menu-close-aria="Close menu">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="/">IAI Foundation</a>
+      <div class="nav-actions">
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="/">Home</a>
+          <a href="/#architecture">Architecture</a>
+          <a href="/docs/">Docs</a>
+          <a href="/partners/">Partners</a>
+          <a href="/#contact">Contact</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <a class="lang-link is-active" href="/docs/multilingual-release-qa-checklist/" hreflang="en" lang="en" aria-current="page">EN</a>
+          <a class="lang-link" href="/vi/docs/multilingual-release-qa-checklist/" hreflang="vi" lang="vi">VI</a>
+        </div>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">Menu</button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="mobile-menu container" hidden>
+      <a href="/">Home</a>
+      <a href="/#architecture">Architecture</a>
+      <a href="/docs/">Docs</a>
+      <a href="/partners/">Partners</a>
+      <a href="/#contact">Contact</a>
+      <a href="/vi/docs/multilingual-release-qa-checklist/" hreflang="vi" lang="vi">Tiếng Việt</a>
+    </div>
+  </header>
+  <main id="main-content">
+    <section class="hero">
+      <div class="container narrow">
+        <p class="eyebrow">Release Checklist</p>
+        <h1>Multilingual Release QA Checklist</h1>
+        <p class="lead">This checklist creates one shared release gate for dev, content, QA, SEO, and AI agents whenever language, metadata, or locale routing changes.</p>
+        <p class="meta-note">Run the same release checklist across copy, metadata, routing, menu behavior, and live smoke validation.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container narrow">
+        <h2>Lock scope before touching production.</h2>
+        <p>The affected locales, routes, and release note must be explicit before the team starts validating the release candidate.</p>
+        <p>No multilingual release should proceed with hidden scope or unreviewed copy.</p>
+        <ul class="principles">
+          <li>Scope matches the release note</li>
+          <li>Affected locales and routes are explicit</li>
+          <li>Copy review is complete</li>
+          <li>No placeholder or unreviewed machine translation remains</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="container narrow">
+        <h2>Check visible UI text first.</h2>
+        <p>Navigation, CTA labels, footer text, form copy, and error states must all match the active locale.</p>
+        <p>Vietnamese pages must use full diacritics and locked terminology. English pages must read naturally in international US English.</p>
+        <ul class="principles">
+          <li>One dominant language per page</li>
+          <li>No mixed-language UI strings</li>
+          <li>Locked product names remain consistent</li>
+          <li>Vietnamese diacritics and English grammar are correct</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container narrow">
+        <h2>Validate the metadata pack on every route.</h2>
+        <p>Each indexable page needs a locale-specific title, description, canonical, hreflang cluster, Open Graph copy, Twitter copy, and schema language.</p>
+        <p>The checklist should catch duplicate metadata, missing alternates, and weak internal link language before release.</p>
+        <ul class="principles">
+          <li>One H1 per page</li>
+          <li>Locale-specific title and description</li>
+          <li>Correct canonical and hreflang cluster</li>
+          <li>Localized Open Graph, Twitter, and schema fields</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="container narrow">
+        <h2>Do not separate language QA from browser QA.</h2>
+        <p>Header navigation and language switching are part of the multilingual experience, especially on smaller viewports.</p>
+        <p>The team should confirm the menu opens, closes, resizes back to desktop cleanly, and does not trap the user in the wrong locale.</p>
+        <ul class="principles">
+          <li>Header menu works on desktop, tablet, and mobile</li>
+          <li>Menu closes on link click, outside click, resize, and Escape</li>
+          <li>Language switcher points to a true equivalent page</li>
+          <li>Live HTML and assets match the intended release</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section cta-section">
+      <div class="container cta-card">
+        <div>
+          <h2>Read source markdown</h2>
+          <p>Use the HTML page for browsing and the source markdown for locked reference and audit trails.</p>
+        </div>
+        <a class="button primary" href="/MULTILINGUAL_RELEASE_QA_CHECKLIST.md">Read source markdown</a>
+      </div>
+    </section>
+    <section class="section alt">
+      <div class="container narrow">
+        <h2>Related</h2>
+        <div class="card-grid">
+          <article class="card">
+            <h3>Read the language and multilingual SEO standard</h3>
+            <a class="doc-link" href="/docs/language-seo-standard/">Open page →</a>
+          </article>
+          <article class="card">
+            <h3>Open the locale SEO brief template</h3>
+            <a class="doc-link" href="/docs/locale-seo-brief-template/">Open page →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <p class="brand footer-brand">IAI Foundation</p>
+        <p class="footer-text">Building the trust layer that turns human and business intent into real-world outcomes.</p>
+      </div>
+      <div>
+        <p class="footer-heading">Explore</p>
+        <a href="/">Home</a>
+        <a href="/#architecture">Architecture</a>
+        <a href="/#principles">Principles</a>
+      </div>
+      <div>
+        <p class="footer-heading">Foundation</p>
+        <a href="/#roadmap">Roadmap</a>
+        <a href="/partners/">Partners</a>
+        <a href="/#contact">Contact</a>
+      </div>
+      <div>
+        <p class="footer-heading">Status</p>
+        <p class="footer-text">Public docs v1</p>
+        <p class="footer-text">© 2026 IAI Foundation</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/app.js?v=565acf3d7421"></script>
+</body>
+</html>

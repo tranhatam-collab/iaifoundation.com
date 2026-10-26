@@ -6,7 +6,7 @@ import { tenantScopeMiddleware } from '../middleware/tenant-scope.js';
 import { workspaceScopeMiddleware } from '../middleware/workspace-scope.js';
 import { idempotencyMiddleware } from '../middleware/idempotency.js';
 import { okResponse } from '../common/response/envelope.js';
-import { handleLogin, handleLogout, handleGetMe, handleRegister, handleMagicLinkRequest, handleMagicLinkVerify } from '../modules/auth/auth.controller.js';
+import { handleLogout, handleGetMe } from '../modules/auth/auth.controller.js';
 import { createTenantService } from '../modules/tenants/tenants.service.js';
 import { createWorkspaceService, listWorkspacesService } from '../modules/workspaces/workspaces.service.js';
 import { createRoleBindingService, listRolesService } from '../modules/roles/roles.service.js';
@@ -22,14 +22,20 @@ import { createDeviceService, sendDeviceCommandService, quarantineDeviceService 
 import { createWalletProfileService, createBeneficiaryService } from '../modules/wallet-profiles/wallet-profiles.service.js';
 import { createGatewayService, testGatewayService } from '../modules/gateways/gateways.service.js';
 import { getUsageSummary } from '../modules/usage-billing/usage-billing.service.js';
+import { getRunDetailReadModel } from '@intent-os/db/query-helpers/run-detail.read-model';
+import { findRunsByTenantWorkspace } from '@intent-os/db/repositories/runs.repo';
 
 const v1 = new Hono<{ Bindings: Env; Variables: { auth: AuthContext } }>();
 
-// Public auth routes
-v1.post('/auth/login', handleLogin);
-v1.post('/auth/register', handleRegister);
-v1.post('/auth/magic-link/request', handleMagicLinkRequest);
-v1.get('/auth/magic-link/verify', handleMagicLinkVerify);
+// Interactive authentication is intentionally unavailable in this public repository.
+v1.post('/auth/login', (c) => c.json({
+  ok: false,
+  error: {
+    code: 'SERVICE_UNAVAILABLE',
+    message: 'Authentication is not implemented for the public foundation site.',
+  },
+  meta: { request_id: c.get('requestId') || '' },
+}, 503));
 
 // Protected routes
 v1.use('*', authMiddleware);
@@ -147,10 +153,44 @@ v1.post('/intents/execute', idempotencyMiddleware, async (c) => {
   );
   return c.json(okResponse(result, c.get('requestId') || ''), 201);
 });
-v1.get('/runs', (c) => c.json(okResponse({ items: [], next_cursor: null }, c.get('requestId') || '')));
-v1.get('/runs/:id', (c) => c.json(okResponse({ id: c.req.param('id'), status: 'running' }, c.get('requestId') || '')));
-v1.get('/runs/:id/events', (c) => c.json(okResponse({ items: [], next_cursor: null }, c.get('requestId') || '')));
-v1.get('/runs/:id/trace', (c) => c.json(okResponse({ steps: [] }, c.get('requestId') || '')));
+v1.get('/runs', async (c) => {
+  const auth = c.get('auth');
+  const status = c.req.query('status');
+  const cursor = c.req.query('cursor');
+  const limit = Number(c.req.query('limit') || 20);
+  const result = await findRunsByTenantWorkspace(
+    c.env.DB,
+    auth.tenantId,
+    auth.workspaceIds[0] || '',
+    status,
+    cursor,
+    Number.isFinite(limit) ? Math.min(Math.max(limit, 1), 100) : 20,
+  );
+  return c.json(okResponse(result, c.get('requestId') || '', result.next_cursor));
+});
+v1.get('/runs/:id', async (c) => {
+  const detail = await getRunDetailReadModel(c.env.DB, c.req.param('id'));
+  if (!detail) {
+    return c.json({
+      ok: false,
+      error: { code: 'RESOURCE_NOT_FOUND', message: 'Run not found' },
+      meta: { request_id: c.get('requestId') || '' },
+    }, 404 as any);
+  }
+  return c.json(okResponse(detail, c.get('requestId') || ''));
+});
+v1.get('/runs/:id/events', async (c) => {
+  const events = await c.env.DB.prepare(
+    'SELECT * FROM run_events WHERE run_id = ? ORDER BY sequence_no ASC'
+  ).bind(c.req.param('id')).all();
+  return c.json(okResponse({ items: events.results || [], next_cursor: null }, c.get('requestId') || ''));
+});
+v1.get('/runs/:id/trace', async (c) => {
+  const steps = await c.env.DB.prepare(
+    'SELECT id, name, step_type, state, attempt_count, step_order, input_ref, output_ref, proof_status FROM run_steps WHERE run_id = ? ORDER BY step_order ASC'
+  ).bind(c.req.param('id')).all();
+  return c.json(okResponse({ steps: steps.results || [] }, c.get('requestId') || ''));
+});
 v1.post('/runs/:id/cancel', idempotencyMiddleware, async (c) => {
   const auth = c.get('auth');
   const body = await c.req.json();
@@ -238,10 +278,5 @@ v1.get('/usage', async (c) => {
   const meters = await getUsageSummary(c.env.DB, auth.tenantId, auth.workspaceIds[0] || '');
   return c.json(okResponse({ meters }, c.get('requestId') || ''));
 });
-
-// Placeholder webhook routes (should be moved to connectors worker route)
-v1.post('/webhooks/payments/:provider', (c) => c.json(okResponse({ received: true }, c.get('requestId') || '')));
-v1.post('/webhooks/connectors/:id', (c) => c.json(okResponse({ received: true }, c.get('requestId') || '')));
-v1.post('/webhooks/device/:gateway_id', (c) => c.json(okResponse({ received: true }, c.get('requestId') || '')));
 
 export default v1;

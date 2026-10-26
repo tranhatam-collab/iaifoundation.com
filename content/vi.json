@@ -6,7 +6,7 @@
   "basePath": "/vi/",
   "site": {
     "name": "IAI Foundation",
-    "themeColor": "#0b1020",
+    "themeColor": "#0c0d12",
     "preferredHost": "https://iaifoundation.com",
     "ogImage": "/og-image.svg",
     "favicon": "/favicon.svg",
@@ -158,8 +158,9 @@
       "footerKey": "home",
       "eyebrow": "Intent OS / Hạ tầng Thực thi Ý định Phổ quát",
       "h1": "Biến ý định thành kết quả ngoài đời thực.",
-      "lead": "IAI Foundation đang xây dựng lớp tin cậy có thể điều phối AI, quy trình, thanh toán, thiết bị, phê duyệt và bằng chứng trong một hệ thống thống nhất.",
-      "primaryCta": { "label": "Đăng ký sớm", "href": "#contact" },
+      "lead": "Bản thiết kế công khai cho thực thi AI có quản trị qua quy trình, phê duyệt, thanh toán, thiết bị và bằng chứng.",
+      "heroImageAlt": "Các cổng kiến trúc trừu tượng được nối bằng một đường dẫn từ ý định đến kết quả đã xác minh",
+      "primaryCta": { "label": "Xem tài liệu công khai", "href": "/vi/docs/" },
       "secondaryCta": { "label": "Xem kiến trúc", "href": "#architecture" },
       "stackItems": ["Ý định", "Chính sách", "Phê duyệt", "Thực thi", "Thanh toán + Thiết bị", "Bằng chứng"],
       "sections": {
@@ -233,13 +234,13 @@
         },
         "roadmap": {
           "label": "Lộ Trình",
-          "title": "Chúng tôi đang xây gì và khi nào.",
+          "title": "Trình tự xây dựng có cổng kiểm soát, không phải cam kết phát hành.",
           "items": [
-            { "title": "0 đến 30 ngày", "text": "Ra mắt website công khai. Chốt ngôn ngữ danh mục. Công bố kiến trúc và nguyên tắc. Tạo kênh tiếp nhận cho người xây dựng, đối tác và nhóm thí điểm." },
-            { "title": "30 đến 90 ngày", "text": "Thiết kế lược đồ control plane. Chốt mô hình danh tính, workspace, intent, phê duyệt và bằng chứng. Công bố tài liệu công khai v1." },
-            { "title": "3 đến 6 tháng", "text": "Xây dựng control-plane MVP. Xây dựng bộ chính sách và lớp thực thi MVP. Hỗ trợ phê duyệt thủ công và gói bằng chứng." },
-            { "title": "6 đến 12 tháng", "text": "Bổ sung lớp trừu tượng thanh toán. Bổ sung trường hợp giải ngân cho nhà cung cấp và hoàn tất dịch vụ. Bắt đầu đợt thí điểm đầu tiên với phạm vi hẹp." },
-            { "title": "12 đến 24 tháng", "text": "Bổ sung lớp trừu tượng cổng thiết bị. Mở rộng sang thí điểm mua sắm tự động và vận hành cơ sở vật chất. Tích hợp thiết bị tương thích Matter." }
+            { "title": "Nền tảng công khai", "text": "Công bố website, kiến trúc, nguyên tắc và tài liệu với ranh giới trạng thái rõ ràng." },
+            { "title": "Lõi có quản trị", "text": "Xác minh mô hình danh tính, workspace, intent, phê duyệt, chính sách và bằng chứng trước khi bật thực thi." },
+            { "title": "Thí điểm giới hạn", "text": "Kiểm thử phê duyệt thủ công và thu thập bằng chứng trong một quy trình hẹp, có người vận hành và đường lui rõ ràng." },
+            { "title": "Ranh giới thanh toán", "text": "Chỉ xem xét bộ kết nối thanh toán sau khi xác minh kiểm soát ủy quyền, đối soát, tranh chấp và khôi phục." },
+            { "title": "Ranh giới thiết bị", "text": "Chỉ xem xét cổng thiết bị sau khi xác minh thẩm quyền lệnh, telemetry, cô lập và dừng khẩn cấp." }
           ]
         },
         "builders": {
@@ -252,10 +253,10 @@
         },
         "contact": {
           "label": "Liên Hệ",
-          "title": "Cùng định nghĩa lớp vận hành tiếp theo.",
-          "text": "Các cuộc trò chuyện về thí điểm, người xây dựng và đối tác đã sẵn sàng.",
+          "title": "Trao đổi về kiến trúc hoặc một thí điểm giới hạn.",
+          "text": "Dùng email để phản hồi tài liệu, trao đổi nghiên cứu hoặc bàn về hợp tác có phạm vi rõ ràng.",
           "emailHref": "mailto:hello@iaifoundation.com",
-          "emailLabel": "Gửi email trực tiếp"
+          "emailLabel": "Gửi email cho IAI Foundation"
         }
       }
     },

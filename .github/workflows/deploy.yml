@@ -1,0 +1,68 @@
+name: CD - Public Website
+
+on:
+  workflow_run:
+    workflows: ['CI']
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: iaifoundation-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Deploy and smoke production
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: https://iaifoundation.com
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CF_PAGES_BRANCH: main
+      CF_PAGES_COMMIT_SHA: ${{ github.event.workflow_run.head_sha || github.sha }}
+      CF_PAGES_COMMIT_MESSAGE: Automated production release
+      SMOKE_BASE_URL: https://iaifoundation.com
+      SMOKE_RETRIES: '6'
+      SMOKE_RETRY_DELAY_MS: '5000'
+    steps:
+      - name: Checkout verified revision
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Audit dependency advisories
+        run: npm audit --audit-level=high
+
+      - name: Re-run release gate
+        run: npm run check:release
+
+      - name: Require Cloudflare production credential
+        shell: bash
+        run: |
+          if [[ -z "$CLOUDFLARE_API_TOKEN" ]]; then
+            echo "::error::production environment secret CLOUDFLARE_API_TOKEN is not configured"
+            exit 1
+          fi
+
+      - name: Deploy verified Pages artifact
+        run: node scripts/site-deploy.mjs
+
+      - name: Smoke production
+        run: npm run smoke:production

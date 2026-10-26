@@ -3,52 +3,105 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>IAI Foundation — Intent OS / Universal Intent Infrastructure</title>
+  <title>IAI Foundation - Intent OS / Universal Intent Infrastructure</title>
   <meta name="description" content="IAI Foundation is building the trust layer that turns human and business intent into real-world outcomes with AI, workflows, payments, devices, approvals, and proof." />
-  <meta name="theme-color" content="#0b1020" />
-  <meta property="og:title" content="IAI Foundation — Intent OS / Universal Intent Infrastructure" />
-  <meta property="og:description" content="A trust layer for turning intent into real-world outcomes." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="IAI Foundation" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="theme-color" content="#0c0d12" />
+  <meta property="og:title" content="IAI Foundation - Intent OS / Universal Intent Infrastructure" />
+  <meta property="og:description" content="A trust layer for turning intent into real-world outcomes across AI, workflows, payments, devices, approvals, and proof." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://iaifoundation.com/" />
+  <meta property="og:site_name" content="IAI Foundation" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:image" content="https://iaifoundation.com/og-image.svg" />
+  <meta property="og:image:alt" content="IAI Foundation Intent OS visual identity" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IAI Foundation - Intent OS / Universal Intent Infrastructure" />
+  <meta name="twitter:description" content="Public foundation site for Intent OS, the trust layer between intent and real-world outcomes." />
   <link rel="canonical" href="https://iaifoundation.com/" />
+  <link rel="alternate" hreflang="en" href="https://iaifoundation.com/" />
+  <link rel="alternate" hreflang="vi" href="https://iaifoundation.com/vi/" />
+  <link rel="alternate" hreflang="x-default" href="https://iaifoundation.com/" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="manifest" href="/site.webmanifest" />
-  <link rel="stylesheet" href="/style.css" />
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "IAI Foundation",
-    "url": "https://iaifoundation.com",
-    "description": "Building the trust layer that turns human and business intent into real-world outcomes.",
-    "sameAs": [],
-    "contactPoint": {
-      "@type": "ContactPoint",
+  <link rel="stylesheet" href="/style.css?v=7d49f05a2ff0" />
+  <script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://iaifoundation.com/#organization",
+      "name": "IAI Foundation",
+      "url": "https://iaifoundation.com/",
+      "logo": "https://iaifoundation.com/favicon.svg",
+      "description": "Building the trust layer that turns human and business intent into real-world outcomes.",
       "email": "hello@iaifoundation.com",
-      "contactType": "general inquiry"
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "hello@iaifoundation.com",
+        "contactType": "general inquiry",
+        "availableLanguage": [
+          "en",
+          "vi"
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://iaifoundation.com/#website",
+      "url": "https://iaifoundation.com/",
+      "name": "IAI Foundation",
+      "description": "Public foundation site for Intent OS and multilingual documentation scaffolding.",
+      "publisher": {
+        "@id": "https://iaifoundation.com/#organization"
+      },
+      "inLanguage": [
+        "en",
+        "vi"
+      ]
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://iaifoundation.com/#webpage",
+      "url": "https://iaifoundation.com/",
+      "name": "IAI Foundation - Intent OS / Universal Intent Infrastructure",
+      "description": "IAI Foundation is building the trust layer that turns human and business intent into real-world outcomes with AI, workflows, payments, devices, approvals, and proof.",
+      "isPartOf": {
+        "@id": "https://iaifoundation.com/#website"
+      },
+      "about": {
+        "@id": "https://iaifoundation.com/#organization"
+      },
+      "inLanguage": "en"
     }
-  }
-  </script>
+  ]
+}</script>
 </head>
-<body>
+<body data-menu-open-text="Menu" data-menu-close-text="Close" data-menu-open-aria="Open menu" data-menu-close-aria="Close menu">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
     <div class="container nav">
       <a class="brand" href="/">IAI Foundation</a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu">Menu</button>
-      <nav class="desktop-nav" aria-label="Primary">
-        <a href="#thesis">Thesis</a>
-        <a href="#architecture">Architecture</a>
-        <a href="#use-cases">Use Cases</a>
-        <a href="#principles">Principles</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="/docs">Docs</a>
-        <a href="/partners">Partners</a>
-        <a href="/support">Support</a>
-        <a href="/contact">Contact</a>
-      </nav>
+      <div class="nav-actions">
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#thesis">Thesis</a>
+          <a href="#architecture">Architecture</a>
+          <a href="#use-cases">Use Cases</a>
+          <a href="#principles">Principles</a>
+          <a href="#roadmap">Roadmap</a>
+          <a href="/docs/">Docs</a>
+          <a href="/partners/">Partners</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="lang-switch" aria-label="Language switcher">
+          <a class="lang-link is-active" href="/" hreflang="en" lang="en" aria-current="page">EN</a>
+          <a class="lang-link" href="/vi/" hreflang="vi" lang="vi">VI</a>
+        </div>
+        <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">Menu</button>
+      </div>
     </div>
     <div id="mobile-menu" class="mobile-menu container" hidden>
       <a href="#thesis">Thesis</a>
@@ -56,83 +109,47 @@
       <a href="#use-cases">Use Cases</a>
       <a href="#principles">Principles</a>
       <a href="#roadmap">Roadmap</a>
-      <a href="/docs">Docs</a>
-      <a href="/partners">Partners</a>
-      <a href="/support">Support</a>
-      <a href="/contact">Contact</a>
+      <a href="/docs/">Docs</a>
+      <a href="/partners/">Partners</a>
+      <a href="#contact">Contact</a>
+      <a href="/vi/" hreflang="vi" lang="vi">Tiếng Việt</a>
     </div>
   </header>
-
   <main id="main-content">
     <section class="hero">
       <div class="container hero-grid">
         <div>
           <p class="eyebrow">Intent OS / Universal Intent Infrastructure</p>
           <h1>Turn intent into real-world outcomes.</h1>
-          <p class="lead">
-            IAI Foundation is building the trust layer that coordinates AI, workflows,
-            payments, devices, approvals, and proof in one system.
-          </p>
+          <p class="lead">A public blueprint for governed AI execution across workflows, approvals, payments, devices, and proof.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#contact">Join Early Access</a>
+            <a class="button primary" href="/docs/">Explore Public Docs</a>
             <a class="button secondary" href="#architecture">Read the Architecture</a>
           </div>
         </div>
-        <div class="hero-card">
-          <div class="stack-item">Intent</div>
-          <div class="stack-item">Policy</div>
-          <div class="stack-item">Approvals</div>
-          <div class="stack-item">Execution</div>
-          <div class="stack-item">Payments + Devices</div>
-          <div class="stack-item">Proof</div>
-        </div>
+        <figure class="hero-visual">
+          <img src="/assets/intent-governance-hero.jpg?v=7c696cba0ad3" width="1600" height="650" alt="Abstract architectural checkpoints connected by a single thread from intent to verified outcome" fetchpriority="high" decoding="async" />
+        </figure>
       </div>
     </section>
-
     <section id="thesis" class="section">
       <div class="container narrow">
-        <p class="section-label">Thesis</p>
         <h2>The world has tools. It still lacks the execution layer.</h2>
-        <p>
-          We already have capable AI systems, durable workflows, connected devices,
-          digital payments, and programmable software. What is still missing is the
-          layer that can coordinate them under clear authority, policy, timing, and proof.
-        </p>
-        <p>
-          The world does not need another disconnected app. What is missing is a shared
-          execution layer that can coordinate people, organizations, AI agents, workflows,
-          money rails, connected devices, robots, approvals, evidence, and accountability.
-        </p>
-        <p>
-          IAI Foundation exists to define and build that layer.
-        </p>
+        <p>We already have capable AI systems, durable workflows, connected devices, digital payments, and programmable software. What is still missing is the layer that can coordinate them under clear authority, policy, timing, and proof.</p>
+        <p>The world does not need another disconnected app. What is missing is a shared execution layer that can coordinate people, organizations, AI agents, workflows, money rails, connected devices, robots, approvals, evidence, and accountability.</p>
+        <p>IAI Foundation exists to define and build that layer.</p>
       </div>
     </section>
-
     <section id="what-is" class="section alt">
       <div class="container narrow">
-        <p class="section-label">What Intent OS Is</p>
         <h2>A trustable runtime between intent and outcome.</h2>
-        <p>
-          Intent OS is a system that converts a user or organization's intent into a
-          real-world outcome with policy, orchestration, approvals, payments, device
-          actions, and proof.
-        </p>
-        <p>
-          A user should be able to say: <em>"I want this to happen, safely, under the
-          right conditions, with the right authority, at the right time, with clear
-          proof."</em>
-        </p>
-        <p>
-          And the system should transform that request into a validated intent, an
-          executable plan, a governed run, a recorded outcome, and an auditable proof trail.
-        </p>
+        <p>Intent OS is a system that converts a user or organization's intent into a real-world outcome with policy, orchestration, approvals, payments, device actions, and proof.</p>
+        <p>A user should be able to say: &quot;I want this to happen, safely, under the right conditions, with the right authority, at the right time, with clear proof.&quot;</p>
+        <p>And the system should transform that request into a validated intent, an executable plan, a governed run, a recorded outcome, and an auditable proof trail.</p>
       </div>
     </section>
-
     <section id="architecture" class="section">
       <div class="container">
-        <p class="section-label">Architecture</p>
         <h2>Seven layers of Intent OS</h2>
         <div class="card-grid">
           <article class="card"><h3>1. Identity</h3><p>People, teams, agents, devices, and organizations.</p></article>
@@ -145,63 +162,29 @@
         </div>
       </div>
     </section>
-
     <section id="use-cases" class="section alt">
       <div class="container">
-        <p class="section-label">Use Cases</p>
         <h2>Where this starts</h2>
         <div class="list-grid">
-          <div class="list-card">
-            <h3>Business Operations Wallet</h3>
-            <p>Payable approvals, vendor release conditions, service completion proof, escalation rules, policy-based disbursement, and full audit trail for SMEs and operational teams.</p>
-          </div>
-          <div class="list-card">
-            <h3>Personal Action Wallet</h3>
-            <p>Recurring obligation automation, subscription and service control, delegated AI tasks with guardrails, home and access actions, and proof of completion for individuals.</p>
-          </div>
-          <div class="list-card">
-            <h3>Autonomous Ops Layer</h3>
-            <p>Procurement flows, facilities actions, field service orchestration, policy-controlled device workflows, and machine-triggered actions with human checkpoints for advanced teams.</p>
-          </div>
-          <div class="list-card">
-            <h3>Vendor Release</h3>
-            <p>Release payment only when verified conditions are met, with policy-gated approvals and proof of delivery.</p>
-          </div>
-          <div class="list-card">
-            <h3>AI + Human Approval</h3>
-            <p>Coordinate AI work, human approval checkpoints, and final settlement in a single governed loop.</p>
-          </div>
-          <div class="list-card">
-            <h3>Governed Device Action</h3>
-            <p>Trigger facility or device actions under policy constraints with proof collection at every step.</p>
-          </div>
+          <div class="list-card"><h3>Business Operations Wallet</h3><p>Payable approvals, vendor release conditions, service completion proof, escalation rules, policy-based disbursement, and full audit trail for SMEs and operational teams.</p></div>
+          <div class="list-card"><h3>Personal Action Wallet</h3><p>Recurring obligation automation, subscription and service control, delegated AI tasks with guardrails, home and access actions, and proof of completion for individuals.</p></div>
+          <div class="list-card"><h3>Autonomous Ops Layer</h3><p>Procurement flows, facilities actions, field service orchestration, policy-controlled device workflows, and machine-triggered actions with human checkpoints for advanced teams.</p></div>
+          <div class="list-card"><h3>Vendor Release</h3><p>Release payment only when verified conditions are met, with policy-gated approvals and proof of delivery.</p></div>
+          <div class="list-card"><h3>AI + Human Approval</h3><p>Coordinate AI work, human approval checkpoints, and final settlement in a single governed loop.</p></div>
+          <div class="list-card"><h3>Governed Device Action</h3><p>Trigger facility or device actions under policy constraints with proof collection at every step.</p></div>
         </div>
       </div>
     </section>
-
     <section id="proof" class="section">
       <div class="container narrow">
-        <p class="section-label">Trust & Proof</p>
         <h2>Proof before trust claims.</h2>
-        <p>
-          Trust is not a claim. It is a verifiable chain of evidence. Every action in
-          Intent OS produces a proof bundle: receipts, logs, signatures, telemetry, and
-          human confirmations.
-        </p>
-        <p>
-          Without proof, automation is just speed without accountability. With proof,
-          every outcome can be audited, disputed, reconciled, and trusted.
-        </p>
-        <p>
-          Proof is not an afterthought. It is a first-class output of every run, every
-          payment, every device command, and every approval decision.
-        </p>
+        <p>Trust is not a claim. It is a verifiable chain of evidence. Every action in Intent OS produces a proof bundle: receipts, logs, signatures, telemetry, and human confirmations.</p>
+        <p>Without proof, automation is just speed without accountability. With proof, every outcome can be audited, disputed, reconciled, and trusted.</p>
+        <p>Proof is not an afterthought. It is a first-class output of every run, every payment, every device command, and every approval decision.</p>
       </div>
     </section>
-
     <section id="principles" class="section alt">
       <div class="container narrow">
-        <p class="section-label">Principles</p>
         <h2>Built for authority, accountability, and restraint.</h2>
         <ul class="principles">
           <li>Clarity before automation</li>
@@ -217,121 +200,93 @@
         </ul>
       </div>
     </section>
-
     <section id="roadmap" class="section">
       <div class="container narrow">
-        <p class="section-label">Roadmap</p>
-        <h2>What we are building and when.</h2>
+        <h2>A gated build sequence, not a release promise.</h2>
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>0 to 30 days</h3>
-              <p>Launch the public website. Finalize category language. Publish architecture and principles. Create builder, partner, and pilot intake.</p>
+              <h3>Public foundation</h3>
+              <p>Publish the website, architecture, principles, and documentation with clear status boundaries.</p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>30 to 90 days</h3>
-              <p>Design control-plane schemas. Lock identity, workspace, intent, approval, and proof models. Publish public documentation v1.</p>
+              <h3>Governed core</h3>
+              <p>Validate identity, workspace, intent, approval, policy, and proof models before enabling execution.</p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>3 to 6 months</h3>
-              <p>Build control-plane MVP. Build policy and runtime MVP. Support manual approvals and proof bundles.</p>
+              <h3>Bounded pilot</h3>
+              <p>Test manual approvals and evidence capture in a narrow workflow with named operators and rollback paths.</p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>6 to 12 months</h3>
-              <p>Add payment abstraction. Add vendor release and service completion use cases. Begin first pilot with tight scope.</p>
+              <h3>Payment boundary</h3>
+              <p>Consider payment adapters only after authorization, reconciliation, dispute, and recovery controls are verified.</p>
             </div>
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
             <div class="timeline-content">
-              <h3>12 to 24 months</h3>
-              <p>Add device gateway abstraction. Expand to autonomous procurement and facilities pilots. Integrate Matter-compatible devices.</p>
+              <h3>Device boundary</h3>
+              <p>Consider device gateways only after command authority, telemetry, isolation, and emergency-stop controls are verified.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
-
     <section id="builders" class="section alt">
       <div class="container narrow">
-        <p class="section-label">Builders</p>
         <h2>For builders of the next operational layer.</h2>
-        <p>
-          We are interested in developers, operators, researchers, infrastructure partners,
-          and organizations exploring the future of trustable execution across software
-          and the physical world.
-        </p>
-        <p>
-          This system is <strong>not</strong> another AI chat app, crypto wallet, IoT dashboard,
-          or generic automation builder. It is a trustable runtime that converts intent into
-          outcome with policy, orchestration, payments, device actions, human approvals, and
-          proof in one loop.
-        </p>
+        <p>We are interested in developers, operators, researchers, infrastructure partners, and organizations exploring the future of trustable execution across software and the physical world.</p>
+        <p>This system is not another AI chat app, crypto wallet, IoT dashboard, or generic automation builder. It is a trustable runtime that converts intent into outcome with policy, orchestration, payments, device actions, human approvals, and proof in one loop.</p>
       </div>
     </section>
-
     <section id="contact" class="section cta-section">
       <div class="container cta-card">
         <div>
-          <p class="section-label">Contact</p>
-          <h2>Help define the next layer of operations.</h2>
-          <p>Early pilot, builder, and partner conversations are now open.</p>
+          <h2>Discuss the architecture or a bounded pilot.</h2>
+          <p>Use email for documentation feedback, research, or tightly scoped partner conversations.</p>
         </div>
-        <form id="waitlist-form" class="waitlist-form">
-          <input type="email" id="waitlist-email" name="email" placeholder="Your email" required aria-label="Email address" />
-          <button type="submit" class="button primary">Join Waitlist</button>
-        </form>
-        <p id="waitlist-message" class="waitlist-message" hidden></p>
-        <a class="button secondary" href="mailto:hello@iaifoundation.com">Email Us Directly</a>
+        <a class="button primary" href="mailto:hello@iaifoundation.com">Email IAI Foundation</a>
       </div>
     </section>
   </main>
-
   <footer class="site-footer">
     <div class="container footer-grid">
       <div>
         <p class="brand footer-brand">IAI Foundation</p>
-        <p class="footer-text">
-          Building the trust layer that turns intent into real-world outcomes.
-        </p>
+        <p class="footer-text">Building the trust layer that turns human and business intent into real-world outcomes.</p>
       </div>
       <div>
         <p class="footer-heading">Explore</p>
         <a href="#thesis">Thesis</a>
         <a href="#architecture">Architecture</a>
         <a href="#use-cases">Use Cases</a>
-        <a href="#proof">Trust & Proof</a>
-        <a href="/docs">Docs</a>
+        <a href="#proof">Trust &amp; Proof</a>
+        <a href="/docs/">Docs</a>
       </div>
       <div>
         <p class="footer-heading">Foundation</p>
         <a href="#principles">Principles</a>
         <a href="#roadmap">Roadmap</a>
         <a href="#builders">Builders</a>
-        <a href="/partners">Partners</a>
+        <a href="/partners/">Partners</a>
       </div>
       <div>
-        <p class="footer-heading">Trust</p>
-        <a href="/privacy">Privacy</a>
-        <a href="/terms">Terms</a>
-        <a href="/support">Support</a>
-        <a href="/contact">Contact</a>
+        <p class="footer-heading">Status</p>
         <p class="footer-text">Public foundation site v1</p>
-        <p class="footer-text">&copy; 2026 IAI Foundation</p>
+        <p class="footer-text">© 2026 IAI Foundation</p>
       </div>
     </div>
   </footer>
-
-  <script src="/app.js"></script>
+  <script src="/app.js?v=565acf3d7421"></script>
 </body>
 </html>

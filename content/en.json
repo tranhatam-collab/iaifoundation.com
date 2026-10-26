@@ -6,7 +6,7 @@
   "basePath": "/",
   "site": {
     "name": "IAI Foundation",
-    "themeColor": "#0b1020",
+    "themeColor": "#0c0d12",
     "preferredHost": "https://iaifoundation.com",
     "ogImage": "/og-image.svg",
     "favicon": "/favicon.svg",
@@ -158,8 +158,9 @@
       "footerKey": "home",
       "eyebrow": "Intent OS / Universal Intent Infrastructure",
       "h1": "Turn intent into real-world outcomes.",
-      "lead": "IAI Foundation is building the trust layer that coordinates AI, workflows, payments, devices, approvals, and proof in one system.",
-      "primaryCta": { "label": "Join Early Access", "href": "#contact" },
+      "lead": "A public blueprint for governed AI execution across workflows, approvals, payments, devices, and proof.",
+      "heroImageAlt": "Abstract architectural checkpoints connected by a single thread from intent to verified outcome",
+      "primaryCta": { "label": "Explore Public Docs", "href": "/docs/" },
       "secondaryCta": { "label": "Read the Architecture", "href": "#architecture" },
       "stackItems": ["Intent", "Policy", "Approvals", "Execution", "Payments + Devices", "Proof"],
       "sections": {
@@ -233,13 +234,13 @@
         },
         "roadmap": {
           "label": "Roadmap",
-          "title": "What we are building and when.",
+          "title": "A gated build sequence, not a release promise.",
           "items": [
-            { "title": "0 to 30 days", "text": "Launch the public website. Finalize category language. Publish architecture and principles. Create builder, partner, and pilot intake." },
-            { "title": "30 to 90 days", "text": "Design control-plane schemas. Lock identity, workspace, intent, approval, and proof models. Publish public documentation v1." },
-            { "title": "3 to 6 months", "text": "Build control-plane MVP. Build policy and runtime MVP. Support manual approvals and proof bundles." },
-            { "title": "6 to 12 months", "text": "Add payment abstraction. Add vendor release and service completion use cases. Begin the first pilot with tight scope." },
-            { "title": "12 to 24 months", "text": "Add device gateway abstraction. Expand to autonomous procurement and facilities pilots. Integrate Matter-compatible devices." }
+            { "title": "Public foundation", "text": "Publish the website, architecture, principles, and documentation with clear status boundaries." },
+            { "title": "Governed core", "text": "Validate identity, workspace, intent, approval, policy, and proof models before enabling execution." },
+            { "title": "Bounded pilot", "text": "Test manual approvals and evidence capture in a narrow workflow with named operators and rollback paths." },
+            { "title": "Payment boundary", "text": "Consider payment adapters only after authorization, reconciliation, dispute, and recovery controls are verified." },
+            { "title": "Device boundary", "text": "Consider device gateways only after command authority, telemetry, isolation, and emergency-stop controls are verified." }
           ]
         },
         "builders": {
@@ -252,10 +253,10 @@
         },
         "contact": {
           "label": "Contact",
-          "title": "Help define the next layer of operations.",
-          "text": "Pilot, builder, and partner conversations are open now.",
+          "title": "Discuss the architecture or a bounded pilot.",
+          "text": "Use email for documentation feedback, research, or tightly scoped partner conversations.",
           "emailHref": "mailto:hello@iaifoundation.com",
-          "emailLabel": "Email Us Directly"
+          "emailLabel": "Email IAI Foundation"
         }
       }
     },

@@ -20,36 +20,18 @@ export class StablecoinAdapter implements PaymentProviderAdapter {
     beneficiary_id: string;
     idempotency_key: string;
   }): Promise<{ transfer_id: string; status: string }> {
-    // TODO: Implement blockchain transaction
-    // 1. Build transfer transaction
-    // 2. Sign with signerKey
-    // 3. Submit to RPC endpoint
-    // 4. Store tx hash as transfer_id
-    return {
-      transfer_id: `0x${crypto.randomUUID().replace(/-/g, '')}`,
-      status: 'pending',
-    };
+    throw new Error('Stablecoin transfers are not implemented');
   }
 
   async getTransferStatus(transferId: string): Promise<{ status: string; settled_at?: string; fee?: number }> {
-    // TODO: Query blockchain for transaction receipt
-    return {
-      status: 'pending',
-      settled_at: undefined,
-      fee: undefined,
-    };
+    throw new Error('Stablecoin transfer status is not implemented');
   }
 
   async refundTransfer(transferId: string, amount: number): Promise<{ refund_id: string; status: string }> {
-    // TODO: Build and submit refund transaction
-    return {
-      refund_id: `0x${crypto.randomUUID().replace(/-/g, '')}`,
-      status: 'pending',
-    };
+    throw new Error('Stablecoin refunds are not implemented');
   }
 
   async verifyWebhook(payload: string, signature: string): Promise<boolean> {
-    // TODO: Verify blockchain event signature or indexer webhook signature
-    return true;
+    return false;
   }
 }

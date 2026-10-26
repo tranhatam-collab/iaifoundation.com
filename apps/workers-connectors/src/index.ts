@@ -6,10 +6,24 @@ export interface Env {
   DB: D1Database;
   ARTIFACTS: R2Bucket;
   WEBHOOK_SECRET: string;
+  ENVIRONMENT?: string;
+  CONNECTORS_MODE?: string;
 }
 
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
+    const isExplicitLocalDev = env.ENVIRONMENT === 'development'
+      && env.CONNECTORS_MODE === 'unsafe-local-development';
+    if (!isExplicitLocalDev) {
+      return new Response(JSON.stringify({
+        ok: false,
+        error: 'Connector runtime is disabled in the public foundation project',
+      }), {
+        status: 503,
+        headers: { 'Content-Type': 'application/json; charset=utf-8' },
+      });
+    }
+
     const url = new URL(request.url);
 
     if (url.pathname.startsWith('/webhooks/payments/')) {
@@ -26,6 +40,7 @@ export default {
       return deviceWebhookHandler({
         db: env.DB,
         artifacts: env.ARTIFACTS,
+        webhookSecret: env.WEBHOOK_SECRET,
       }, gatewayId, request);
     }
 
@@ -38,11 +53,11 @@ export default {
 };
 
 async function handleConnectorWebhook(request: Request, env: Env): Promise<Response> {
-  // TODO: Verify webhook signature
-  // TODO: Parse connector event
-  // TODO: Update connector health status
-  // TODO: Notify if degraded
-  return new Response(JSON.stringify({ ok: true }), {
-    headers: { 'Content-Type': 'application/json' },
+  return new Response(JSON.stringify({
+    ok: false,
+    error: 'Generic connector webhooks are not implemented',
+  }), {
+    status: 503,
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
   });
 }
