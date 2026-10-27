@@ -11,6 +11,6 @@
     "@intent-os/contracts": "file:../../packages/contracts",
     "@intent-os/db": "file:../../packages/db",
     "@intent-os/runtime-core": "file:../../packages/runtime-core",
-    "hono": "^4.6.0"
+    "hono": "^4.13.11"
   }
 }
