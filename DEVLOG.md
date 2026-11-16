@@ -4,6 +4,28 @@ Cập nhật mới nhất ở đầu file.
 
 ---
 
+## 2026-11-16 (tiếp) — Backend + E2E: mở rộng test coverage
+
+### Đã làm
+- Sửa thiếu sót cấu hình: `vitest.config.ts` khai báo `coverage.provider: 'v8'`
+  nhưng thiếu dependency `@vitest/coverage-v8` → đã cài (`^5.1.0`) và thêm
+  `coverage/` vào `.gitignore`.
+- Viết 13 file test mới + helper `tests/helpers/fake-d1.ts` (D1 in-memory fake
+  ghi lại SQL + bind) phủ các phần backend chưa từng được test:
+  - contracts: enums, ERROR_CODES/AppError, run state-machine, event constants
+  - policy-engine, observability, audit-sdk, idempotency
+  - db: client, tx, pagination, scoping, 4 repositories, 2 read-models
+  - api: config/env, tenant/workspace scope, validators/envelope,
+    auth/request-context/rate-limit middleware, tenants service
+  - runtime-core: handleIntake (succeeded / awaiting_approval / failed) + approvals
+
+### Kết quả
+- `npx vitest run`: **140/140 PASS** (trước: 44).
+- Coverage statements/lines: **49.13% / 48.99%** (trước khi viết test backend ≈ 0%).
+- `npm run check:release`: PASS (build, typecheck, 18 HTML, 140 test, D1 6/6, 3 worker bundles).
+
+---
+
 ## 2026-11-16 — Git reconcile + dọn file iCloud + chốt release gate
 
 ### Đã làm
