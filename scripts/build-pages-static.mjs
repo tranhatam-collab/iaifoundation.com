@@ -1,6 +1,6 @@
 import { copyFileSync, cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-import { dirname, join, resolve } from 'node:path';
+import { basename, dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
@@ -40,7 +40,7 @@ function copyStaticAssets() {
   }
 
   if (existsSync(resolve(rootDir, 'docs'))) {
-    copyDirectoryFiltered(resolve(rootDir, 'docs'), resolve(outputDir, 'docs'), (sourcePath) => !sourcePath.endsWith('.html'));
+    copyDirectoryFiltered(resolve(rootDir, 'docs'), resolve(outputDir, 'docs'), shouldCopyPublicDoc);
   }
 
   for (const file of ['IAIFOUNDATION_CLOUDFLARE_GITHUB_SETUP.md', 'IAIFOUNDATION_DATA_MODEL.md', 'IAIFOUNDATION_INFORMATION_ARCHITECTURE.md', 'IAIFOUNDATION_LANGUAGE_AND_MULTILINGUAL_SEO_STANDARD.md', 'IAIFOUNDATION_MASTER_SPEC.md', 'IAIFOUNDATION_POLICY_ENGINE.md', 'IAIFOUNDATION_PRODUCT_ARCHITECTURE.md', 'IAIFOUNDATION_ROADMAP_12_24_MONTHS.md', 'IAIFOUNDATION_WEB_CONTENT_AND_COPY.md', 'LOCALE_SEO_BRIEF_TEMPLATE.md', 'MULTILINGUAL_RELEASE_QA_CHECKLIST.md']) {
@@ -801,6 +801,18 @@ function writeGeneratedFile(relativePath, contents) {
   }
 }
 
+// Internal/untracked material must never leak into the public artifact.
+function isInternalDocDir(name) {
+  return name.startsWith('root-relocated-') || name === '_internal';
+}
+
+function shouldCopyPublicDoc(sourcePath) {
+  if (sourcePath.endsWith('.html')) return false; // rendered pages are generated separately
+  if (sourcePath.endsWith('.zip')) return false;  // binary archives are not public docs
+  if (basename(sourcePath) === '.DS_Store') return false;
+  return true;
+}
+
 function copyDirectoryFiltered(sourceDir, targetDir, shouldCopy) {
   const sourceStats = statSync(sourceDir);
   if (!sourceStats.isDirectory()) return;
@@ -810,6 +822,7 @@ function copyDirectoryFiltered(sourceDir, targetDir, shouldCopy) {
     const sourcePath = resolve(sourceDir, entry.name);
     const targetPath = resolve(targetDir, entry.name);
     if (entry.isDirectory()) {
+      if (isInternalDocDir(entry.name)) continue;
       copyDirectoryFiltered(sourcePath, targetPath, shouldCopy);
       continue;
     }

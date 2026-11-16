@@ -4,6 +4,38 @@ Cập nhật mới nhất ở đầu file.
 
 ---
 
+## 2026-11-17 — Đóng 2 P1 từ audit độc lập + nâng coverage thật lên 70%
+
+### Đóng P1 #1 — Artifact lộ file nội bộ
+- `scripts/build-pages-static.mjs` giờ loại trừ khỏi bản dựng docs: thư mục
+  `root-relocated-*` / `_internal`, file `.zip`, `.DS_Store` (helper
+  `shouldCopyPublicDoc` + `isInternalDocDir`).
+- Chuyển `docs/root-relocated-2026-07-05/` (onboarding + ZIP nội bộ) ra
+  `_internal/` (đã thêm vào `.gitignore`).
+- Verify: `find .wrangler/pages-build -type f | grep -iE 'root-relocated|onboarding|\.zip|_internal'` → CLEAN.
+
+### Đóng P1 #2 — Khóa mẫu số coverage đủ 103 file nguồn
+- `vitest.config.ts`: thêm `coverage.include: ['apps/**/src/**/*.ts', 'packages/**/src/**/*.ts']`
+  để đo đủ 103/103 file TS nguồn (trước chỉ 67/103, bỏ sót 36 file runtime quan trọng).
+- Bỏ tùy chọn `all` không hợp lệ trong CoverageOptions của Vitest 5.
+
+### Nâng coverage thật + mở rộng test (140 → 236 test)
+- Viết 6 file test mới: runtime-policies, runtime-coordinator, runtime-engine,
+  connectors, api-more, api-services — phủ coordinator/compensator/finalizer/
+  proof/reconciliation/event-publisher/run-resolver/planner/run-workflow,
+  normalize/health-check/connector-caller, feature-flag/audit/runs.dto/users,
+  và 13 service API (approvals/devices/payments/policy/roles/runs/templates/
+  workspaces/wallet/usage-billing/auth).
+- Coverage (đủ 103 file): **70.43% statements / 71.6% lines / 56.04% branches**
+  (trước khi khóa mẫu số là 49% ảo; sau khóa là 36.93%; giờ là 70.43%).
+
+### Kết quả release gate
+- `npm run check:release`: PASS (build, typecheck, 18 HTML, **236 test**, D1 6/6, 3 worker bundles).
+- Còn lại chưa đo: ~17 file barrel/type-only (re-export/interface, không có runtime),
+  2 DurableObject (`*.do.ts`, cần Cloudflare runtime).
+
+---
+
 ## 2026-11-16 (tiếp) — Backend + E2E: mở rộng test coverage
 
 ### Đã làm

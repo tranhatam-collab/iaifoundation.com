@@ -2,6 +2,7 @@
 node_modules/
 dist/
 coverage/
+_internal/
 .env
 .env.*
 # Claude Code working dir — never commit
