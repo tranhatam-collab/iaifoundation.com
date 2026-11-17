@@ -1,0 +1,6 @@
+npm notice run check:workers
+npm notice run node scripts/check-worker-bundles.mjs
+Worker bundle PASS: api
+Worker bundle PASS: runtime
+Worker bundle PASS: connectors
+workers exit=0
