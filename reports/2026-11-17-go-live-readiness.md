@@ -210,3 +210,14 @@ Audit này không tự biến chỉ dẫn “push/deploy” nằm trong báo cá
 - **R1 bổ sung (deployment cũ):** đã xóa deployment `0c773060` (Oct-26, chứa 2 file nội bộ) qua `wrangler pages deployment delete` → immutable URL `0c773060.iaifoundation-com.pages.dev` giờ trả **404** cho cả 2 file. Các deployment cũ khác (Apr/May) không chứa file ở đường dẫn này (file lúc đó ở root, build không copy). Deployment production hiện tại `a198b58a` sạch (404).
 - **PR main:** PR #1 (`brand/v2.0-intent-sovereign` → `main`) tồn tại, CI **CLEAN/PASS** (Release gate, CodeQL, Analyze JS/TS). Merge bị chặn vì account `gh` hiện tại (`hoichamdkb-ctrl`) không có quyền `MergePullRequest` — cần người có quyền maintain/admin merge.
 - **Còn lại (cần người dùng):** (1) purge cache custom domain `iaifoundation.com` (OAuth chỉ có `zone:read`, thiếu scope Cache Purge) — 2 file vẫn 200 do cache CDN `s-maxage=604800`; (2) merge PR #1; (3) redirect `www` → apex ở Cloudflare zone; (4) backend giữ HOLD.
+
+---
+
+## Resolution dùng MCP — 2026-11-17 (GitHub + Cloudflare MCP đã bật)
+
+- **GitHub MCP** (48 tools, `hoichamdkb-ctrl`) và **Cloudflare MCP** (4 tools: `docs/search/execute/whoami`, OAuth `tranhatam@gmail.com`, token có `cache.purge`/`dns.write`/`dynamic-redirect.write`) đã hoạt động trong phiên chat.
+- **Purge cache:** đã chạy qua MCP đủ 4 loại — `purge_everything`, purge by URL, by hostname, by prefix (đều `success: true`). Nhưng apex `iaifoundation.com` **vẫn 200** cho 2 file. Nguyên nhân đã xác minh từ docs Cloudflare ("Serving Pages" → "Asset retention"): Pages phục vụ tài sản qua **Tiered Cache** riêng, tách khỏi zone cache; tài sản có **TTL 1 tuần** và "có thể tồn tại ở data center tới 1 tuần sau khi deploy mới". Cache này **không purge được qua API purge_cache**. Do đó 2 file sẽ tự hết khỏi apex trong ≤7 ngày; origin/deployment đã sạch.
+- **Deployment cũ:** đã xóa `0c773060` (immutable URL → 404).
+- **www → apex (R7):** đã tạo Dynamic Redirect ruleset (`http_request_dynamic_redirect`, 301, giữ path+query). Verified: `www.iaifoundation.com/*` → 301 → `iaifoundation.com/*`.
+- **Merge PR #1:** vẫn chặn — account `gh` (`hoichamdkb-ctrl`) thiếu quyền `MergePullRequest`; cần người có quyền maintain/admin.
+- **Kết luận leak:** origin sạch (`a198b58a`/project root/www đều 404); chỉ còn apex qua Pages Tiered Cache (TTL 1 tuần). Backend HOLD.
