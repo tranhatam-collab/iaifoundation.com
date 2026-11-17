@@ -1,0 +1,15 @@
+npm notice run npx
+npm notice run 'vitest' run tests/runtime-policies.unit.test.ts tests/runtime-coordinator.unit.test.ts tests/runtime-engine.unit.test.ts
+
+ RUN  v5.1.0 /Users/tranhatam/Library/Mobile Documents/com~apple~CloudDocs/Documents/Devnewproject/iaifoundation.com
+
+ ✓ tests/runtime-policies.unit.test.ts (5 tests) 4ms
+ ✓ tests/runtime-coordinator.unit.test.ts (12 tests) 8ms
+ ✓ tests/runtime-engine.unit.test.ts (14 tests) 9ms
+
+ Test Files  3 passed (3)
+      Tests  31 passed (31)
+   Start at  00:18:11
+   Duration  148ms (transform 41%, import 30%, tests 16%, worker 13%)
+
+exit=0

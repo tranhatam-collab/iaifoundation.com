@@ -1,0 +1,202 @@
+npm notice run npx
+npm notice run 'vitest' run --coverage
+
+ RUN  v5.1.0 /Users/tranhatam/Library/Mobile Documents/com~apple~CloudDocs/Documents/Devnewproject/iaifoundation.com
+      Coverage enabled with v8
+
+ ✓ tests/read-models.unit.test.ts (3 tests) 4ms
+ ✓ tests/repositories.unit.test.ts (19 tests) 6ms
+ ✓ tests/audit-sdk.unit.test.ts (2 tests) 4ms
+ ✓ tests/site.e2e.test.ts (22 tests) 20ms
+ ✓ tests/services.unit.test.ts (6 tests) 6ms
+ ✓ tests/idempotency.unit.test.ts (5 tests) 8ms
+ ✓ tests/db.unit.test.ts (9 tests) 8ms
+ ✓ tests/api-config-scope.unit.test.ts (7 tests) 6ms
+ ✓ tests/connectors.unit.test.ts (11 tests) 8ms
+ ✓ tests/contracts.unit.test.ts (12 tests) 6ms
+ ✓ tests/api-more.unit.test.ts (10 tests) 9ms
+ ✓ tests/api-middleware.unit.test.ts (9 tests) 5ms
+ ✓ tests/runtime-core.unit.test.ts (6 tests) 7ms
+ ✓ tests/runtime-coordinator.unit.test.ts (12 tests) 8ms
+ ✓ tests/runtime-engine.unit.test.ts (14 tests) 10ms
+ ✓ tests/api-services.unit.test.ts (44 tests) 21ms
+ ✓ tests/api-common.unit.test.ts (6 tests) 5ms
+ ✓ tests/contracts.test.ts (6 tests) 2ms
+ ✓ tests/observability.unit.test.ts (3 tests) 4ms
+ ✓ tests/runtime-policies.unit.test.ts (5 tests) 2ms
+ ✓ tests/policy-engine.unit.test.ts (9 tests) 3ms
+ ✓ tests/integration.http.test.ts (16 tests) 26ms
+
+ Test Files  22 passed (22)
+      Tests  236 passed (236)
+   Start at  00:15:52
+   Duration  507ms (transform 37%, worker 27%, import 23%, tests 12%)
+
+ % Coverage report from v8
+-------------------|---------|----------|---------|---------|-------------------
+File               | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------|---------|----------|---------|---------|-------------------
+All files          |   70.43 |    56.04 |   69.41 |    71.6 |                   
+ apps/api/src      |   83.33 |       50 |      75 |    87.5 |                   
+  index.ts         |   83.33 |       50 |      75 |    87.5 | 66-67             
+ ...ommon/response |     100 |      100 |     100 |     100 |                   
+  envelope.ts      |     100 |      100 |     100 |     100 |                   
+ ...mon/validation |     100 |      100 |     100 |     100 |                   
+  validators.ts    |     100 |      100 |     100 |     100 |                   
+ ...api/src/config |   85.71 |    91.66 |     100 |   85.71 |                   
+  env.ts           |   85.71 |    91.66 |     100 |   85.71 | 42                
+ .../notifications |     100 |      100 |     100 |     100 |                   
+  ...on.service.ts |     100 |      100 |     100 |     100 |                   
+ ...src/middleware |   96.87 |    88.88 |   88.88 |   96.77 |                   
+  auth.ts          |     100 |      100 |     100 |     100 |                   
+  feature-flag.ts  |     100 |      100 |     100 |     100 |                   
+  idempotency.ts   |   33.33 |        0 |       0 |   33.33 | 6-7               
+  rate-limit.ts    |     100 |    81.81 |     100 |     100 | 8,25              
+  ...st-context.ts |     100 |       75 |     100 |     100 | 10                
+  tenant-scope.ts  |     100 |      100 |     100 |     100 |                   
+  ...pace-scope.ts |     100 |      100 |     100 |     100 |                   
+ ...ules/approvals |   92.59 |    64.28 |     100 |   92.59 |                   
+  ...ls.service.ts |   92.59 |    64.28 |     100 |   92.59 | 53,58             
+ .../modules/audit |   60.52 |       50 |     100 |      95 |                   
+  audit.service.ts |   60.52 |       50 |     100 |      95 | 42                
+ ...c/modules/auth |   47.61 |       30 |      60 |   47.61 |                   
+  ...controller.ts |   47.36 |       30 |   66.66 |   47.36 | 14,19-34          
+  auth.service.ts  |      50 |      100 |      50 |      50 | 36                
+ ...les/connectors |   33.33 |    16.66 |      50 |   33.33 |                   
+  ...rs.service.ts |   33.33 |    16.66 |      50 |   33.33 | 20-43,52          
+ ...odules/devices |   95.45 |    83.33 |     100 |   95.45 |                   
+  ...es.service.ts |   95.45 |    83.33 |     100 |   95.45 | 130               
+ ...dules/gateways |   33.33 |    16.66 |      50 |   33.33 |                   
+  ...ys.service.ts |   33.33 |    16.66 |      50 |   33.33 | 21-44,50          
+ ...dules/payments |   95.23 |     87.5 |     100 |   95.23 |                   
+  ...ts.service.ts |   95.23 |     87.5 |     100 |   95.23 | 99                
+ ...s/policy-packs |   96.66 |    92.85 |     100 |   96.55 |                   
+  ...te.service.ts |     100 |      100 |     100 |     100 |                   
+  ...ks.service.ts |   95.45 |    91.66 |     100 |   95.23 | 62                
+ .../modules/roles |     100 |    83.33 |     100 |     100 |                   
+  roles.service.ts |     100 |    83.33 |     100 |     100 | 30,54-61          
+ ...c/modules/runs |   91.66 |    85.71 |     100 |   91.66 |                   
+  ...ns.service.ts |   90.47 |       75 |     100 |   90.47 | 15,57             
+  runs.dto.ts      |     100 |      100 |     100 |     100 |                   
+  runs.service.ts  |     100 |      100 |     100 |     100 |                   
+ ...ules/templates |   93.75 |    95.83 |     100 |   93.75 |                   
+  ...es.service.ts |   93.75 |    95.83 |     100 |   93.75 | 66                
+ ...odules/tenants |   95.23 |     87.5 |     100 |     100 |                   
+  ...ts.service.ts |   95.23 |     87.5 |     100 |     100 | 59                
+ .../usage-billing |     100 |       80 |     100 |     100 |                   
+  ...ng.service.ts |     100 |       80 |     100 |     100 | 55                
+ .../modules/users |    93.1 |    83.33 |     100 |   92.85 |                   
+  users.service.ts |    93.1 |    83.33 |     100 |   92.85 | 75-76             
+ ...allet-profiles |     100 |      100 |     100 |     100 |                   
+  ...es.service.ts |     100 |      100 |     100 |     100 |                   
+ ...les/workspaces |     100 |     87.5 |     100 |     100 |                   
+  ...es.service.ts |     100 |     87.5 |     100 |     100 | 60                
+ ...api/src/routes |   29.09 |     1.31 |    5.12 |   29.74 |                   
+  v1.ts            |   29.09 |     1.31 |    5.12 |   29.74 | ...69-272,277-279 
+ ...connectors/src |   64.28 |       50 |     100 |   64.28 |                   
+  index.ts         |   64.28 |       50 |     100 |   64.28 | 30-31,39-40,51    
+ ...s/src/adapters |       0 |        0 |       0 |       0 |                   
+  index.ts         |       0 |        0 |       0 |       0 |                   
+  ...nt-adapter.ts |       0 |        0 |       0 |       0 |                   
+ ...apters/devices |      40 |        0 |      40 |      40 |                   
+  ...er.adapter.ts |      40 |        0 |      40 |      40 | 17,30-34          
+  mqtt.adapter.ts  |      40 |        0 |      40 |      40 | 19,32-36          
+ ...pters/payments |      60 |      100 |      60 |      60 |                   
+  ...in.adapter.ts |      60 |      100 |      60 |      60 | 27-31             
+  ...pe.adapter.ts |      60 |      100 |      60 |      60 | 26-30             
+ ...ors/src/health |     100 |       75 |     100 |     100 |                   
+  ...alth-check.ts |     100 |       75 |     100 |     100 | 48-68             
+ ...bound-webhooks |   30.47 |    16.27 |   52.94 |   27.17 |                   
+  ...ce-webhook.ts |    2.56 |        0 |       0 |     2.7 | 18-95             
+  ...nt-webhook.ts |   46.96 |       28 |   64.28 |   43.63 | 18-60,115-134     
+ .../normalization |     100 |    96.22 |     100 |     100 |                   
+  index.ts         |       0 |        0 |       0 |       0 |                   
+  ...lize-event.ts |     100 |    96.22 |     100 |     100 | 15                
+ ...s/src/outbound |   92.85 |    85.71 |      50 |     100 |                   
+  ...tor-caller.ts |   92.85 |    85.71 |      50 |     100 | 49                
+ ...rs-runtime/src |   28.57 |    38.23 |      75 |   27.27 |                   
+  index.ts         |   28.57 |    38.23 |      75 |   27.27 | 33-78,86-90       
+ .../src/approvals |       0 |        0 |       0 |       0 |                   
+  ...oordinator.ts |       0 |        0 |       0 |       0 |                   
+ ...rc/coordinator |   94.11 |    81.25 |     100 |   93.87 |                   
+  retry-policy.ts  |     100 |      100 |     100 |     100 |                   
+  ...ompensator.ts |     100 |       50 |     100 |     100 | 17-42             
+  ...oordinator.ts |   95.45 |    94.44 |     100 |   95.23 | 82                
+  step-runner.ts   |   77.77 |       25 |     100 |   77.77 | 38-41             
+  ...out-policy.ts |     100 |      100 |     100 |     100 |                   
+ ...me/src/durable |       0 |        0 |       0 |       0 |                   
+  ...l-queue.do.ts |       0 |        0 |       0 |       0 | 14-87             
+  run-lock.do.ts   |       0 |        0 |       0 |       0 | 4-64              
+ .../src/event-bus |     100 |      100 |     100 |     100 |                   
+  ...-publisher.ts |     100 |      100 |     100 |     100 |                   
+ .../src/finalizer |     100 |      100 |     100 |     100 |                   
+  finalizer.ts     |     100 |      100 |     100 |     100 |                   
+ ...ime/src/intake |     100 |       70 |     100 |     100 |                   
+  ...ke-handler.ts |       0 |        0 |       0 |       0 |                   
+  run-resolver.ts  |     100 |       70 |     100 |     100 | 37,44-49          
+ ...me/src/planner |     100 |      100 |     100 |     100 |                   
+  ...er-service.ts |     100 |      100 |     100 |     100 |                   
+ ...time/src/proof |     100 |      100 |     100 |     100 |                   
+  ...-processor.ts |     100 |      100 |     100 |     100 |                   
+ ...reconciliation |     100 |    57.14 |     100 |     100 |                   
+  ...ion-engine.ts |     100 |    57.14 |     100 |     100 | 61-94             
+ .../src/workflows |   81.81 |       60 |     100 |   85.71 |                   
+  run-workflow.ts  |   81.81 |       60 |     100 |   85.71 | 50-52             
+ .../audit-sdk/src |     100 |      100 |     100 |     100 |                   
+  emit.ts          |     100 |      100 |     100 |     100 |                   
+ .../contracts/src |       0 |        0 |       0 |       0 |                   
+  index.ts         |       0 |        0 |       0 |       0 |                   
+ ...tracts/src/api |     100 |      100 |     100 |     100 |                   
+  envelope.ts      |       0 |        0 |       0 |       0 |                   
+  errors.ts        |     100 |      100 |     100 |     100 |                   
+  index.ts         |       0 |        0 |       0 |       0 |                   
+ ...ts/src/domains |       0 |        0 |       0 |       0 |                   
+  device.ts        |       0 |        0 |       0 |       0 |                   
+  index.ts         |       0 |        0 |       0 |       0 |                   
+  payment.ts       |       0 |        0 |       0 |       0 |                   
+  policy.ts        |       0 |        0 |       0 |       0 |                   
+  run.ts           |       0 |        0 |       0 |       0 |                   
+ ...acts/src/enums |     100 |      100 |     100 |     100 |                   
+  device-status.ts |     100 |      100 |     100 |     100 |                   
+  index.ts         |       0 |        0 |       0 |       0 |                   
+  ...ent-status.ts |     100 |      100 |     100 |     100 |                   
+  ...y-decision.ts |     100 |      100 |     100 |     100 |                   
+  ...te-machine.ts |     100 |      100 |     100 |     100 |                   
+  run-status.ts    |     100 |      100 |     100 |     100 |                   
+  step-status.ts   |     100 |      100 |     100 |     100 |                   
+ ...cts/src/events |     100 |      100 |     100 |     100 |                   
+  index.ts         |       0 |        0 |       0 |       0 |                   
+  ...ime-events.ts |     100 |      100 |     100 |     100 |                   
+ packages/db/src   |   81.25 |    66.66 |      80 |   81.25 |                   
+  client.ts        |   66.66 |    66.66 |      75 |   66.66 | 6-9               
+  index.ts         |       0 |        0 |       0 |       0 |                   
+  tx.ts            |     100 |      100 |     100 |     100 |                   
+ .../query-helpers |     100 |       68 |     100 |     100 |                   
+  ...read-model.ts |     100 |       70 |     100 |     100 | 70-73,80,84-85    
+  pagination.ts    |     100 |    83.33 |     100 |     100 | 32                
+  ...read-model.ts |     100 |       55 |     100 |     100 | 10-38             
+  scoping.ts       |     100 |      100 |     100 |     100 |                   
+ ...c/repositories |    97.5 |     92.3 |     100 |    97.5 |                   
+  devices.repo.ts  |     100 |    96.66 |     100 |     100 | 30                
+  payments.repo.ts |     100 |      100 |     100 |     100 |                   
+  runs.repo.ts     |   94.73 |    78.94 |     100 |   94.73 | 55                
+  tenants.repo.ts  |     100 |      100 |     100 |     100 |                   
+ ...dempotency/src |     100 |      100 |     100 |     100 |                   
+  guard.ts         |     100 |      100 |     100 |     100 |                   
+  index.ts         |       0 |        0 |       0 |       0 |                   
+ ...ervability/src |   93.33 |    85.71 |   83.33 |   92.85 |                   
+  logger.ts        |   93.33 |    85.71 |   83.33 |   92.85 | 37                
+ ...icy-engine/src |     100 |      100 |     100 |     100 |                   
+  evaluator.ts     |     100 |      100 |     100 |     100 |                   
+  index.ts         |       0 |        0 |       0 |       0 |                   
+  rules.ts         |     100 |      100 |     100 |     100 |                   
+ ...ntime-core/src |       0 |        0 |       0 |       0 |                   
+  index.ts         |       0 |        0 |       0 |       0 |                   
+ .../src/approvals |     100 |       50 |     100 |     100 |                   
+  index.ts         |     100 |       50 |     100 |     100 | 42                
+ .../orchestration |      95 |    66.66 |     100 |   94.87 |                   
+  index.ts         |      95 |    66.66 |     100 |   94.87 | 33,44             
+ ...core/src/types |       0 |        0 |       0 |       0 |                   
+  index.ts         |       0 |        0 |       0 |       0 |                   
+-------------------|---------|----------|---------|---------|-------------------
+coverage exit=0

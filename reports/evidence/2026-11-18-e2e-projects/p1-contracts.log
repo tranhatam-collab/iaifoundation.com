@@ -1,0 +1,14 @@
+npm notice run npx
+npm notice run 'vitest' run tests/contracts.unit.test.ts tests/contracts.test.ts
+
+ RUN  v5.1.0 /Users/tranhatam/Library/Mobile Documents/com~apple~CloudDocs/Documents/Devnewproject/iaifoundation.com
+
+ ✓ tests/contracts.test.ts (6 tests) 3ms
+ ✓ tests/contracts.unit.test.ts (12 tests) 5ms
+
+ Test Files  2 passed (2)
+      Tests  18 passed (18)
+   Start at  00:18:07
+   Duration  118ms (transform 46%, import 30%, worker 13%, tests 10%)
+
+exit=0

@@ -1,5 +1,16 @@
 .DS_Store
 node_modules/
 dist/
+coverage/
+_internal/
 .env
 .env.*
+# Claude Code working dir — never commit
+.claude/
+.wrangler/
+
+# macOS iCloud Drive conflict copies ("name 2.ext", "name 3.ext").
+# These are not real files; when one appears, diff it against the
+# un-suffixed sibling and delete the stale copy. Deliberately NOT
+# ignored by a broad " 2.*" glob because that could hide legitimate
+# files whose names contain " 2.". Review and remove them manually.

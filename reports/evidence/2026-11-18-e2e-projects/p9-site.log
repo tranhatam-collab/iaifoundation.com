@@ -1,0 +1,13 @@
+npm notice run npx
+npm notice run 'vitest' run tests/site.e2e.test.ts
+
+ RUN  v5.1.0 /Users/tranhatam/Library/Mobile Documents/com~apple~CloudDocs/Documents/Devnewproject/iaifoundation.com
+
+ ✓ tests/site.e2e.test.ts (22 tests) 16ms
+
+ Test Files  1 passed (1)
+      Tests  22 passed (22)
+   Start at  00:18:12
+   Duration  196ms (tests 43%, import 28%, worker 19%, transform 10%, environment 1%)
+
+exit=0

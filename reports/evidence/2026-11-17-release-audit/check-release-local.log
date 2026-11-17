@@ -1,0 +1,36 @@
+npm notice run check:release
+npm notice run npm run check && npm run test:db && npm run check:workers
+npm notice run check
+npm notice run npm run build && npm run typecheck && npm run check:site && npm test
+npm notice run build
+npm notice run node scripts/build-pages-static.mjs
+/private/tmp/iaif-release-987e5d3-9t0tux2r/source/.wrangler/pages-build
+npm notice run typecheck
+npm notice run tsc --noEmit
+npm notice run check:site
+npm notice run node scripts/check-static-site.mjs
+Static site checks passed for 18 HTML files.
+npm notice run pretest
+npm notice run npm run build
+npm notice run build
+npm notice run node scripts/build-pages-static.mjs
+/private/tmp/iaif-release-987e5d3-9t0tux2r/source/.wrangler/pages-build
+npm notice run test
+npm notice run vitest run
+
+ RUN  v5.1.0 /private/tmp/iaif-release-987e5d3-9t0tux2r/source
+
+
+ Test Files  22 passed (22)
+      Tests  236 passed (236)
+   Start at  01:21:35
+   Duration  271ms (transform 46%, import 26%, worker 14%, tests 13%)
+
+npm notice run test:db
+npm notice run node scripts/check-d1.mjs
+D1 E2E passed: 6 migrations applied and the seed remained stable across two runs.
+npm notice run check:workers
+npm notice run node scripts/check-worker-bundles.mjs
+Worker bundle PASS: api
+Worker bundle PASS: runtime
+Worker bundle PASS: connectors

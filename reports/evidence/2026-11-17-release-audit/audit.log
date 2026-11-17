@@ -1,0 +1,117 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "hono": {
+      "name": "hono",
+      "severity": "moderate",
+      "isDirect": true,
+      "via": [
+        {
+          "source": 1246368,
+          "name": "hono",
+          "dependency": "hono",
+          "title": "Hono: `mount()` and `app.mount()` can forward a path that bypasses middleware scoped inside the mount prefix",
+          "url": "https://github.com/advisories/GHSA-4m76-xfj5-7975",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-288"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+          },
+          "range": "<4.13.16"
+        },
+        {
+          "source": 1246369,
+          "name": "hono",
+          "dependency": "hono",
+          "title": "Hono: RegExpRouter skips wildcard middleware for some route sets and for paths with an encoded line terminator",
+          "url": "https://github.com/advisories/GHSA-h7mg-cq63-vhpq",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-863"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N"
+          },
+          "range": ">=4.1.4 <=4.13.15"
+        },
+        {
+          "source": 1246370,
+          "name": "hono",
+          "dependency": "hono",
+          "title": "Hono: `css` helper does not escape a closing tag split between the template and an interpolated value, allowing HTML injection",
+          "url": "https://github.com/advisories/GHSA-3gg2-335m-rxc6",
+          "severity": "low",
+          "cwe": [
+            "CWE-79"
+          ],
+          "cvss": {
+            "score": 3.4,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:L/I:N/A:N"
+          },
+          "range": ">=3.12.0 <=4.13.15"
+        },
+        {
+          "source": 1246373,
+          "name": "hono",
+          "dependency": "hono",
+          "title": "Hono: `csrf()` does not check requests sent by hyperlink auditing (`text/ping`)",
+          "url": "https://github.com/advisories/GHSA-46wx-v44x-9hh2",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-352"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:N/I:H/A:N"
+          },
+          "range": "<4.13.16"
+        },
+        {
+          "source": 1246374,
+          "name": "hono",
+          "dependency": "hono",
+          "title": "Hono: `validator('form')` skips validation for `multipart/form-data` requests with extra parameters",
+          "url": "https://github.com/advisories/GHSA-4h7h-rv7c-7m2v",
+          "severity": "moderate",
+          "cwe": [
+            "CWE-20",
+            "CWE-1471"
+          ],
+          "cvss": {
+            "score": 5.3,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:N"
+          },
+          "range": ">=4.5.1 <=4.13.15"
+        }
+      ],
+      "effects": [],
+      "range": "<=4.13.15",
+      "nodes": [
+        "node_modules/hono"
+      ],
+      "fixAvailable": true
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 1,
+      "high": 0,
+      "critical": 0,
+      "total": 1
+    },
+    "dependencies": {
+      "prod": 22,
+      "dev": 171,
+      "optional": 92,
+      "peer": 40,
+      "peerOptional": 0,
+      "total": 192
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "command": [
+    "./node_modules/.bin/vitest",
+    "run",
+    "--coverage"
+  ],
+  "cwd": "/private/tmp/iaif-release-987e5d3-9t0tux2r/source",
+  "started_at": "2026-11-16T18:22:39.082134+00:00",
+  "ended_at": "2026-11-16T18:22:39.670822+00:00",
+  "exit_code": 0,
+  "sha": "987e5d3d471424dae22a4645597f5684c326f2c5"
+}

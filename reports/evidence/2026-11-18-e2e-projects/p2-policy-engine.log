@@ -1,0 +1,13 @@
+npm notice run npx
+npm notice run 'vitest' run tests/policy-engine.unit.test.ts
+
+ RUN  v5.1.0 /Users/tranhatam/Library/Mobile Documents/com~apple~CloudDocs/Documents/Devnewproject/iaifoundation.com
+
+ ✓ tests/policy-engine.unit.test.ts (9 tests) 4ms
+
+ Test Files  1 passed (1)
+      Tests  9 passed (9)
+   Start at  00:18:08
+   Duration  117ms (import 37%, transform 32%, worker 18%, tests 12%, environment 1%)
+
+exit=0

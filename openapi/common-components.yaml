@@ -2,7 +2,8 @@ openapi: 3.0.3
 info:
   title: Intent OS — Common Components
   version: 0.1.0
-  description: Shared schemas, parameters, and responses used across all Intent OS APIs.
+  description: Design-only shared schemas for future Intent OS APIs; not a released runtime contract.
+x-release-status: design-only
 
 components:
   schemas:

@@ -14,8 +14,7 @@ export class MatterAdapter implements DeviceGatewayAdapter {
   }
 
   async discoverDevices(): Promise<Array<{ id: string; type: string; status: string }>> {
-    // TODO: Implement Matter device discovery via Thread/Wi-Fi
-    return [];
+    throw new Error('Matter discovery is not implemented');
   }
 
   async sendCommand(params: {
@@ -24,20 +23,11 @@ export class MatterAdapter implements DeviceGatewayAdapter {
     payload: Record<string, unknown>;
     idempotency_key: string;
   }): Promise<{ command_id: string; acknowledged: boolean }> {
-    // TODO: Send Matter cluster command to device
-    return {
-      command_id: `matter_cmd_${params.idempotency_key.slice(0, 12)}`,
-      acknowledged: true,
-    };
+    throw new Error('Matter commands are not implemented');
   }
 
   async getState(deviceId: string): Promise<{ status: string; last_seen: string; state_json: string }> {
-    // TODO: Read Matter attributes from device
-    return {
-      status: 'online',
-      last_seen: new Date().toISOString(),
-      state_json: '{}',
-    };
+    throw new Error('Matter state reads are not implemented');
   }
 
   normalizeEvent(raw: Record<string, unknown>): Record<string, unknown> {

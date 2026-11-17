@@ -1,0 +1,55 @@
+{
+  "checked_at": "2026-11-17T01:21:00+07:00",
+  "repo": "tranhatam-collab/iaifoundation.com",
+  "head": "987e5d3d471424dae22a4645597f5684c326f2c5",
+  "remote_main": "6a369414065a260c1f9c5b33bbb6327a8e578921",
+  "remote_brand": "0d18379479749ebcc9b975017d85f8d1eee39a03",
+  "github_exact_head_runs": {
+    "total_count": 0,
+    "command": "gh api repos/tranhatam-collab/iaifoundation.com/actions/runs?head_sha=987e5d3d471424dae22a4645597f5684c326f2c5",
+    "exit_code": 0
+  },
+  "github_environments": {
+    "production": {
+      "branch_policy": true,
+      "reviewer_rule_returned": false
+    },
+    "preview": {
+      "branch_policy": true,
+      "reviewer_rule_returned": false
+    }
+  },
+  "github_production_secret_names": {
+    "http_status": 403,
+    "status": "BLOCKED",
+    "reason": "Must have admin rights to Repository; absence cannot be inferred"
+  },
+  "github_preview_variable": {
+    "http_status": 403,
+    "status": "BLOCKED"
+  },
+  "github_main_classic_protection": {
+    "http_status": 404,
+    "status": "BLOCKED",
+    "reason": "Not proof that no ruleset/protection applies"
+  },
+  "billing": {
+    "status": "NOT_CHECKED",
+    "label": "BILLING_UNVERIFIED",
+    "workflow_triggered": false
+  },
+  "cloudflare_auth": {
+    "status": "VERIFIED_CURRENT",
+    "command": "wrangler whoami",
+    "exit_code": 0,
+    "auth_type": "OAuth",
+    "matching_account": "93112cc89181e75335cbd7ef7e392ba3",
+    "credential_path_reported": "/Users/tranhatam/Library/Preferences/.wrangler/config/default.toml",
+    "credential_file_contents_read": false,
+    "note": "Sandbox DNS failure first; successful read-only retry with WRANGLER_LOG_PATH in temporary folder. No login necessary."
+  },
+  "limits": [
+    "Metadata times are approximately 01:21–01:22 ICT; command logs carry exact UTC times where captured.",
+    "No GitHub mutation, Cloudflare mutation, push, deploy or remote migration performed."
+  ]
+}

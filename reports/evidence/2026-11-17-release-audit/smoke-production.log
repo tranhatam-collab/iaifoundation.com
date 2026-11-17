@@ -1,0 +1,3 @@
+npm notice run smoke:production
+npm notice run node scripts/smoke-production.mjs
+Production smoke PASS: https://iaifoundation.com (10 public routes plus 404 and asset checks).

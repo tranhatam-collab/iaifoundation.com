@@ -50,6 +50,10 @@ export async function testGatewayService(db: D1Database, gatewayId: string): Pro
     throw new AppError(ERROR_CODES.RESOURCE_NOT_FOUND, 'Gateway not found');
   }
 
-  // TODO: Implement actual gateway health check
-  return { health_status: 'healthy', latency_ms: 45 };
+  throw new AppError(
+    ERROR_CODES.CONNECTOR_UNAVAILABLE,
+    'Gateway health checks are not implemented in the public foundation project',
+    undefined,
+    503,
+  );
 }

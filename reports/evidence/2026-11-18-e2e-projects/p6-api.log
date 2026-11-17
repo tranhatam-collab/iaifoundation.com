@@ -1,0 +1,19 @@
+npm notice run npx
+npm notice run 'vitest' run tests/integration.http.test.ts tests/api-common.unit.test.ts tests/api-middleware.unit.test.ts tests/api-config-scope.unit.test.ts tests/api-more.unit.test.ts tests/api-services.unit.test.ts tests/services.unit.test.ts
+
+ RUN  v5.1.0 /Users/tranhatam/Library/Mobile Documents/com~apple~CloudDocs/Documents/Devnewproject/iaifoundation.com
+
+ ✓ tests/api-common.unit.test.ts (6 tests) 3ms
+ ✓ tests/api-config-scope.unit.test.ts (7 tests) 5ms
+ ✓ tests/services.unit.test.ts (6 tests) 7ms
+ ✓ tests/api-more.unit.test.ts (10 tests) 10ms
+ ✓ tests/api-middleware.unit.test.ts (9 tests) 7ms
+ ✓ tests/api-services.unit.test.ts (44 tests) 17ms
+ ✓ tests/integration.http.test.ts (16 tests) 31ms
+
+ Test Files  7 passed (7)
+      Tests  98 passed (98)
+   Start at  00:18:29
+   Duration  379ms (transform 54%, import 24%, worker 11%, tests 11%)
+
+p6-api exit=0

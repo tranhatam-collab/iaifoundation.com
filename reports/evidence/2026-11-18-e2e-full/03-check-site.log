@@ -1,0 +1,4 @@
+npm notice run check:site
+npm notice run node scripts/check-static-site.mjs
+Static site checks passed for 18 HTML files.
+check:site exit=0

@@ -1,0 +1,4 @@
+npm notice run test:db
+npm notice run node scripts/check-d1.mjs
+D1 E2E passed: 6 migrations applied and the seed remained stable across two runs.
+d1 exit=0

@@ -4,7 +4,7 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "wrangler dev",
+    "dev": "wrangler dev --var ENVIRONMENT:development --var CONNECTORS_MODE:unsafe-local-development",
     "deploy": "wrangler deploy"
   },
   "dependencies": {

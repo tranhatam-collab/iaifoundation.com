@@ -1,0 +1,4 @@
+npm notice run smoke:api
+npm notice run node scripts/smoke-api-containment.mjs
+API containment smoke PASS: https://api.iaifoundation.com
+smoke-api exit=0

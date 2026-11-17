@@ -1,0 +1,15 @@
+npm notice run npx
+npm notice run 'vitest' run tests/observability.unit.test.ts tests/audit-sdk.unit.test.ts tests/idempotency.unit.test.ts
+
+ RUN  v5.1.0 /Users/tranhatam/Library/Mobile Documents/com~apple~CloudDocs/Documents/Devnewproject/iaifoundation.com
+
+ ✓ tests/observability.unit.test.ts (3 tests) 5ms
+ ✓ tests/audit-sdk.unit.test.ts (2 tests) 5ms
+ ✓ tests/idempotency.unit.test.ts (5 tests) 6ms
+
+ Test Files  3 passed (3)
+      Tests  10 passed (10)
+   Start at  00:18:09
+   Duration  119ms (import 36%, transform 24%, worker 22%, tests 18%)
+
+exit=0

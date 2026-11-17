@@ -1,10 +1,13 @@
 {
-  "name": "IAI Foundation",
+  "name": "IAI Foundation - Intent OS",
   "short_name": "IAI Foundation",
+  "description": "Public foundation site for Intent OS and multilingual documentation scaffolding.",
+  "lang": "en",
+  "dir": "ltr",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0b1020",
-  "theme_color": "#0b1020",
+  "background_color": "#0c0d12",
+  "theme_color": "#0c0d12",
   "icons": [
     {
       "src": "/favicon.svg",

@@ -1,0 +1,15 @@
+npm notice run npx
+npm notice run 'vitest' run tests/db.unit.test.ts tests/repositories.unit.test.ts tests/read-models.unit.test.ts
+
+ RUN  v5.1.0 /Users/tranhatam/Library/Mobile Documents/com~apple~CloudDocs/Documents/Devnewproject/iaifoundation.com
+
+ ✓ tests/read-models.unit.test.ts (3 tests) 5ms
+ ✓ tests/db.unit.test.ts (9 tests) 8ms
+ ✓ tests/repositories.unit.test.ts (19 tests) 10ms
+
+ Test Files  3 passed (3)
+      Tests  31 passed (31)
+   Start at  00:18:09
+   Duration  133ms (import 32%, transform 28%, tests 21%, worker 19%)
+
+exit=0
