@@ -1,0 +1,6 @@
+200  https://iaifoundation.com/
+200  https://iaifoundation.com/docs/root-relocated-2026-07-05/Founder_Onboarding_Script.md
+200  https://iaifoundation.com/docs/root-relocated-2026-07-05/iaifoundation.com-dev-pack.zip
+301  https://www.iaifoundation.com/
+404  https://a198b58a.iaifoundation-com.pages.dev/docs/root-relocated-2026-07-05/Founder_Onboarding_Script.md
+404  https://0c773060.iaifoundation-com.pages.dev/docs/root-relocated-2026-07-05/Founder_Onboarding_Script.md

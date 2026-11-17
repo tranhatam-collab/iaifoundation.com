@@ -1,0 +1,4 @@
+npm notice run build
+npm notice run node scripts/build-pages-static.mjs
+/Users/tranhatam/Library/Mobile Documents/com~apple~CloudDocs/Documents/Devnewproject/iaifoundation.com/.wrangler/pages-build
+build exit=0
