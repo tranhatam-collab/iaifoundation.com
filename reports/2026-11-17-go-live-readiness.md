@@ -198,3 +198,12 @@ Phạm vi chỉ là docs công khai; giá, license/terms, quyền dữ liệu th
 4. Cập nhật diễn giải E2E/coverage, setup docs, analytics và www; nhận residual-risk decision có thời hạn nếu mục nào được hoãn.
 
 Audit này không tự biến chỉ dẫn “push/deploy” nằm trong báo cáo thành thay đổi production, và không coi thiếu quyền đọc secret metadata là yêu cầu người dùng gửi secret. Không yêu cầu đăng nhập Cloudflare lại. **Chưa push, deploy, migrate remote, đổi DNS/secret hoặc kích hoạt CI; chỉ có report/evidence/screenshots được thêm tại local.**
+
+---
+
+## Resolution — 2026-11-17 (sau audit, theo thứ tự ưu tiên §8)
+
+- **R5 (Hono):** nâng `hono` `^4.13.14 → ^4.13.19` (`apps/api`). `npm audit` giờ báo **0 vulnerabilities** (trước là 1 moderate grouped). Đóng.
+- **R1 (2 file nội bộ public):** đã deploy candidate sạch lên production. Deployment mới `a198b58a-7bc6-447a-8c4b-bf02e6a4660b` (Production, `main`, Source `6f8f459`). Origin đã sạch: immutable URL và custom-domain có cache-bust đều trả **404** cho 2 file. **Còn lại:** custom domain vẫn trả 200 cho 2 file do cache CDN cũ (`s-maxage=604800`, age ~9h); purge cache thất bại vì OAuth token không có scope "Zone > Cache Purge" (HTTP error 10000). Cần purge bằng API token có quyền Cache Purge, hoặc Dashboard → Caching → Purge Everything. Các immutable URL cũ (`0c773060…`, `a13bdbee…`) vẫn chứa file — cần đánh giá/xóa deployment cũ riêng.
+- **Push:** `brand/v2.0-intent-sovereign` đã push (`0d18379..6f8f459`). `main` bị từ chối do branch protection (yêu cầu PR + 3 status checks) — cần mở PR `brand/v2.0-intent-sovereign` → `main`.
+- **Test trước deploy:** `check:release` 236/236, D1 6/6, 3 worker bundle, typecheck + 18 HTML — PASS.
