@@ -1,0 +1,69 @@
+{
+  "checked_at": "2026-11-16T18:26:22.193Z",
+  "observations": [
+    {
+      "path": "/",
+      "status": 200,
+      "contentType": "text/html; charset=utf-8",
+      "bytes": 15946,
+      "sha256": "76d58505f07fc9732921a02be7f8687090832e0a82e33bad16c5673c8c9eb49e",
+      "localSha256": "a218b228daec2c6aa1e29f1f3b6e51c0636c42d35de7fa496724216dccfc1540",
+      "equalLocal": false,
+      "analyticsInjected": false
+    },
+    {
+      "path": "/app.js",
+      "status": 200,
+      "contentType": "application/javascript",
+      "bytes": 1592,
+      "sha256": "565acf3d742137e8fa84e5e8c132f36d9a5dbd56d75f056d064a193d75334927",
+      "localSha256": "9cf2fd526ac1f5dda1662dde3ccd625aea4d8a9133840b0e5500c654f9b88bb0",
+      "equalLocal": false,
+      "analyticsInjected": null
+    },
+    {
+      "path": "/style.css",
+      "status": 200,
+      "contentType": "text/css; charset=utf-8",
+      "bytes": 11639,
+      "sha256": "7d49f05a2ff01abeafb008fb0ceeac33af682aa2244c34ee65c173f5e4d50a01",
+      "localSha256": "7163707838b5129c6cb77322f068598b68be5285a0c0bb2ebfdad6e62fa9cf0b",
+      "equalLocal": false,
+      "analyticsInjected": null
+    },
+    {
+      "path": "/assets/intent-governance-hero.jpg",
+      "status": 200,
+      "contentType": "image/jpeg",
+      "bytes": 143691,
+      "sha256": "7c696cba0ad3dbe3e255256ab70262d5c49bebc117958bcb62f490b6ab08755f",
+      "localSha256": "7c696cba0ad3dbe3e255256ab70262d5c49bebc117958bcb62f490b6ab08755f",
+      "equalLocal": true,
+      "analyticsInjected": null
+    },
+    {
+      "path": "/docs/root-relocated-2026-07-05/Founder_Onboarding_Script.md",
+      "status": 200,
+      "contentType": "text/markdown; charset=utf-8",
+      "bytes": 3338,
+      "sha256": "039409530fd41b96801ab312a937cc8926423a94884768491f613a4dc7a02177",
+      "localSha256": null,
+      "equalLocal": null,
+      "analyticsInjected": null
+    },
+    {
+      "path": "/docs/root-relocated-2026-07-05/iaifoundation.com-dev-pack.zip",
+      "status": 200,
+      "contentType": "application/zip",
+      "bytes": 13290,
+      "sha256": "42c2e3bd15f9388b15eee7a6155129f089ca20f0dfc80a7547077c7b6d1194b7",
+      "localSha256": null,
+      "equalLocal": null,
+      "analyticsInjected": null
+    }
+  ],
+  "www": {
+    "status": 200,
+    "location": null
+  }
+}

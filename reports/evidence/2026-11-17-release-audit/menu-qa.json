@@ -1,0 +1,236 @@
+{
+  "browser": "Chrome",
+  "results": [
+    {
+      "surface": "local",
+      "locale": "en",
+      "band": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "checks": {
+        "language": true,
+        "noHorizontalOverflow": true,
+        "desktopNav": true,
+        "toggleHidden": true,
+        "languageSwitcher": true
+      },
+      "passed": true
+    },
+    {
+      "surface": "local",
+      "locale": "en",
+      "band": "tablet",
+      "width": 834,
+      "height": 1112,
+      "checks": {
+        "language": true,
+        "noHorizontalOverflow": true,
+        "toggleVisible": true,
+        "open": true,
+        "menuFits": true,
+        "localeLink": true,
+        "closeOnLink": true,
+        "escape": true,
+        "focusRestored": true,
+        "closeOnResize": true,
+        "localeNavigation": true
+      },
+      "passed": true
+    },
+    {
+      "surface": "local",
+      "locale": "en",
+      "band": "mobile",
+      "width": 390,
+      "height": 844,
+      "checks": {
+        "language": true,
+        "noHorizontalOverflow": true,
+        "toggleVisible": true,
+        "open": true,
+        "menuFits": true,
+        "localeLink": true,
+        "closeOnLink": true,
+        "escape": true,
+        "focusRestored": true,
+        "closeOnResize": true,
+        "localeNavigation": true
+      },
+      "passed": true
+    },
+    {
+      "surface": "local",
+      "locale": "vi",
+      "band": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "checks": {
+        "language": true,
+        "noHorizontalOverflow": true,
+        "desktopNav": true,
+        "toggleHidden": true,
+        "languageSwitcher": true
+      },
+      "passed": true
+    },
+    {
+      "surface": "local",
+      "locale": "vi",
+      "band": "tablet",
+      "width": 834,
+      "height": 1112,
+      "checks": {
+        "language": true,
+        "noHorizontalOverflow": true,
+        "toggleVisible": true,
+        "open": true,
+        "menuFits": true,
+        "localeLink": true,
+        "closeOnLink": true,
+        "escape": true,
+        "focusRestored": true,
+        "closeOnResize": true,
+        "localeNavigation": true
+      },
+      "passed": true
+    },
+    {
+      "surface": "local",
+      "locale": "vi",
+      "band": "mobile",
+      "width": 390,
+      "height": 844,
+      "checks": {
+        "language": true,
+        "noHorizontalOverflow": true,
+        "toggleVisible": true,
+        "open": true,
+        "menuFits": true,
+        "localeLink": true,
+        "closeOnLink": true,
+        "escape": true,
+        "focusRestored": true,
+        "closeOnResize": true,
+        "localeNavigation": true
+      },
+      "passed": true
+    },
+    {
+      "surface": "production",
+      "locale": "en",
+      "band": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "checks": {
+        "language": true,
+        "noHorizontalOverflow": true,
+        "desktopNav": true,
+        "toggleHidden": true,
+        "languageSwitcher": true
+      },
+      "passed": true
+    },
+    {
+      "surface": "production",
+      "locale": "en",
+      "band": "tablet",
+      "width": 834,
+      "height": 1112,
+      "checks": {
+        "language": true,
+        "noHorizontalOverflow": true,
+        "toggleVisible": true,
+        "open": true,
+        "menuFits": true,
+        "localeLink": true,
+        "closeOnLink": true,
+        "escape": true,
+        "focusRestored": true,
+        "closeOnResize": true,
+        "localeNavigation": true
+      },
+      "passed": true
+    },
+    {
+      "surface": "production",
+      "locale": "en",
+      "band": "mobile",
+      "width": 390,
+      "height": 844,
+      "checks": {
+        "language": true,
+        "noHorizontalOverflow": true,
+        "toggleVisible": true,
+        "open": true,
+        "menuFits": true,
+        "localeLink": true,
+        "closeOnLink": true,
+        "escape": true,
+        "focusRestored": true,
+        "closeOnResize": true,
+        "localeNavigation": true
+      },
+      "passed": true
+    },
+    {
+      "surface": "production",
+      "locale": "vi",
+      "band": "desktop",
+      "width": 1440,
+      "height": 1000,
+      "checks": {
+        "language": true,
+        "noHorizontalOverflow": true,
+        "desktopNav": true,
+        "toggleHidden": true,
+        "languageSwitcher": true
+      },
+      "passed": true
+    },
+    {
+      "surface": "production",
+      "locale": "vi",
+      "band": "tablet",
+      "width": 834,
+      "height": 1112,
+      "checks": {
+        "language": true,
+        "noHorizontalOverflow": true,
+        "toggleVisible": true,
+        "open": true,
+        "menuFits": true,
+        "localeLink": true,
+        "closeOnLink": true,
+        "escape": true,
+        "focusRestored": true,
+        "closeOnResize": true,
+        "localeNavigation": true
+      },
+      "passed": true
+    },
+    {
+      "surface": "production",
+      "locale": "vi",
+      "band": "mobile",
+      "width": 390,
+      "height": 844,
+      "checks": {
+        "language": true,
+        "noHorizontalOverflow": true,
+        "toggleVisible": true,
+        "open": true,
+        "menuFits": true,
+        "localeLink": true,
+        "closeOnLink": true,
+        "escape": true,
+        "focusRestored": true,
+        "closeOnResize": true,
+        "localeNavigation": true
+      },
+      "passed": true
+    }
+  ],
+  "pageErrors": [],
+  "passed": 12,
+  "total": 12
+}

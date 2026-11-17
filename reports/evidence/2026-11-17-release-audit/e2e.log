@@ -1,0 +1,16 @@
+npm notice run pretest:e2e
+npm notice run npm run build
+npm notice run build
+npm notice run node scripts/build-pages-static.mjs
+/private/tmp/iaif-release-987e5d3-9t0tux2r/source/.wrangler/pages-build
+npm notice run test:e2e
+npm notice run vitest run tests/site.e2e.test.ts tests/integration.http.test.ts
+
+ RUN  v5.1.0 /private/tmp/iaif-release-987e5d3-9t0tux2r/source
+
+
+ Test Files  2 passed (2)
+      Tests  38 passed (38)
+   Start at  01:22:25
+   Duration  141ms (transform 35%, import 33%, tests 25%, worker 7%)
+
